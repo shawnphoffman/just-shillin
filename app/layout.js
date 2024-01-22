@@ -8,18 +8,20 @@ import styles from 'app/Global.module.css'
 
 // const openSans = Open_Sans({ subsets: ['latin'] })
 
-// export const metadata = {
-// 	title: 'Jammed Transmissions',
-// 	description: 'A positive, listener interactive Star Wars podcast since 2018',
-// 	metadataBase: 'https://jammedtransmissions.com',
-// 	openGraph: {
-// 		title: 'Jammed Transmissions: A Star Wars Podcast',
-// 		description: 'A positive, listener interactive Star Wars podcast since 2018',
-// 		url: 'https://jammedtransmissions.com',
-// 		locale: 'en_US',
-// 		type: 'website',
-// 	},
-// }
+export const metadata = {
+	title: `Just Shillin'`,
+	description:
+		'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
+	metadataBase: 'https://justshillin.com',
+	openGraph: {
+		title: `Just Shillin'`,
+		description:
+			'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
+		url: 'https://justshillin.com',
+		locale: 'en_US',
+		type: 'website',
+	},
+}
 
 // export const runtime = 'edge'
 
