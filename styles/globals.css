@@ -1,6 +1,6 @@
 :root {
-	--bg: #07091a;
-	--bg2: #050b3b;
+	--bg: #000;
+	--bg2: #111;
 	--white: #fff;
 	--patreon: #f96854;
 	--applePodcasts: #872ec4;
@@ -23,7 +23,7 @@
 
 * {
 	box-sizing: border-box;
-	font-family: 'Open Sans', sans-serif;
+	/* font-family: 'Open Sans', sans-serif; */
 }
 
 html {
@@ -35,13 +35,25 @@ html body {
 	padding: 0;
 	margin: 0;
 	width: 100vw;
-	font-family: 'Open Sans', sans-serif;
+	/* font-family: 'Open Sans', sans-serif; */
 	box-sizing: border-box;
 	color: var(--white);
 	/* Stars */
 	height: 100%;
 	overflow: hidden;
 }
+
+/*  */
+
+.js-title {
+	height: 100dvh;
+	font-size: 3rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+/*  */
 
 .scroller {
 	width: 100%;
