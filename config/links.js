@@ -54,18 +54,12 @@ const items = [
 		background: '#206ff2',
 	},
 	{
-		title: 'RSS',
-		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
-		icon: 'fa-solid fa-rss',
-		background: '#ce4a0c',
+		title: 'Goodpods',
+		href: 'https://goodpods.com/podcasts/just-shillin-303749',
+		icon: 'fak fa-goodpods',
+		background: '#fcdb00',
+		color: 'var(--bg)',
 	},
-	// {
-	// 	title: 'Goodpods',
-	// 	href: 'https://goodpods.com/podcasts/jammed-transmissions-a-star-wars-podcast-222540',
-	// 	icon: 'fak fa-goodpods',
-	// 	background: '#fcdb00',
-	// 	color: 'var(--bg)',
-	// },
 	{
 		title: 'Amazon Music',
 		href: 'https://music.amazon.com/podcasts/41b5996a-f09d-4657-991f-d495150756f3/just-shillin',
@@ -78,24 +72,36 @@ const items = [
 	// 	icon: 'fak fa-iheart',
 	// 	background: '#C6002B',
 	// },
-	// {
-	// 	title: 'Pocket Casts',
-	// 	href: 'https://pca.st/j125cwks',
-	// 	icon: 'fak fa-pocket-casts',
-	// 	background: '#ea150d',
-	// },
-	// {
-	// 	title: 'Radio Public',
-	// 	href: 'https://radiopublic.com/jammed-transmissions-a-star-wars-Wwogwa',
-	// 	icon: 'fak fa-radio-public',
-	// 	background: '#CE262F',
-	// },
+	{
+		title: 'Pocket Casts',
+		href: 'https://pca.st/74wq5erg',
+		icon: 'fak fa-pocket-casts',
+		background: '#ea150d',
+	},
+	{
+		title: 'Radio Public',
+		href: 'https://radiopublic.com/just-shillin-6pQpmN',
+		icon: 'fak fa-radio-public',
+		background: '#CE262F',
+	},
 	// {
 	// 	title: 'Castbox',
 	// 	href: 'https://castbox.fm/podcasts/Jammed%20Transmissions:%20A%20Star%20Wars%20Podcast',
 	// 	icon: 'fak fa-castbox',
 	// 	background: '#db3c0e',
 	// },
+	{
+		title: 'Zencastr',
+		href: 'https://zencastr.com/Just-Shillin',
+		icon: 'fak fa-zencastr',
+		background: 'hwb(212 8% 12%)',
+	},
+	{
+		title: 'RSS',
+		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
+		icon: 'fa-solid fa-rss',
+		background: '#ce4a0c',
+	},
 ]
 
 export default items
