@@ -1,4 +1,4 @@
-const root = 'https://jammedtransmissions.com'
+const root = 'https://justshillin.com'
 
 export default function sitemap() {
 	return [
@@ -6,10 +6,14 @@ export default function sitemap() {
 			url: `${root}`,
 			lastModified: new Date(),
 		},
-		{
-			url: `${root}/friends`,
-			lastModified: new Date(),
-		},
+		// {
+		// 	url: `${root}/friends`,
+		// 	lastModified: new Date(),
+		// },
+		// {
+		// 	url: `${root}/links`,
+		// 	lastModified: new Date(),
+		// },
 		{
 			url: `${root}/listen-now`,
 			lastModified: new Date(),

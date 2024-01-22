@@ -1,3 +1,3 @@
-# Jammed Transmissions
+# Just Shillin'
 
-Official website for Jammed Transmissions, a Star Wars podcast.
+Official website for the Just Shillin' podcast.

@@ -3,8 +3,12 @@ import 'styles/globals.css'
 // import { Open_Sans } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import Script from 'next/script'
+import Image from 'node_modules/next/image'
 
 import styles from 'app/Global.module.css'
+import NavBar from 'components/NavBar/NavBar'
+
+import titleLogo from './header@2x.png'
 
 // const openSans = Open_Sans({ subsets: ['latin'] })
 
@@ -37,6 +41,10 @@ export default function RootLayout({ children }) {
 				<div className="scroller">
 					<div className={styles.wrapper}>
 						<div className={styles.page}>
+							<div className={styles.header}>
+								<Image className={styles.headerLogo} alt="Just Shillin'" src={titleLogo} width={292} height={139} priority />
+								<NavBar />
+							</div>
 							<div className={styles.pageDetails}>{children}</div>
 						</div>
 					</div>

@@ -11,7 +11,10 @@ export const runtime = 'edge'
 const Home = ({}) => {
 	return (
 		<>
-			<div className={styles.pageDescription}>A positive, listener interactive Star Wars podcast since 2018</div>
+			<div className={styles.pageDescription}>
+				Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share
+				their love for the things that make life awesome.
+			</div>
 			<Ratings />
 			<div className={styles.pageRow}>
 				{items.map((item, i) => {

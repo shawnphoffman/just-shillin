@@ -3,7 +3,7 @@ import { memo } from 'react'
 import styles from './Reviews.module.css'
 import Stars from './Stars'
 
-const dataUrl = 'https://api.shawn.party/api/jammed-transmissions/reviews'
+const dataUrl = 'https://api.shawn.party/api/just-shillin/reviews'
 
 export const revalidate = 60 * 60 * 12
 
@@ -41,7 +41,9 @@ const Reviews = async () => {
 		return memo
 	}, [])
 
-	if (!filteredReviews) return null
+	console.log({ filteredReviews })
+
+	if (!filteredReviews?.length) return null
 
 	return (
 		<>

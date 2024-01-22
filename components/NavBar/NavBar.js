@@ -8,14 +8,14 @@ const NavBar = () => {
 	return (
 		<div className={styles.container}>
 			<ActiveLink href="/" activeClassName={styles.active}>
-				<div className={styles.styledLink}>Episodes</div>
-			</ActiveLink>
-			<ActiveLink href="/links" activeClassName={styles.active}>
 				<div className={styles.styledLink}>Links</div>
 			</ActiveLink>
-			<ActiveLink href="/friends" activeClassName={styles.active}>
+			{/* <ActiveLink href="/links" activeClassName={styles.active}>
+				<div className={styles.styledLink}>Links</div>
+			</ActiveLink> */}
+			{/* <ActiveLink href="/friends" activeClassName={styles.active}>
 				<div className={styles.styledLink}>Friends</div>
-			</ActiveLink>
+			</ActiveLink> */}
 			<ActiveLink href="/listen-now" activeClassName={styles.active}>
 				<div className={styles.styledLink}>Listen Now</div>
 			</ActiveLink>

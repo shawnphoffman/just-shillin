@@ -2,7 +2,7 @@ import { memo } from 'react'
 
 import styles from './Ratings.module.css'
 
-const dataUrl = 'https://api.shawn.party/api/jammed-transmissions/reviews'
+const dataUrl = 'https://api.shawn.party/api/just-shillin/reviews'
 
 export const revalidate = 60 * 60 * 12
 
