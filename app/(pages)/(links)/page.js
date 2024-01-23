@@ -1,5 +1,3 @@
-import { memo } from 'react'
-
 import styles from 'app/Global.module.css'
 import LinkCard from 'components/LinkCard/LinkCard'
 import Ratings from 'components/Ratings/Ratings'
@@ -8,7 +6,7 @@ import items from 'config/links'
 
 export const runtime = 'edge'
 
-const Home = ({}) => {
+export default function Home() {
 	return (
 		<>
 			<div className={styles.pageDescription}>
@@ -40,5 +38,3 @@ const Home = ({}) => {
 		</>
 	)
 }
-
-export default memo(Home)

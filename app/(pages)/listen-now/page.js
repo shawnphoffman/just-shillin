@@ -1,10 +1,8 @@
-import { memo } from 'react'
-
 import styles from 'app/Global.module.css'
 
 export const runtime = 'edge'
 
-const ListenNow = ({}) => {
+export default function ListenNow() {
 	return (
 		<div className={styles.pageDescription}>
 			<iframe
@@ -19,5 +17,3 @@ const ListenNow = ({}) => {
 		</div>
 	)
 }
-
-export default memo(ListenNow)

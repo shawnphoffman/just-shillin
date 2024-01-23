@@ -46,10 +46,9 @@ const Episodes = ({ episodes }) => {
 		<>
 			<input className={styles.input} type="text" placeholder="Search" onChange={handleSearch} />
 			<div className={styles.episodesContainer}>
-				{(!search || search.length < 3) && episodes.map(ep => <Episode episode={ep} key={ep.guid} />)}
-				{results.map(ep => (
-					<Episode episode={ep} key={ep.guid} />
-				))}
+				{!search || search.length < 3
+					? episodes.map(ep => <Episode episode={ep} key={ep.guid} />)
+					: results.map(ep => <Episode episode={ep} key={ep.guid} />)}
 			</div>
 		</>
 	)

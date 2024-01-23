@@ -1,17 +1,17 @@
-import { memo } from 'react'
+import { Suspense } from 'react'
 import { XMLParser } from 'fast-xml-parser'
 
 import styles from 'app/Global.module.css'
 import Episodes from 'components/Episodes/Episodes'
 
-const dataUrl = 'https://anchor.fm/s/d8972e20/podcast/rss'
+const dataUrl = 'https://feeds.zencastr.com/f/l5bmy6wm.rss'
 const xmlOptions = {
 	ignoreAttributes: false,
 	attributeNamePrefix: '@_',
 }
 
-// Revalidate every 4 hours
-export const revalidate = 60 * 60 * 4
+export const runtime = 'edge'
+export const revalidate = 60 * 60 * 8
 
 async function getData() {
 	try {
@@ -20,14 +20,29 @@ async function getData() {
 
 		const parser = new XMLParser(xmlOptions)
 		const parsed = parser.parse(xml)
-		const episodes = parsed.rss.channel.item.map(ep => ({
-			guid: ep.guid['#text'],
-			title: ep.title,
-			imgSrc: ep['itunes:image']['@_href'],
-			summary: ep['itunes:summary'],
-			link: ep.link,
-			pubDate: ep.pubDate,
-		}))
+		let episodes = []
+		if (parsed.rss.channel.item instanceof Array) {
+			episodes = parsed.rss.channel.item.map(ep => ({
+				guid: ep.guid['#text'],
+				title: ep.title,
+				imgSrc: ep['itunes:image']['@_href'],
+				summary: ep['itunes:summary'],
+				link: ep.link,
+				pubDate: ep.pubDate,
+			}))
+		} else {
+			const ep = parsed.rss.channel.item
+			episodes = [
+				{
+					guid: ep.guid['#text'],
+					title: ep.title,
+					imgSrc: ep['itunes:image']['@_href'],
+					summary: ep['itunes:summary'],
+					link: ep.link,
+					pubDate: ep.pubDate,
+				},
+			]
+		}
 
 		return {
 			// raw: parsed.rss.channel.item,
@@ -38,15 +53,15 @@ async function getData() {
 	}
 }
 
-export default async function Home() {
+const EpisodesClient = async () => {
 	const data = await getData()
+	return <Episodes episodes={data.episodes} />
+}
 
-	const { episodes } = data
-
+export default async function EpisodesPage() {
 	return (
-		<>
-			<div className={styles.pageDescription}>A positive, listener interactive Star Wars podcast since 2018</div>
-			{episodes?.length > 0 && <Episodes episodes={episodes} />}
-		</>
+		<Suspense fallback={<div className={styles.pageDescription}>Loading...</div>}>
+			<EpisodesClient />
+		</Suspense>
 	)
 }

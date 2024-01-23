@@ -20,7 +20,7 @@ const Episodes = async ({ episode }) => {
 						Posted: {pubDate}
 					</div>
 					<Linkify>{episode.summary}</Linkify>
-					<a className={styles.link} href={episode.link}>
+					<a className={styles.link} target="_blank" href={episode.link ? episode.link : 'https://zencastr.com/Just-Shillin'}>
 						Episode Link
 					</a>
 				</div>

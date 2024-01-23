@@ -1,12 +1,10 @@
-import { memo } from 'react'
-
 import styles from 'app/Global.module.css'
 import FriendCard from 'components/FriendCard/FriendCard'
 import friends from 'config/friends'
 
 export const runtime = 'edge'
 
-const Friends = ({}) => {
+export default function Friends() {
 	return (
 		<>
 			<div className={styles.pageDescription}>Check out some of our friends</div>
@@ -19,5 +17,3 @@ const Friends = ({}) => {
 		</>
 	)
 }
-
-export default memo(Friends)

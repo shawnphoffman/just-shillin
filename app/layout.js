@@ -1,6 +1,5 @@
 import 'styles/globals.css'
 
-// import { Open_Sans } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
 import Script from 'next/script'
 import Image from 'node_modules/next/image'
@@ -9,8 +8,6 @@ import styles from 'app/Global.module.css'
 import NavBar from 'components/NavBar/NavBar'
 
 import titleLogo from './header@2x.png'
-
-// const openSans = Open_Sans({ subsets: ['latin'] })
 
 export const metadata = {
 	title: `Just Shillin'`,
@@ -27,14 +24,12 @@ export const metadata = {
 	},
 }
 
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export default function RootLayout({ children }) {
 	return (
-		// <html lang="en" style={{ fontFamily: openSans.style.fontFamily }}>
 		<html lang="en" className={GeistSans.className}>
 			<head>
-				{/* <!-- FontAwesome Icons --> */}
 				<Script src="https://kit.fontawesome.com/d7ccc5bb1a.js" strategy="afterInteractive" rel="preload" as="font" />
 			</head>
 			<body>

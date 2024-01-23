@@ -41,8 +41,6 @@ const Reviews = async () => {
 		return memo
 	}, [])
 
-	console.log({ filteredReviews })
-
 	if (!filteredReviews?.length) return null
 
 	return (
