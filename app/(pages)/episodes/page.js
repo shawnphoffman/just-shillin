@@ -4,8 +4,6 @@ import { XMLParser } from 'fast-xml-parser'
 import styles from 'app/Global.module.css'
 import Episode from 'components/Episodes/Episode'
 
-// export const runtime = 'edge'
-
 async function getData() {
 	try {
 		const res = await fetch('https://feeds.zencastr.com/f/l5bmy6wm.rss', {

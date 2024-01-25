@@ -8,8 +8,6 @@ import styles from 'app/Global.module.css'
 const ActiveLink = ({ label, href }) => {
 	const currentRoute = usePathname()
 	const isActive = currentRoute === href
-
-	console.log('currentRoute', { currentRoute, href, isActive })
 	return (
 		<Link href={href} className={`${styles.styledLink} ${isActive ? styles.active : ''}`}>
 			{label}
