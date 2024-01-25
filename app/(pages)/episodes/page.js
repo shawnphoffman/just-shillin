@@ -11,7 +11,7 @@ const xmlOptions = {
 }
 
 export const runtime = 'edge'
-export const revalidate = 60 * 60 * 8
+export const revalidate = 60 * 60 * 2
 
 async function getData() {
 	try {

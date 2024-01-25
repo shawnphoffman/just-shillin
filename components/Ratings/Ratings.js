@@ -4,7 +4,7 @@ import styles from './Ratings.module.css'
 
 const dataUrl = 'https://api.shawn.party/api/just-shillin/reviews'
 
-export const revalidate = 60 * 60 * 12
+export const revalidate = 60 * 60 * 4
 
 async function getData() {
 	try {
