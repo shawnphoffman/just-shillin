@@ -1,8 +1,6 @@
-import { memo } from 'react'
-
 import styles from './Reviews.module.css'
 
-const Stars = ({ count }) => {
+export default function Stars({ count }) {
 	const numStars = Number(count)
 
 	let solidStars = []
@@ -21,5 +19,3 @@ const Stars = ({ count }) => {
 		</div>
 	)
 }
-
-export default memo(Stars)

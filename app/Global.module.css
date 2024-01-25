@@ -95,3 +95,24 @@
 	max-width: 720px;
 	width: 100%;
 }
+
+.navContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 16px;
+}
+
+.styledLink {
+	margin-bottom: 16px;
+	font-weight: bold;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.styledLink:hover {
+	color: var(--js3) !important;
+}
+.styledLink.active {
+	border-bottom: 1px solid var(--js3);
+}

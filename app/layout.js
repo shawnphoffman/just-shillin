@@ -1,11 +1,10 @@
 import 'styles/globals.css'
 
 import { GeistSans } from 'geist/font/sans'
-import Script from 'next/script'
 import Image from 'node_modules/next/image'
 
 import styles from 'app/Global.module.css'
-import NavBar from 'components/NavBar/NavBar'
+import ActiveLink from 'components/ActiveLink'
 
 import titleLogo from './header@2x.png'
 
@@ -38,7 +37,11 @@ export default function RootLayout({ children }) {
 						<div className={styles.page}>
 							<div className={styles.header}>
 								<Image className={styles.headerLogo} alt="Just Shillin'" src={titleLogo} width={292} height={139} priority />
-								<NavBar />
+								<div className={styles.navContainer}>
+									<ActiveLink href="/" label="Links" />
+									<ActiveLink href="/episodes" label="Episodes" />
+									<ActiveLink href="/listen-now" label="Listen Now" />
+								</div>
 							</div>
 							<div className={styles.pageDetails}>{children}</div>
 						</div>

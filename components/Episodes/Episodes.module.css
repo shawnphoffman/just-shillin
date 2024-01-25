@@ -14,7 +14,7 @@
 	text-align: left;
 	font-size: 14px;
 	width: 100%;
-	border-top: 1px solid var(--jt3);
+	border-top: 1px solid var(--js3);
 }
 @media (max-width: 720px) {
 	.container {

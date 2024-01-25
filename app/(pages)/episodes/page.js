@@ -4,21 +4,18 @@ import { XMLParser } from 'fast-xml-parser'
 import styles from 'app/Global.module.css'
 import Episode from 'components/Episodes/Episode'
 
-const dataUrl = 'https://feeds.zencastr.com/f/l5bmy6wm.rss'
-const xmlOptions = {
-	ignoreAttributes: false,
-	attributeNamePrefix: '@_',
-}
-
 // export const runtime = 'edge'
-export const revalidate = 60 * 60 * 1
 
 async function getData() {
 	try {
-		var res = await fetch(dataUrl, { next: { revalidate } })
-		var xml = await res.text()
-
-		const parser = new XMLParser(xmlOptions)
+		const res = await fetch('https://feeds.zencastr.com/f/l5bmy6wm.rss', {
+			next: { revalidate: 60 * 60 * 1 },
+		})
+		const xml = await res.text()
+		const parser = new XMLParser({
+			ignoreAttributes: false,
+			attributeNamePrefix: '@_',
+		})
 		const parsed = parser.parse(xml)
 		let episodes = []
 		if (parsed.rss.channel.item instanceof Array) {
@@ -43,7 +40,6 @@ async function getData() {
 				},
 			]
 		}
-
 		return {
 			episodes,
 		}
@@ -52,14 +48,20 @@ async function getData() {
 	}
 }
 
+const EpisodesClient = async () => {
+	const [data] = await Promise.all([
+		getData(),
+		//
+		new Promise(resolve => setTimeout(resolve, 5000)),
+	])
+	return data.episodes.map(ep => <Episode episode={ep} key={ep.guid} />)
+}
+
 export default async function EpisodesPage() {
-	const data = await getData()
 	return (
-		<Suspense fallback={<div className={styles.pageDescription}>Loading...</div>}>
+		<Suspense fallback={<div className="fa-solid fa-space-station-moon-construction fa-beat-fade" />}>
 			<div className={styles.episodesContainer}>
-				{data.episodes.map(ep => (
-					<Episode episode={ep} key={ep.guid} />
-				))}
+				<EpisodesClient />
 			</div>
 		</Suspense>
 	)

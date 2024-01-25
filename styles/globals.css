@@ -5,10 +5,10 @@
 	--applePodcasts: #872ec4;
 	--yellow: rgb(237, 237, 55);
 
-	--jt1: #00c875;
-	--jt2: #004040;
-	--jt3: #ffee00;
-	--jt4: hsl(180, 100%, 5%);
+	--js1: #00c875;
+	--js2: #004040;
+	--js3: #ffee00;
+	--js4: hsl(180, 100%, 5%);
 
 	--logo7: blue;
 	--logo6: #33f;
@@ -27,7 +27,7 @@
 
 html {
 	background: var(--bg);
-	background: linear-gradient(180deg, var(--bg), var(--jt4) 100%);
+	background: linear-gradient(180deg, var(--bg), var(--js4) 100%);
 }
 html body {
 	font-size: 16px;

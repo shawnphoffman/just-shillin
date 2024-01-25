@@ -8,7 +8,7 @@ const LinkCard = ({ i, link, bg, icon, title, subtitle, color = 'var(--white)' }
 			<div className={styles.card}>
 				<a href={link} target="_blank" rel="noopener noreferrer">
 					<div className={styles.cover} style={{ background: bg, color: color }}>
-						<i className={icon} />
+						<i className={icon} aria-hidden />
 						<div className={styles.data}>
 							<h2 className={styles.title}>{title}</h2>
 							{!!subtitle && <p className={styles.subtitle}>{subtitle}</p>}

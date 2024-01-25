@@ -6,7 +6,7 @@ import items from 'config/links'
 
 export const runtime = 'edge'
 
-export default function Home() {
+export default async function Home() {
 	return (
 		<>
 			<div className={styles.pageDescription}>
