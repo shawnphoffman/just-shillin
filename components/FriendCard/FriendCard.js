@@ -6,7 +6,7 @@ const FriendCard = ({ title, href }) => {
 	return (
 		<div className={styles.wrapper}>
 			<a className={styles.cover} href={href} target="_blank" rel="noopener noreferrer">
-				{/* <i className={`fa-solid fa-podcast`} aria-hidden="true"></i> */}
+				{/* <i className={`fa-solid fa-podcast`} aria-hidden></i> */}
 				<h2 className={styles.title}>{title}</h2>
 			</a>
 		</div>

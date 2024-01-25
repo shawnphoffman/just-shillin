@@ -1,6 +1,6 @@
 'use client'
 
-import React, { Children } from 'react'
+import { Children, cloneElement } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -15,7 +15,7 @@ const ActiveLink = ({ children, activeClassName, ...props }) => {
 
 	return (
 		<Link passHref {...props}>
-			{React.cloneElement(child, {
+			{cloneElement(child, {
 				className: newClassName || null,
 			})}
 		</Link>
