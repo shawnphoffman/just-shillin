@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { XMLParser } from 'fast-xml-parser'
 
 import styles from 'app/Global.module.css'
-import Episodes from 'components/Episodes/Episodes'
+import Episode from 'components/Episodes/Episode'
 
 const dataUrl = 'https://feeds.zencastr.com/f/l5bmy6wm.rss'
 const xmlOptions = {
@@ -10,7 +10,7 @@ const xmlOptions = {
 	attributeNamePrefix: '@_',
 }
 
-export const runtime = 'edge'
+// export const runtime = 'edge'
 export const revalidate = 60 * 60 * 2
 
 async function getData() {
@@ -54,7 +54,14 @@ async function getData() {
 
 const EpisodesClient = async () => {
 	const data = await getData()
-	return <Episodes episodes={data.episodes} />
+
+	return (
+		<div className={styles.episodesContainer}>
+			{data.episodes.map(ep => (
+				<Episode episode={ep} key={ep.guid} />
+			))}
+		</div>
+	)
 }
 
 export default async function EpisodesPage() {

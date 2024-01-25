@@ -7,18 +7,9 @@ import Episode from './Episode'
 import styles from './Episodes.module.css'
 
 const fuseOptions = {
-	includeScore: true,
 	minMatchCharLength: 3,
-	keys: [
-		{
-			name: 'title',
-			weight: 0.7,
-		},
-		{
-			name: 'summary',
-			weight: 0.3,
-		},
-	],
+	isCaseSensitive: false,
+	keys: ['summary'],
 }
 
 const Episodes = ({ episodes }) => {

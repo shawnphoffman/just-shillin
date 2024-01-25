@@ -1,11 +1,12 @@
-import { memo } from 'react'
+'use client'
+
 import Linkify from 'react-linkify'
 
 import styles from './Episodes.module.css'
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' }
 
-const Episodes = async ({ episode }) => {
+const Episodes = ({ episode }) => {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)
 
 	return (
@@ -29,4 +30,4 @@ const Episodes = async ({ episode }) => {
 	)
 }
 
-export default memo(Episodes)
+export default Episodes

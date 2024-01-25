@@ -87,3 +87,11 @@
 	margin: 32px 0px;
 	max-width: 800px;
 }
+
+.episodesContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 720px;
+	width: 100%;
+}
