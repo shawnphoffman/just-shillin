@@ -45,7 +45,6 @@ async function getData() {
 		}
 
 		return {
-			// raw: parsed.rss.channel.item,
 			episodes,
 		}
 	} catch (error) {

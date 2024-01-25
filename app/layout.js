@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en" className={GeistSans.className}>
 			<head>
-				<Script src="https://kit.fontawesome.com/d7ccc5bb1a.js" strategy="afterInteractive" rel="preload" as="font" />
+				<script src="https://kit.fontawesome.com/d7ccc5bb1a.js" crossOrigin="anonymous" async></script>
 			</head>
 			<body>
 				<div className="scroller">

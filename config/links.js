@@ -12,16 +12,16 @@ const items = [
 	// 	background: '#0d7ac4',
 	// },
 	{
-		title: 'Spotify',
-		href: 'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe',
-		icon: 'fa-brands fa-spotify',
-		background: '#16883e',
-	},
-	{
 		title: 'Apple Podcasts',
 		href: 'https://podcasts.apple.com/us/podcast/just-shillin/id1726695035',
 		icon: 'fa-solid fa-podcast',
 		background: 'var(--applePodcasts)',
+	},
+	{
+		title: 'Spotify',
+		href: 'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe',
+		icon: 'fa-brands fa-spotify',
+		background: '#16883e',
 	},
 	{
 		title: 'Emails',
@@ -46,6 +46,12 @@ const items = [
 		href: 'https://overcast.fm/itunes1726695035/just-shillin',
 		icon: 'fak fa-overcast fa-lg',
 		background: '#be5a01',
+	},
+	{
+		title: 'YouTube',
+		href: 'https://www.youtube.com/@JustShillin',
+		icon: 'fa-brands fa-youtube',
+		background: 'rgb(238 0 0)',
 	},
 	{
 		title: 'Google Play',
