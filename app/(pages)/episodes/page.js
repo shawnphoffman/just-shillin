@@ -11,7 +11,7 @@ const xmlOptions = {
 }
 
 // export const runtime = 'edge'
-export const revalidate = 60 * 60 * 2
+export const revalidate = 60 * 60 * 1
 
 async function getData() {
 	try {
@@ -52,22 +52,15 @@ async function getData() {
 	}
 }
 
-const EpisodesClient = async () => {
-	const data = await getData()
-
-	return (
-		<div className={styles.episodesContainer}>
-			{data.episodes.map(ep => (
-				<Episode episode={ep} key={ep.guid} />
-			))}
-		</div>
-	)
-}
-
 export default async function EpisodesPage() {
+	const data = await getData()
 	return (
 		<Suspense fallback={<div className={styles.pageDescription}>Loading...</div>}>
-			<EpisodesClient />
+			<div className={styles.episodesContainer}>
+				{data.episodes.map(ep => (
+					<Episode episode={ep} key={ep.guid} />
+				))}
+			</div>
 		</Suspense>
 	)
 }
