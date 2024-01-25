@@ -1,6 +1,6 @@
-import styles from 'app/Global.module.css'
+'use client'
 
-export const runtime = 'edge'
+import styles from 'app/Global.module.css'
 
 export default function ListenNow() {
 	return (
