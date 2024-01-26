@@ -17,6 +17,17 @@ export async function getReviews() {
 	}
 }
 
+export async function getSpotifyReviews() {
+	try {
+		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify?url=${'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe'}`, {
+			next: { revalidate: 60 * 60 * 4 },
+		})
+		return await res.json()
+	} catch {
+		return {}
+	}
+}
+
 export async function getEpisodes() {
 	try {
 		const res = await fetch('https://feeds.zencastr.com/f/l5bmy6wm.rss', {

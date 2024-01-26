@@ -1,17 +1,28 @@
-import { getReviews } from 'app/actions'
+import { getReviews, getSpotifyReviews } from 'app/actions'
 
 import styles from './Ratings.module.css'
 
 export default async function Ratings() {
-	const data = await getReviews()
+	const [appleData, spotifyData] = await Promise.all([getReviews(), getSpotifyReviews()])
 
-	if (!data || !data.appleRating) return null
+	if ((!appleData || !appleData.appleRating) && (!spotifyData || !spotifyData.rating)) return null
 
 	return (
-		<a className={styles.container} href={data.appleRatingUrl || ''} target="_blank" rel="noopener noreferrer">
-			<div>{data.appleRating}</div>
-			<i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden />
-			<div>on Apple Podcasts</div>
-		</a>
+		<div className={styles.wrapper}>
+			{appleData && (
+				<a className={styles.container} href={appleData.appleRatingUrl || ''} target="_blank" rel="noopener noreferrer">
+					<div>{appleData.appleRating}</div>
+					<i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden />
+					<div>on Apple Podcasts</div>
+				</a>
+			)}
+			{spotifyData && spotifyData.rating && (
+				<a className={`${styles.container} ${styles.spotify}`} href={spotifyData.url || ''} target="_blank" rel="noopener noreferrer">
+					<div>{spotifyData.rating.toFixed(1)}</div>
+					<i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden />
+					<div>on Spotify</div>
+				</a>
+			)}
+		</div>
 	)
 }

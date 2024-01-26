@@ -21,7 +21,7 @@ const items = [
 		title: 'Spotify',
 		href: 'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe',
 		icon: 'fa-brands fa-spotify',
-		background: '#16883e',
+		background: 'var(--spotify)',
 	},
 	{
 		title: 'Email',
