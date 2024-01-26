@@ -1,10 +1,9 @@
 .container {
-	padding: 4px 8px;
-	margin: 4px;
+	padding: 0.25rem 0.5rem;
 	background: var(--applePodcasts);
 	color: var(--white);
 	font-weight: bold;
-	border-radius: 8px;
+	border-radius: 0.5rem;
 	font-size: 0.8rem;
 	display: flex;
 	flex-direction: row;
@@ -14,6 +13,6 @@
 
 .star {
 	font-size: 0.8em;
-	margin-left: 2px;
-	margin-right: 4px;
+	margin-left: 0.125rem;
+	margin-right: 0.25rem;
 }

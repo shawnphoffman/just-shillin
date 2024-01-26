@@ -2,6 +2,6 @@
 
 import Linkify from 'react-linkify'
 
-export default function Summary({ summary }) {
+export default function EpisodeSummary({ summary }) {
 	return <Linkify>{summary}</Linkify>
 }

@@ -1,4 +1,4 @@
-import styles from './Reviews.module.css'
+import styles from './Stars.module.css'
 
 export default function Stars({ count }) {
 	const numStars = Number(count)
@@ -13,7 +13,7 @@ export default function Stars({ count }) {
 	}
 
 	return (
-		<div className={styles.starContainer}>
+		<div className={styles.container}>
 			{solidStars}
 			{emptyStars}
 		</div>

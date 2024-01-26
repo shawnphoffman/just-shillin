@@ -1,20 +1,19 @@
-import 'styles/globals.css'
+import 'app/global.css'
 
 import { GeistSans } from 'geist/font/sans'
 import Image from 'node_modules/next/image'
 
-import styles from 'app/Global.module.css'
 import ActiveLink from 'components/ActiveLink'
 
-import titleLogo from './header@2x.png'
+import titleLogo from './header.png'
 
 export const metadata = {
-	title: `Just Shillin'`,
+	title: `Just Shillin Positive Podcasting`,
 	description:
 		'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
 	metadataBase: 'https://justshillin.com',
 	openGraph: {
-		title: `Just Shillin'`,
+		title: `Just Shillin - Positive Podcasting`,
 		description:
 			'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
 		url: 'https://justshillin.com',
@@ -32,17 +31,17 @@ export default function RootLayout({ children }) {
 			</head>
 			<body>
 				<div className="scroller">
-					<div className={styles.wrapper}>
-						<div className={styles.page}>
-							<div className={styles.header}>
-								<Image className={styles.headerLogo} alt="Just Shillin'" src={titleLogo} width={292} height={139} priority />
-								<div className={styles.navContainer}>
+					<div className="wrapper">
+						<div className="page">
+							<div className="header">
+								<Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority />
+								<div className="navContainer">
 									<ActiveLink href="/" label="Links" />
 									<ActiveLink href="/episodes" label="Episodes" />
 									<ActiveLink href="/listen-now" label="Listen Now" />
 								</div>
 							</div>
-							<div className={styles.pageDetails}>{children}</div>
+							<div className="pageDetails">{children}</div>
 						</div>
 					</div>
 				</div>

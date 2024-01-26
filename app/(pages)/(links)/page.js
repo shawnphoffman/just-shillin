@@ -1,32 +1,29 @@
 import { Suspense } from 'react'
 
-import styles from 'app/Global.module.css'
-import LinkCard from 'components/LinkCard/LinkCard'
-import Ratings from 'components/Ratings/Ratings'
-import Reviews from 'components/Reviews/Reviews'
-import items from 'config/links'
+import LinkCard from 'components/LinkCard'
+import Ratings from 'components/Ratings'
+import Reviews from 'components/Reviews'
+
+import items from './links'
 
 export default async function Home() {
 	return (
 		<>
-			<div className={styles.pageDescription}>
+			<div className="pageDescription">
 				Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share
 				their love for the things that make life awesome.
 			</div>
 			<Suspense>
 				<Ratings />
 			</Suspense>
-			<div className={styles.pageRow}>
-				{items.map((item, i) => {
+			<div className="pageRow">
+				{items.map(item => {
 					return (
 						<LinkCard
-							i={i}
 							key={item.title}
 							title={item.title}
-							subtitle={item.subtitle}
 							link={item.href}
 							icon={item.icon}
-							cover={item.image}
 							bg={item.background}
 							color={item.color}
 						></LinkCard>
@@ -34,7 +31,7 @@ export default async function Home() {
 				})}
 			</div>
 
-			<div className={styles.pageRow}>
+			<div className="pageRow">
 				<Suspense>
 					<Reviews />
 				</Suspense>

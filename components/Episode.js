@@ -1,5 +1,7 @@
+import Image from 'next/image'
+
 import styles from './Episodes.module.css'
-import Summary from './Summary'
+import EpisodeSummary from './EpisodeSummary'
 
 const options = { year: 'numeric', month: 'long', day: 'numeric' }
 
@@ -9,13 +11,12 @@ export default function Episodes({ episode }) {
 		<div className={styles.container}>
 			<h2 className={styles.title}>{episode.title}</h2>
 			<div className={styles.detailsContainer}>
-				{/* eslint-disable-next-line @next/next/no-img-element */}
-				<img src={episode.imgSrc} alt={episode.title} className={styles.cover} />
+				<Image src={episode.imgSrc} alt={episode.title} className={styles.cover} width={200} height={200} />
 				<div className={styles.summary}>
 					<div className={styles.pubDate} suppressHydrationWarning>
 						Posted: {pubDate}
 					</div>
-					<Summary summary={episode.summary} />
+					<EpisodeSummary summary={episode.summary} />
 					<a className={styles.link} target="_blank" href={episode.link ? episode.link : 'https://zencastr.com/Just-Shillin'}>
 						Episode Link
 					</a>

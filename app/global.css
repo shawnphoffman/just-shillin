@@ -1,3 +1,52 @@
+/* VARS */
+:root {
+	--bg: #000;
+	--white: #fff;
+	--applePodcasts: #872ec4;
+	--yellow: rgb(237, 237, 55);
+
+	--js1: #00c875;
+	--js2: #004040;
+	--js3: #ffee00;
+	--js4: hsl(180, 100%, 10%);
+}
+
+/* DEFAULTS */
+* {
+	box-sizing: border-box;
+}
+html {
+	background: var(--bg);
+	background: linear-gradient(180deg, var(--bg), var(--js4) 100%);
+}
+html body {
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	box-sizing: border-box;
+	color: var(--white);
+	height: 100%;
+	overflow: hidden;
+}
+a {
+	color: var(--js3);
+	text-decoration: none;
+}
+a:hover {
+	color: var(--js3);
+}
+
+/* USED */
+.scroller {
+	width: 100%;
+	height: 100dvh;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0px 16px 0px 16px;
+	overflow: scroll;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -13,36 +62,27 @@
 	flex-direction: column;
 	max-width: 900px;
 	width: 100%;
-	background-attachment: fixed;
-	background-size: 700px;
-	padding-bottom: 0px;
 	min-height: 100vh;
 }
 
 .pageDetails {
 	text-align: center;
-	margin-bottom: 16px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	flex: 1;
-}
-@media screen and (max-width: 420px) {
-	.pageDetails {
-		margin-bottom: 16px;
-	}
+	gap: 1rem;
 }
 
 .pageDescription {
-	font-size: 18px;
-	max-width: 85%;
+	font-size: 1.1rem;
 	line-height: 1.5;
-	margin-bottom: 8px;
 	width: 100%;
+	max-width: 800px;
 }
 @media screen and (max-width: 420px) {
 	.pageDescription {
-		font-size: 16px;
+		font-size: 1rem;
 	}
 }
 
@@ -52,40 +92,27 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	transform: translateZ(0px);
-	/* flex: 1; */
-	margin-top: 1em;
 	width: 100%;
+	gap: 1rem;
 }
-
-/*  */
 
 .header {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 1rem;
+	margin: 1rem;
 }
 
 .headerLogo {
-	/* width: 100%; */
 	height: auto;
-	/* max-width: 450px; */
-	margin: 1em 0em;
 }
 
 .iframe {
 	width: 100%;
 	max-width: 660px;
-	overflow: hidden;
-	border-radius: 10px;
-	background: transparent;
 	border: none;
-	border-radius: 12px;
-}
-
-.patreonWrapper {
-	margin: 32px 0px;
-	max-width: 800px;
 }
 
 .episodesContainer {
@@ -102,17 +129,4 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 16px;
-}
-
-.styledLink {
-	margin-bottom: 16px;
-	font-weight: bold;
-	white-space: nowrap;
-	cursor: pointer;
-}
-.styledLink:hover {
-	color: var(--js3) !important;
-}
-.styledLink.active {
-	border-bottom: 1px solid var(--js3);
 }

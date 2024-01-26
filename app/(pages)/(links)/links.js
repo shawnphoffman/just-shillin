@@ -24,9 +24,9 @@ const items = [
 		background: '#16883e',
 	},
 	{
-		title: 'Emails',
+		title: 'Email',
 		href: 'mailto:feedback@justshillin.com',
-		icon: 'fa-solid fa-mailbox-flag-up',
+		icon: 'fa-solid fa-at',
 		background: '#52565e',
 	},
 	// {
@@ -34,12 +34,6 @@ const items = [
 	// 	href: 'https://www.teepublic.com/user/jammed-transmissions',
 	// 	icon: 'fak fa-teepublic',
 	// 	background: '#374ECD',
-	// },
-	// {
-	// 	title: 'Bluesky',
-	// 	href: 'https://bsky.app/profile/cadbanesbounty.bsky.social',
-	// 	icon: 'fa-solid fa-clouds',
-	// 	background: '#0560ff',
 	// },
 	{
 		title: 'Overcast',
@@ -54,7 +48,7 @@ const items = [
 		background: 'rgb(238 0 0)',
 	},
 	{
-		title: 'Google Play',
+		title: 'Google Podcasts',
 		href: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy56ZW5jYXN0ci5jb20vZi9sNWJteTZ3bS5yc3M',
 		icon: 'fa-brands fa-google-play',
 		background: '#206ff2',
@@ -105,8 +99,14 @@ const items = [
 	{
 		title: 'RSS',
 		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
-		icon: 'fa-solid fa-rss',
+		icon: 'fa-solid fa-square-rss',
 		background: '#ce4a0c',
+	},
+	{
+		title: 'Bluesky Feed',
+		href: 'https://bsky.app/profile/did:plc:q7ul4lz2j3d6qtcjzvz4rrjh/feed/shawnbot-pods',
+		icon: 'fa-solid fa-clouds',
+		background: '#0560ff',
 	},
 ]
 
