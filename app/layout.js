@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
 		<html lang="en" className={GeistSans.className}>
 			<head>
 				<script src="https://kit.fontawesome.com/d7ccc5bb1a.js" crossOrigin="anonymous" async></script>
+				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
 			<body>
 				<div className="scroller">
