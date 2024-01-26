@@ -1,28 +1,9 @@
-import { memo } from 'react'
+import { getReviews } from 'app/actions'
 
 import styles from './Ratings.module.css'
 
-const dataUrl = 'https://api.shawn.party/api/just-shillin/reviews'
-
-export const revalidate = 60 * 60 * 4
-
-async function getData() {
-	try {
-		const res = await fetch(dataUrl, { next: { revalidate } })
-		const data = await res.json()
-		const { rating, ratingsUrl } = data
-
-		return {
-			appleRating: rating,
-			appleRatingUrl: ratingsUrl,
-		}
-	} catch {
-		return {}
-	}
-}
-
-const Ratings = async () => {
-	const data = await getData()
+export default async function Ratings() {
+	const data = await getReviews()
 
 	if (!data || !data.appleRating) return null
 
@@ -34,5 +15,3 @@ const Ratings = async () => {
 		</a>
 	)
 }
-
-export default memo(Ratings)

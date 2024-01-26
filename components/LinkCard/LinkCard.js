@@ -1,8 +1,6 @@
-import { memo } from 'react'
-
 import styles from './LinkCard.module.css'
 
-const LinkCard = ({ i, link, bg, icon, title, subtitle, color = 'var(--white)' }) => {
+export default function LinkCard({ i, link, bg, icon, title, subtitle, color = 'var(--white)' }) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.card}>
@@ -19,5 +17,3 @@ const LinkCard = ({ i, link, bg, icon, title, subtitle, color = 'var(--white)' }
 		</div>
 	)
 }
-
-export default memo(LinkCard)

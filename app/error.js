@@ -1,8 +1,8 @@
 'use client'
 
-import { memo, useEffect } from 'react'
+import { useEffect } from 'react'
 
-const Error = ({ error, reset }) => {
+export default function Error({ error, reset }) {
 	useEffect(() => {
 		// Log the error to an error reporting service
 		console.error(error)
@@ -22,5 +22,3 @@ const Error = ({ error, reset }) => {
 		</div>
 	)
 }
-
-export default memo(Error)

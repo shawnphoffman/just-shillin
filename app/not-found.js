@@ -1,7 +1,6 @@
-import { memo } from 'react'
 import Link from 'next/link'
 
-const NotFound = () => {
+export default function NotFound() {
 	return (
 		<div>
 			<h2>Not Found</h2>
@@ -11,5 +10,3 @@ const NotFound = () => {
 		</div>
 	)
 }
-
-export default memo(NotFound)

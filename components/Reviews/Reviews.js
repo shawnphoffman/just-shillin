@@ -1,47 +1,12 @@
-import { memo } from 'react'
+import { getReviews } from 'app/actions'
 
 import styles from './Reviews.module.css'
 import Stars from './Stars'
 
-const dataUrl = 'https://api.shawn.party/api/just-shillin/reviews'
-
-export const revalidate = 60 * 60 * 4
-
-async function getData() {
-	try {
-		const res = await fetch(dataUrl, { next: { revalidate } })
-		const data = await res.json()
-		const { reviews } = data
-
-		return {
-			reviews,
-		}
-	} catch {
-		return {}
-	}
-}
-
-const filteredAuthors = ['']
-
-const Reviews = async () => {
-	const data = await getData()
-
-	const { reviews } = data
+export default async function Reviews() {
+	const { reviews } = await getReviews()
 
 	if (!reviews) return null
-
-	const filteredReviews = reviews.reduce((memo, acc) => {
-		if (filteredAuthors.includes(acc.author)) {
-			return memo
-		}
-		if (acc.stars !== '5') {
-			return memo
-		}
-		memo.push(acc)
-		return memo
-	}, [])
-
-	if (!filteredReviews?.length) return null
 
 	return (
 		<>
@@ -61,5 +26,3 @@ const Reviews = async () => {
 		</>
 	)
 }
-
-export default memo(Reviews)

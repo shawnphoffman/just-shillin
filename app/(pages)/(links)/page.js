@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import styles from 'app/Global.module.css'
 import LinkCard from 'components/LinkCard/LinkCard'
 import Ratings from 'components/Ratings/Ratings'
@@ -11,7 +13,9 @@ export default async function Home() {
 				Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share
 				their love for the things that make life awesome.
 			</div>
-			<Ratings />
+			<Suspense>
+				<Ratings />
+			</Suspense>
 			<div className={styles.pageRow}>
 				{items.map((item, i) => {
 					return (
@@ -31,7 +35,9 @@ export default async function Home() {
 			</div>
 
 			<div className={styles.pageRow}>
-				<Reviews />
+				<Suspense>
+					<Reviews />
+				</Suspense>
 			</div>
 		</>
 	)
