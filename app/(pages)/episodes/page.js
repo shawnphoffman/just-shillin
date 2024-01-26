@@ -2,6 +2,7 @@ import { Suspense } from 'react'
 
 import { getEpisodes } from 'app/actions'
 import Episode from 'components/Episode'
+import Loading from 'components/Loading'
 
 export const revalidate = 60 * 60 // 1 hour
 export const dynamic = 'force-dynamic'
@@ -17,10 +18,10 @@ const EpisodesClient = async () => {
 
 export default async function EpisodesPage() {
 	return (
-		<Suspense fallback={<i className="fa-solid fa-space-station-moon-construction fa-2xl fa-beat-fade" aria-hidden />}>
-			<div className="episodesContainer">
+		<div className="episodesContainer">
+			<Suspense fallback={<Loading />}>
 				<EpisodesClient />
-			</div>
-		</Suspense>
+			</Suspense>
+		</div>
 	)
 }
