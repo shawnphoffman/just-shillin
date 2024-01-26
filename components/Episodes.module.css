@@ -73,7 +73,7 @@
 }
 
 .summary a:hover {
-	color: var(--js4);
+	color: var(--js1);
 }
 
 .link {
@@ -82,7 +82,7 @@
 	color: var(--js3);
 }
 .link:hover {
-	color: var(--js4);
+	color: var(--js1);
 }
 
 .input {
