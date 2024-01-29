@@ -6,14 +6,15 @@ export async function getReviews() {
 	try {
 		const res = await fetch('https://api.shawn.party/api/just-shillin/reviews', { next: { revalidate: 60 * 60 * 1 } })
 		const data = await res.json()
-		const { rating, ratingsUrl } = data
+		const { rating, ratingsUrl, reviews } = data
 
 		return {
 			appleRating: rating,
 			appleRatingUrl: ratingsUrl,
 			reviews,
 		}
-	} catch {
+	} catch (e) {
+		console.error(e)
 		return {}
 	}
 }

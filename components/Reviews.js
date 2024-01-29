@@ -8,6 +8,16 @@ export default async function Reviews() {
 
 	if (!reviews) return null
 
+	const filteredReviews = reviews.reduce((memo, acc) => {
+		if (acc.stars !== '5') {
+			return memo
+		}
+		memo.push(acc)
+		return memo
+	}, [])
+
+	if (!filteredReviews) return null
+
 	return (
 		<>
 			<div className={styles.heading}>Recent Reviews</div>
