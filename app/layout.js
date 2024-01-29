@@ -2,12 +2,13 @@ import 'app/global.css'
 import 'app/stars.css'
 
 import { GeistSans } from 'geist/font/sans'
-import Image from 'node_modules/next/image'
 
+// import Image from 'node_modules/next/image'
 import ActiveLink from 'components/ActiveLink'
 import StarBackground from 'components/StarBackground'
+import TitleSvg from 'components/TitleSvg'
 
-import titleLogo from './header.png'
+// import titleLogo from './header.png'
 
 export const metadata = {
 	title: `Just Shillin Positive Podcasting`,
@@ -37,7 +38,8 @@ export default function RootLayout({ children }) {
 					<div className="wrapper">
 						<div className="page">
 							<div className="header">
-								<Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority />
+								{/* <Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority /> */}
+								<TitleSvg className="headerLogo" />
 								<div className="navContainer">
 									<ActiveLink href="/" label="Links" />
 									<ActiveLink href="/episodes" label="Episodes" />
