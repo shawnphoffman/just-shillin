@@ -1,9 +1,11 @@
 import 'app/global.css'
+import 'app/stars.css'
 
 import { GeistSans } from 'geist/font/sans'
 import Image from 'node_modules/next/image'
 
 import ActiveLink from 'components/ActiveLink'
+import StarBackground from 'components/StarBackground'
 
 import titleLogo from './header.png'
 
@@ -30,6 +32,7 @@ export default function RootLayout({ children }) {
 				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
 			<body>
+				<StarBackground />
 				<div className="scroller">
 					<div className="wrapper">
 						<div className="page">
