@@ -16,7 +16,7 @@ export default async function Reviews() {
 		return memo
 	}, [])
 
-	if (!filteredReviews) return null
+	if (!filteredReviews || !filteredReviews.length) return null
 
 	return (
 		<>
