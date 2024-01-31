@@ -12,10 +12,11 @@
 		"react-linkify": "^1.0.0-alpha"
 	},
 	"devDependencies": {
+		"@shawnphoffman/eslint-config": "^1.0.2",
+		"@shawnphoffman/prettier-config": "^1.0.1",
 		"eslint": "^8.56.0",
 		"eslint-config-next": "^14.1.0",
-		"eslint-plugin-react": "^7.33.2",
-		"eslint-plugin-simple-import-sort": "^10.0.0"
+		"eslint-plugin-react": "^7.33.2"
 	},
 	"scripts": {
 		"dev": "next dev",
@@ -32,5 +33,6 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
-	}
+	},
+	"prettier": "@shawnphoffman/prettier-config"
 }
