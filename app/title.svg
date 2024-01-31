@@ -15,12 +15,12 @@
 
 			.dark {
 				fill: var(--js4);
-				animation: fadeOuter 5s ease infinite;
+				animation: fadeOuter 15s ease infinite;
 			}
 
 			.black {
 				fill: var(--bg);
-				animation: fadeInner 5s ease infinite;
+				animation: fadeInner 15s ease infinite;
 			}
 
 			@keyframes fadeInner {
