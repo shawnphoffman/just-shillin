@@ -2,9 +2,11 @@
 
 import { XMLParser } from 'fast-xml-parser'
 
+import { appleRatingUrl } from './(pages)/(links)/links'
+
 export async function getReviews() {
 	try {
-		const res = await fetch('https://api.shawn.party/api/just-shillin/reviews', { next: { revalidate: 60 * 60 * 1 } })
+		const res = await fetch(`https://api.shawn.party/api/pod-data/apple?url=${appleRatingUrl}`, { next: { revalidate: 60 * 60 * 1 } })
 		const data = await res.json()
 		const { rating, ratingsUrl, reviews } = data
 

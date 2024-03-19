@@ -1,3 +1,7 @@
+export const applePodcastId = '1726695035'
+export const applePodcastUrl = `https://podcasts.apple.com/us/podcast/id${applePodcastId}`
+export const appleRatingUrl = `${applePodcastUrl}?see-all=reviews`
+
 const items = [
 	// {
 	// 	title: 'Twitter',
@@ -13,7 +17,7 @@ const items = [
 	// },
 	{
 		title: 'Apple Podcasts',
-		href: 'https://podcasts.apple.com/us/podcast/just-shillin/id1726695035',
+		href: applePodcastUrl,
 		icon: 'fa-solid fa-podcast',
 		background: 'var(--applePodcasts)',
 	},
