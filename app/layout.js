@@ -1,6 +1,7 @@
 import 'app/global.css'
 import 'app/stars.css'
 
+import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
 import Image from 'next/image'
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
 						</div>
 					</div>
 				</div>
+				<Analytics />
 			</body>
 		</html>
 	)
