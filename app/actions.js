@@ -33,6 +33,22 @@ export async function getSpotifyReviews() {
 	}
 }
 
+function removeChaptersAndTimestamps(text) {
+	const regex1 = /(Chapters|^\d{2}:\d{2}:\d{2}.*)[\r\n]?/gm
+	text = text.replace(regex1, '')
+
+	const regex2 = /.*(?:https:\/\/justshillin\.com|feedback@justshillin\.com).*/gm
+	text = text.replace(regex2, '')
+
+	const regex3 = /\b(https?:\/\/\S+)\s+\[\1\]/g
+	text = text.replace(regex3, '$1')
+
+	const regexFinal = /[\r\n]{3,}/g
+	text = text.replace(regexFinal, '\n')
+
+	return text
+}
+
 export async function getEpisodes() {
 	try {
 		const res = await fetch('https://feeds.zencastr.com/f/l5bmy6wm.rss', {
@@ -48,7 +64,7 @@ export async function getEpisodes() {
 			guid: ep.guid['#text'],
 			title: ep.title,
 			imgSrc: ep['itunes:image']['@_href'],
-			summary: ep['itunes:summary'],
+			summary: removeChaptersAndTimestamps(ep['itunes:summary']),
 			link: ep.link,
 			pubDate: ep.pubDate,
 		}))

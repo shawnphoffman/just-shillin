@@ -50,9 +50,17 @@ a {
 	transition: color 150ms ease-in;
 	color: var(--js3);
 	text-decoration: none;
+	padding-bottom: 3px;
 }
 a:hover {
 	color: var(--js3);
+	background-image: url('../public/squiggle.svg');
+	background-position: 0 100%;
+	background-size: auto 36px;
+	background-repeat: repeat;
+	text-decoration: none !important;
+	border-bottom: none;
+	word-break: break-word;
 }
 
 /* USED */

@@ -16,10 +16,14 @@ export default function Episodes({ episode }) {
 					<div className={styles.pubDate} suppressHydrationWarning>
 						Posted: {pubDate}
 					</div>
-					<EpisodeSummary summary={episode.summary} />
-					<a className={styles.link} target="_blank" href={episode.link ? episode.link : 'https://zencastr.com/Just-Shillin'}>
-						Episode Link
-					</a>
+					<div>
+						<EpisodeSummary summary={episode.summary} />
+					</div>
+					<div className={styles.linkContainer}>
+						<a className={styles.link} target="_blank" href={episode.link ? episode.link : 'https://zencastr.com/Just-Shillin'}>
+							Episode Link
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>

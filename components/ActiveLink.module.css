@@ -3,13 +3,21 @@
 	white-space: nowrap;
 	cursor: pointer;
 	color: var(--white);
+	padding-bottom: 3px;
 }
 .link:hover {
 	color: var(--js3);
+	background-image: url('../public/squiggle.svg');
+	background-position: 0 100%;
+	background-size: auto 36px;
+	background-repeat: repeat;
+	text-decoration: none !important;
+	border-bottom: none;
+	word-break: break-word;
 }
 .link.active {
-	text-underline-offset: 6px;
+	text-underline-offset: 4px;
 	text-decoration: underline;
 	text-decoration-color: var(--js3);
-	text-decoration-thickness: 1px;
+	text-decoration-thickness: 0.5px;
 }

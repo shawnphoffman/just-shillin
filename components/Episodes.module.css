@@ -61,6 +61,9 @@
 	white-space: break-spaces;
 	text-wrap: wrap;
 	text-overflow: ellipsis;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
 }
 @media (max-width: 720px) {
 	.summary {
@@ -70,15 +73,22 @@
 
 .summary a {
 	color: var(--js3);
+	word-break: break-word;
 }
-
 .summary a:hover {
 	color: var(--js1);
 }
 
+.linkContainer {
+	display: flex;
+	flex: 1;
+	align-items: end;
+}
+
 .link {
-	margin-top: 8px;
-	display: block;
+	font-weight: bold;
+	margin-top: 0.5rem;
+	display: inline-block;
 	color: var(--js3);
 }
 .link:hover {
