@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@shawnphoffman/pod-sites-common": "^0.0.2",
 		"@vercel/analytics": "^1.2.2",
+		"@vercel/kv": "^1.0.1",
 		"fast-xml-parser": "^4.3.3",
 		"fuse.js": "^6.6.2",
 		"geist": "^1.2.1",
