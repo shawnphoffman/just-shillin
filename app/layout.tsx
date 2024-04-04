@@ -44,6 +44,7 @@ export default function RootLayout({ children }) {
 									<ActiveLink href="/" label="Links" />
 									<ActiveLink href="/episodes" label="Episodes" />
 									<ActiveLink href="/listen-now" label="Listen Now" />
+									{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/admin" label="Admin" />}
 								</div>
 							</div>
 							<div className="pageDetails">{children}</div>

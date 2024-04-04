@@ -165,3 +165,20 @@ a:hover {
 	/* TEMP */
 	min-height: 24.5px;
 }
+
+.loading {
+	color: var(--white);
+	animation: fa-beat-fade 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes fa-beat-fade {
+	0%,
+	100% {
+		opacity: var(--fa-beat-fade-opacity, 0.4);
+		transform: scale(1);
+	}
+	50% {
+		opacity: var(--fa-beat-fade-opacity, 1);
+		transform: scale(1.125);
+	}
+}

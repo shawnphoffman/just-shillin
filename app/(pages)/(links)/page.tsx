@@ -16,7 +16,7 @@ export default async function Home() {
 				their love for the things that make life awesome.
 			</div>
 			<div className="ratingsWrapper">
-				<Suspense fallback={<Loading />}>
+				<Suspense fallback={''}>
 					<RatingsApple />
 					{/* </Suspense> */}
 					{/* <Suspense fallback={<Loading />}> */}
