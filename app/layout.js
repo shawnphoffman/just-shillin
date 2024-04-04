@@ -1,5 +1,6 @@
 import 'app/global.css'
 import 'app/stars.css'
+import '@shawnphoffman/pod-sites-common/index.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
