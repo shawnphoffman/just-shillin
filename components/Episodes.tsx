@@ -3,10 +3,9 @@
 import { memo, startTransition, Suspense, useCallback, useDeferredValue, useMemo, useState } from 'react'
 import Fuse from 'fuse.js'
 
-import Loading from 'components/Loading'
-
-import Episode from './Episode'
-import styles from './Episodes.module.css'
+import Episode from '@/components/Episode'
+import styles from '@/components/Episodes.module.css'
+import Loading from '@/components/Loading'
 
 const fuseOptions = {
 	includeScore: true,
@@ -24,7 +23,11 @@ const fuseOptions = {
 	],
 }
 
-const EpisodeList = memo(({ episodes }) => {
+type EpisodeListProps = {
+	episodes: any[]
+}
+
+const EpisodeList = memo(({ episodes }: EpisodeListProps): any => {
 	if (episodes.length === 0) return <div>No episodes found...</div>
 
 	return episodes.map(ep => <Episode episode={ep} key={ep.guid} />)
@@ -57,7 +60,7 @@ const Episodes = ({ episodes }) => {
 		<>
 			<input className={`${styles.input} bubbled`} type="text" placeholder="Search" onChange={handleSearch} />
 			<div className={`${styles.episodesContainer} bubbled`}>
-				<Suspense fallback={<Loading label="episodes" />}>
+				<Suspense fallback={<Loading />}>
 					<EpisodeList episodes={filtered} />
 				</Suspense>
 			</div>

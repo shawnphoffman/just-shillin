@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from './Episodes.module.css'
 import EpisodeSummary from './EpisodeSummary'
 
-const options = { year: 'numeric', month: 'long', day: 'numeric' }
+const options = { year: 'numeric', month: 'long', day: 'numeric' } as const
 
 export default function Episodes({ episode }) {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)

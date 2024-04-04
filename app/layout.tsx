@@ -1,14 +1,14 @@
-import 'app/global.css'
-import 'app/stars.css'
+import '@/app/global.css'
+import '@/app/stars.css'
 import '@shawnphoffman/pod-sites-common/index.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
 import Image from 'next/image'
 
-import titleSvg from 'app/title.svg'
-import ActiveLink from 'components/ActiveLink'
-import StarBackground from 'components/StarBackground'
+import titleSvg from '@/app/title.svg'
+import ActiveLink from '@/components/ActiveLink'
+import StarBackground from '@/components/StarBackground'
 
 export const metadata = {
 	title: `Just Shillin Positive Podcasting`,

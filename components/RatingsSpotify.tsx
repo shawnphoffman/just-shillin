@@ -1,6 +1,6 @@
-import { getSpotifyReviews } from 'app/actions'
-
 import styles from './Ratings.module.css'
+
+import { getSpotifyReviews } from '@/app/actions'
 
 export default async function RatingsSpotify() {
 	const spotifyData = await getSpotifyReviews()

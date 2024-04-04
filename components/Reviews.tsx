@@ -1,7 +1,7 @@
-import { getReviews } from 'app/actions'
-
 import styles from './Reviews.module.css'
 import Stars from './Stars'
+
+import { getReviews } from '@/app/actions'
 
 export default async function Reviews() {
 	const { reviews } = await getReviews()
