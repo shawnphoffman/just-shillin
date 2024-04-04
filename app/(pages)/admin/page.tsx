@@ -1,13 +1,14 @@
 import { Suspense } from 'react'
 
+import styles from './page.module.css'
+
 import { getEpisodes } from '@/app/actions'
-import Episodes from '@/components/Episodes'
 import Loading from '@/components/Loading'
 
 export const revalidate = 60 * 60 * 6 // 1 hour
 export const dynamic = 'force-dynamic'
 
-const EpisodesClient = async () => {
+const AdminClient = async () => {
 	const [data] = await Promise.all([
 		getEpisodes(),
 		//
@@ -15,15 +16,20 @@ const EpisodesClient = async () => {
 	])
 	// return data.episodes.map(ep => <Episode episode={ep} key={ep.guid} />)
 
-	return <Episodes episodes={data.episodes} />
+	return data.episodes.map(ep => (
+		<div key={ep.guid} className={styles.container}>
+			<div>{ep.title}</div>
+			<span className={styles.guid}>{ep.guid}</span>
+		</div>
+	))
 }
 
 export default async function EpisodesPage() {
 	return (
-		<div className="episodesContainer">
+		<>
 			<Suspense fallback={<Loading />}>
-				<EpisodesClient />
+				<AdminClient />
 			</Suspense>
-		</div>
+		</>
 	)
 }
