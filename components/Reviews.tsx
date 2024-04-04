@@ -1,10 +1,10 @@
 import styles from './Reviews.module.css'
 import Stars from './Stars'
 
-import { getReviews } from '@/app/actions'
+import { getAppleReviews } from '@/app/actions'
 
 export default async function Reviews() {
-	const { reviews } = await getReviews()
+	const { reviews } = await getAppleReviews()
 
 	if (!reviews) return null
 

@@ -161,4 +161,7 @@ a:hover {
 	gap: 0.5rem;
 	flex-wrap: wrap;
 	justify-content: center;
+
+	/* TEMP */
+	min-height: 24.5px;
 }

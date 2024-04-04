@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import items from './links'
 
 import LinkCard from '@/components/LinkCard'
+import Loading from '@/components/Loading'
 import RatingsApple from '@/components/RatingsApple'
 import RatingsSpotify from '@/components/RatingsSpotify'
 import Reviews from '@/components/Reviews'
@@ -15,8 +16,10 @@ export default async function Home() {
 				their love for the things that make life awesome.
 			</div>
 			<div className="ratingsWrapper">
-				<Suspense>
+				<Suspense fallback={<Loading />}>
 					<RatingsApple />
+					{/* </Suspense> */}
+					{/* <Suspense fallback={<Loading />}> */}
 					<RatingsSpotify />
 				</Suspense>
 			</div>
@@ -36,7 +39,7 @@ export default async function Home() {
 			</div>
 
 			<div className="pageRow">
-				<Suspense>
+				<Suspense fallback={<Loading />}>
 					<Reviews />
 				</Suspense>
 			</div>

@@ -11,9 +11,19 @@
 	font-size: 2rem;
 	gap: 0.5rem;
 	padding-bottom: 0;
+	animation: 0.5s fadeInUp;
 }
 .container:hover {
 	transform: scale(1.05) skewY(0deg);
+}
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 .title {
