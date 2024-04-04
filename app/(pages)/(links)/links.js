@@ -52,11 +52,17 @@ const items = [
 		background: 'rgb(238 0 0)',
 	},
 	{
-		title: 'Google Podcasts',
-		href: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy56ZW5jYXN0ci5jb20vZi9sNWJteTZ3bS5yc3M',
-		icon: 'fa-brands fa-google-play',
-		background: '#206ff2',
+		title: 'YouTube Music',
+		href: 'https://music.youtube.com/playlist?list=PLRxEa7NQRmKFKsoGeQBLb_IGNcFRZoBp1',
+		icon: 'fak fa-youtube-music',
+		background: 'rgb(238 0 0)',
 	},
+	// {
+	// 	title: 'Google Podcasts',
+	// 	href: 'https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy56ZW5jYXN0ci5jb20vZi9sNWJteTZ3bS5yc3M',
+	// 	icon: 'fa-brands fa-google-play',
+	// 	background: '#206ff2',
+	// },
 	{
 		title: 'Goodpods',
 		href: 'https://goodpods.com/podcasts/just-shillin-303749',
