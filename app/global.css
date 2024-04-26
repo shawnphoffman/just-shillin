@@ -3,10 +3,14 @@
 	--bg: #000;
 	--white: #fff;
 
-	--js1: #00c875;
-	/* --js2: #004040; */
-	--js3: #ffee00;
-	--js4: hsl(180, 100%, 7%);
+	/* --js1: #00c875; */
+	/* --js3: #ffee00; */
+	/* --js4: hsl(180, 100%, 7%); */
+
+	/* --js1: #be2413; */
+	--js1: #ffee00;
+	--js3: #47c8ff;
+	--js4: #130402;
 }
 
 /* DEFAULTS */
@@ -48,7 +52,7 @@ a {
 	text-decoration: none;
 	padding-bottom: 3px;
 }
-a:hover {
+a:not(.wow):hover {
 	color: var(--js3);
 	background-image: url('../public/squiggle.svg');
 	background-position: 0 100%;

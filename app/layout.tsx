@@ -6,17 +6,18 @@ import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
 import Image from 'next/image'
 
-import titleSvg from '@/app/title.svg'
+// import titleSvg from '@/app/title.svg'
+import headerImage from '@/app/title.png'
 import ActiveLink from '@/components/ActiveLink'
 import StarBackground from '@/components/StarBackground'
 
 export const metadata = {
-	title: `Just Shillin Positive Podcasting`,
+	title: `Just Shillin' Podcast`,
 	description:
 		'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
 	metadataBase: 'https://justshillin.com',
 	openGraph: {
-		title: `Just Shillin - Positive Podcasting`,
+		title: `Just Shillin' Podcast`,
 		description:
 			'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
 		url: 'https://justshillin.com',
@@ -39,7 +40,8 @@ export default function RootLayout({ children }) {
 						<div className="page">
 							<div className="header">
 								{/* <Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority /> */}
-								<Image src={titleSvg} alt="Just Shillin'" priority unoptimized className="headerLogo" />
+								<Image className="headerLogo" alt="Just Shillin'" src={headerImage} width={300} height={300} priority />
+								{/* <Image src={titleSvg} alt="Just Shillin'" priority unoptimized className="headerLogo" /> */}
 								<div className="navContainer">
 									<ActiveLink href="/" label="Links" />
 									<ActiveLink href="/episodes" label="Episodes" />

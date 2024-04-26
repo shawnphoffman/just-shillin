@@ -10,7 +10,7 @@ export default async function RatingsApple() {
 	if (!appleData || !appleData.appleRating) return null
 
 	return (
-		<a className={styles.container} href={appleData.appleRatingUrl || ''} target="_blank" rel="noopener noreferrer">
+		<a className={`${styles.container} wow`} href={appleData.appleRatingUrl || ''} target="_blank" rel="noopener noreferrer">
 			<div>{appleData.appleRating}</div>
 			<i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden />
 			<div>on Apple Podcasts</div>
