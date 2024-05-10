@@ -1,4 +1,5 @@
-import { client } from '@/utils/sanity/client'
+import { sanityFetch } from '@/utils/sanity/client'
+import { postsListQuery } from '@/utils/sanity/sanity.queries'
 
 type Post = {
 	_id: string
@@ -9,17 +10,20 @@ type Post = {
 }
 
 export default async function UpdatesPage() {
-	const posts = await client.fetch<Post[]>(`*[_type == "post"]`)
+	const posts = await sanityFetch<Post[]>({
+		query: postsListQuery,
+		tags: ['post'],
+	})
 
-	// console.log(posts)
+	console.log(posts)
 
 	return (
 		<ul>
 			{posts.map(post => {
-				if (!post?.slug?.current) return null
+				if (!post?.slug) return null
 				return (
 					<li key={post._id}>
-						<a href={`/updates/${post?.slug.current}`}>{post?.title}</a>
+						<a href={`/updates/${post?.slug}`}>{post?.title}</a>
 					</li>
 				)
 			})}

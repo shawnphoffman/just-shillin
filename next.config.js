@@ -9,4 +9,10 @@ module.exports = {
 			},
 		],
 	},
+	// This is sanity-related
+	logging: {
+		fetches: {
+			fullUrl: true,
+		},
+	},
 }
