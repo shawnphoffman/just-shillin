@@ -1,6 +1,6 @@
-import styles from './Ratings.module.css'
-
 import { getAppleReviews } from '@/app/actions'
+
+import styles from './Ratings.module.css'
 
 export default async function RatingsApple() {
 	const appleData = await getAppleReviews()
