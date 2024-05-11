@@ -5,10 +5,12 @@ const postFields = groq`
   title,
   date,
   _updatedAt,
-  excerpt,
-  coverImage,
+	publishedAt,
+  // excerpt,
+  mainImage,
   "slug": slug.current,
   "author": author->{name, picture},
+  // "categories": author->{name, picture},
 `
 
 // export const settingsQuery = groq`*[_type == "settings"][0]`
@@ -34,11 +36,12 @@ export const postsListQuery = groq`
 // *[_type == "post" && defined(slug.current)][].slug.current
 // `
 
-// export const postBySlugQuery = groq`
-// *[_type == "post" && slug.current == $slug][0] {
-//   ${postFields}
-// }
-// `
+export const postBySlugQuery = groq`
+*[_type == "post" && slug.current == $slug][0] {
+	body,
+  ${postFields}
+}
+`
 
 export interface Author {
 	name?: string

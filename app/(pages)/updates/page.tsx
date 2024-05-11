@@ -1,4 +1,4 @@
-import { sanityFetch } from '@/utils/sanity/client'
+import { sanityFetch } from '@/utils/sanity/sanity.client'
 import { postsListQuery } from '@/utils/sanity/sanity.queries'
 
 type Post = {

@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
 
+import styles from './page.module.css'
+
 import { getEpisodes } from '@/app/actions'
 import Loading from '@/components/Loading'
-
-import styles from './page.module.css'
 
 export const revalidate = 60 * 60 * 6 // 1 hour
 export const dynamic = 'force-dynamic'

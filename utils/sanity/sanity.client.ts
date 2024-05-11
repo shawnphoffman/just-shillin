@@ -1,7 +1,17 @@
 // ./src/utils/sanity/client.ts
 import 'server-only'
 
-import { createClient, type QueryParams } from 'next-sanity'
+import { createClient, type QueryParams, type SanityClient } from 'next-sanity'
+
+import {
+	// indexQuery,
+	type Post,
+	// postAndMoreStoriesQuery,
+	postBySlugQuery,
+	// postSlugsQuery,
+	// type Settings,
+	// settingsQuery,
+} from './sanity.queries'
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID // "pv8y60vp"
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET // "production"
@@ -27,4 +37,14 @@ export async function sanityFetch<QueryResponse>({ query, params = {}, tags }: S
 			tags, // for tag-based revalidation
 		},
 	})
+}
+
+export async function getPostBySlug(slug: string): Promise<Post> {
+	return (
+		(await sanityFetch({
+			query: postBySlugQuery,
+			params: { slug },
+			tags: ['post'],
+		})) || ({} as any)
+	)
 }
