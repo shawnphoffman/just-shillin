@@ -1,15 +1,6 @@
 import '@/app/global.css'
-import '@/app/stars.css'
-import '@shawnphoffman/pod-sites-common/index.css'
 
-import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
-import Image from 'next/image'
-
-// import titleSvg from '@/app/title.svg'
-import headerImage from '@/app/title.png'
-import ActiveLink from '@/components/ActiveLink'
-import StarBackground from '@/components/StarBackground'
 
 export const metadata = {
 	title: `Just Shillin' Podcast`,
@@ -33,29 +24,7 @@ export default function RootLayout({ children }) {
 				<script src="https://kit.fontawesome.com/d7ccc5bb1a.js" crossOrigin="anonymous" async defer></script>
 				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
-			<body>
-				<StarBackground />
-				<div className="scroller">
-					<div className="wrapper">
-						<div className="page">
-							<div className="header">
-								{/* <Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority /> */}
-								<Image className="headerLogo" alt="Just Shillin'" src={headerImage} width={300} height={300} priority />
-								{/* <Image src={titleSvg} alt="Just Shillin'" priority unoptimized className="headerLogo" /> */}
-								<div className="navContainer">
-									<ActiveLink href="/" label="Links" />
-									<ActiveLink href="/episodes" label="Episodes" />
-									<ActiveLink href="/listen-now" label="Listen Now" />
-									{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/updates" label="Updates" />}
-									{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/admin" label="Admin" style={{ color: 'var(--js2)' }} />}
-								</div>
-							</div>
-							<div className="pageDetails">{children}</div>
-						</div>
-					</div>
-				</div>
-				{process.env.VERCEL_ENV === 'production' && <Analytics />}
-			</body>
+			<body>{children}</body>
 		</html>
 	)
 }
