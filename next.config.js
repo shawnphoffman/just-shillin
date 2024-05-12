@@ -8,6 +8,7 @@ module.exports = {
 				pathname: '/image-files/**',
 			},
 		],
+		domains: ['cdn.sanity.io'],
 	},
 	// This is sanity-related
 	logging: {
