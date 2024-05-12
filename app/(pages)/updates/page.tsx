@@ -15,7 +15,7 @@ export default async function UpdatesPage() {
 		tags: ['post'],
 	})
 
-	console.log(posts)
+	// console.log(posts)
 
 	return (
 		<ul>

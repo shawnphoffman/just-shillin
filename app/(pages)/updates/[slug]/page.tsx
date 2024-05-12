@@ -18,23 +18,25 @@ export default async function PostPage({ params }: PageProps) {
 		return notFound()
 	}
 
-	const { title } = post
+	const { title, body = {} } = post
 
 	return (
 		<>
 			<h1>{title}</h1>
 			<article style={{ textAlign: 'left', width: '100%' }}>
-				<PostBody content={post.body} />
+				<PostBody content={body} />
 			</article>
 
-			{/* <hr />
+			<hr />
 			<pre style={{ textAlign: 'left', fontSize: 10 }}>
 				<code>{JSON.stringify(post, null, 2)}</code>
-			</pre> */}
+			</pre>
 		</>
 	)
 }
 
 export async function generateStaticParams() {
-	return await getAllPostsSlugs()
+	const slugs = await getAllPostsSlugs()
+	console.log(slugs)
+	return slugs
 }
