@@ -1,9 +1,12 @@
 import { defineField, defineType } from 'sanity'
 
+// import category from './category'
+
 export default defineType({
 	name: 'post',
 	title: 'Post',
 	type: 'document',
+	//
 	fields: [
 		defineField({
 			name: 'title',
@@ -45,6 +48,7 @@ export default defineType({
 			title: 'Categories',
 			type: 'array',
 			of: [{ type: 'reference', to: { type: 'category' } }],
+			// validation: (Rule) => Rule.required(),
 		}),
 		defineField({
 			name: 'publishedAt',
@@ -58,16 +62,25 @@ export default defineType({
 			type: 'blockContent',
 		}),
 	],
-
+	//
 	preview: {
 		select: {
 			title: 'title',
 			author: 'author.name',
 			media: 'mainImage',
+			category: 'categories.0.title',
 		},
 		prepare(selection) {
-			const { author } = selection
-			return { ...selection, subtitle: author && `by ${author}` }
+			const { author, category } = selection
+			return { ...selection, subtitle: author && `${category || 'None'} - ${author}` }
 		},
 	},
+	//
+	orderings: [
+		{
+			title: 'Published At, New',
+			name: 'publishedAtDesc',
+			by: [{ field: 'publishedAt', direction: 'desc' }],
+		},
+	],
 })

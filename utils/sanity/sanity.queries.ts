@@ -2,21 +2,22 @@ import { groq } from 'next-sanity'
 
 const postFields = groq`
   _id,
+  _updatedAt,
   title,
   date,
-  _updatedAt,
 	publishedAt,
   // excerpt,
   mainImage,
   "slug": slug.current,
   "author": author->{name, picture},
-  // "categories": author->{name, picture},
+	"categories": categories[]->title,
 `
 
 // export const settingsQuery = groq`*[_type == "settings"][0]`
 
 export const postsListQuery = groq`
-*[_type == "post"] | order(date desc, _updatedAt desc) {
+// *[_type == "post" ] | order(date desc, publishedAt desc) {
+*[_type == "post" && "Just Shillin'" in categories[]->.title] | order(date desc, publishedAt desc) {
   ${postFields}
 }`
 
