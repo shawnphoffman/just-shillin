@@ -3,8 +3,14 @@ import { notFound } from 'next/navigation'
 import PostBody from '@/components/updates/PostBody'
 import { getAllPostsSlugs, getPostBySlug } from '@/utils/sanity/sanity.client'
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-	const post = await getPostBySlug(params.slug)
+type PageProps = {
+	params: {
+		slug: string
+	}
+}
+
+export default async function PostPage({ params }: PageProps) {
+	const post = await getPostBySlug(params?.slug || '')
 
 	// console.log(post)
 
@@ -21,10 +27,10 @@ export default async function PostPage({ params }: { params: { slug: string } })
 				<PostBody content={post.body} />
 			</article>
 
-			<hr />
+			{/* <hr />
 			<pre style={{ textAlign: 'left', fontSize: 10 }}>
 				<code>{JSON.stringify(post, null, 2)}</code>
-			</pre>
+			</pre> */}
 		</>
 	)
 }
