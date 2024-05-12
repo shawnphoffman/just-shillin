@@ -24,11 +24,7 @@ const client = createClient({
 	useCdn: false,
 })
 
-type SanityFetchProps = {
-	query: string
-	params?: QueryParams
-	tags?: string[]
-}
+export const getSanityImageConfig = () => client
 
 export async function sanityFetch<QueryResponse>({ query, params = {}, tags }: SanityFetchProps) {
 	return client.fetch<QueryResponse>(query, params, {
@@ -47,4 +43,10 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 			tags: ['post'],
 		})) || ({} as any)
 	)
+}
+
+type SanityFetchProps = {
+	query: string
+	params?: QueryParams
+	tags?: string[]
 }

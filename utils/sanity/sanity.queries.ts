@@ -58,7 +58,9 @@ export interface Post {
 	excerpt?: string
 	author?: Author
 	slug?: string
+	// TODO
 	content?: any
+	body?: any
 }
 
 export interface Settings {
