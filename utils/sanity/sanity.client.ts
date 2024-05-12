@@ -8,6 +8,7 @@ import {
 	type Post,
 	// postAndMoreStoriesQuery,
 	postBySlugQuery,
+	postSlugsQuery,
 	// postSlugsQuery,
 	// type Settings,
 	// settingsQuery,
@@ -43,6 +44,15 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 			tags: ['post'],
 		})) || ({} as any)
 	)
+}
+
+export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
+	const slugs =
+		(await sanityFetch<string[]>({
+			query: postSlugsQuery,
+			tags: ['post'],
+		})) || []
+	return slugs.map(slug => ({ slug }))
 }
 
 type SanityFetchProps = {

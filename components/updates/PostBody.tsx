@@ -1,14 +1,3 @@
-/**
- * This component uses Portable Text to render a post body.
- *
- * You can learn more about Portable Text on:
- * https://www.sanity.io/docs/block-content
- * https://github.com/portabletext/react-portabletext
- * https://portabletext.org/
- *
- */
-// import { PortableText, type PortableTextReactComponents } from 'next-sanity'
-
 import { PortableText, type PortableTextReactComponents } from '@portabletext/react'
 
 import styles from './PostBody.module.css'

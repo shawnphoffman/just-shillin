@@ -1,17 +1,7 @@
-import PostBody from '@/components/updates/PostBody'
-import {
-	getPostBySlug,
-	// sanityFetch
-} from '@/utils/sanity/sanity.client'
-// import { postsListQuery } from '@/utils/sanity/sanity.queries'
+import { notFound } from 'next/navigation'
 
-// type Post = {
-// 	_id: string
-// 	title?: string
-// 	slug?: {
-// 		current: string
-// 	}
-// }
+import PostBody from '@/components/updates/PostBody'
+import { getAllPostsSlugs, getPostBySlug } from '@/utils/sanity/sanity.client'
 
 export default async function PostPage({ params }: { params: { slug: string } }) {
 	const post = await getPostBySlug(params.slug)
@@ -19,8 +9,7 @@ export default async function PostPage({ params }: { params: { slug: string } })
 	// console.log(post)
 
 	if (!post) {
-		// TODO
-		return <div>Post not found</div>
+		return notFound()
 	}
 
 	const { title } = post
@@ -37,15 +26,9 @@ export default async function PostPage({ params }: { params: { slug: string } })
 				<code>{JSON.stringify(post, null, 2)}</code>
 			</pre>
 		</>
-		// <ul>
-		// 	{posts.map(post => {
-		// 		if (!post?.slug) return null
-		// 		return (
-		// 			<li key={post._id}>
-		// 				<a href={`/updates/${post?.slug}`}>{post?.title}</a>
-		// 			</li>
-		// 		)
-		// 	})}
-		// </ul>
 	)
+}
+
+export async function generateStaticParams() {
+	return await getAllPostsSlugs()
 }

@@ -33,9 +33,9 @@ export const postsListQuery = groq`
 //   }
 // }`
 
-// export const postSlugsQuery = groq`
-// *[_type == "post" && defined(slug.current)][].slug.current
-// `
+export const postSlugsQuery = groq`
+*[_type == "post" && defined(slug.current)][].slug.current
+`
 
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
