@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { urlForSanityImage } from '@/utils/sanity/sanity.utils'
+import { urlForSanityImage } from '@/sanity/sanity.image'
 
 interface CoverImageProps {
 	title: string
@@ -10,7 +10,7 @@ interface CoverImageProps {
 	priority?: boolean
 }
 
-export default function CoverImage(props: CoverImageProps) {
+export default function PostCoverImage(props: CoverImageProps) {
 	const { title, slug, image: source, priority } = props
 
 	if (!source) return null

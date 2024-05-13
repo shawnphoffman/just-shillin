@@ -1,11 +1,11 @@
 import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 
-import AuthorAvatar from '@/components/updates/AuthorAvatar'
-import CoverImage from '@/components/updates/CoverImage'
+import PostAuthor from '@/components/updates/PostAuthor'
 import PostBody from '@/components/updates/PostBody'
+import PostCoverImage from '@/components/updates/PostCoverImage'
 import PostTitle from '@/components/updates/PostTitle'
-import { getAllPostsSlugs, getPostBySlug } from '@/utils/sanity/sanity.client'
+import { getAllPostsSlugs, getPostBySlug } from '@/sanity/sanity.requests'
 
 type PageProps = {
 	params: {
@@ -28,9 +28,9 @@ export default async function PostPage({ params }: PageProps) {
 		<div className="flex flex-col justify-center items-center gap-4">
 			<PostTitle>{title}</PostTitle>
 
-			<AuthorAvatar name={post.author?.name} image={post.author?.image} />
+			<PostAuthor name={post.author?.name} image={post.author?.image} />
 
-			<CoverImage title={title} image={mainImage} priority />
+			<PostCoverImage title={title} image={mainImage} priority />
 
 			<article className="text-left w-full bg-zinc-950/90 rounded-lg">
 				<PostBody content={body} />

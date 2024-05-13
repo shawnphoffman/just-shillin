@@ -3,10 +3,6 @@
 	--bg: #000;
 	--white: #fff;
 
-	/* --js1: #00c875; */
-	/* --js3: #ffee00; */
-	/* --js4: hsl(180, 100%, 7%); */
-
 	--js1: #ffee00;
 	--js2: #be2413;
 	--js3: #47c8ff;
@@ -14,36 +10,14 @@
 }
 
 /* DEFAULTS */
-* {
-	box-sizing: border-box;
-}
 html {
 	@apply bg-black;
-	/* background-size: 400% 400%; */
-	/* background: linear-gradient(180deg, var(--bg), var(--js4)); */
-	/* animation: gradient 15s ease infinite; */
 }
-/* @keyframes gradient {
-	0% {
-		background-position: 50% 0%;
-	}
-	50% {
-		background-position: 51% 100%;
-	}
-	100% {
-		background-position: 50% 0%;
-	}
-} */
 
 html body {
+	@apply p-0 m-0 text-white overflow-hidden h-full;
 	font-size: 16px;
-	padding: 0;
-	margin: 0;
 	width: 100vw;
-	box-sizing: border-box;
-	color: var(--white);
-	height: 100%;
-	overflow: hidden;
 }
 
 a {
@@ -171,7 +145,7 @@ a:not(.wow):hover {
 }
 
 .loading {
-	color: var(--white);
+	@apply text-white;
 	animation: fa-beat-fade 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 

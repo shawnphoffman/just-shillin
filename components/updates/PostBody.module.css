@@ -52,14 +52,21 @@
 	/* ================== */
 	/* LISTS */
 	/* ================== */
-	ul {
-		@apply space-y-1 text-zinc-100 list-disc list-inside;
+	ul,
+	ol {
+		@apply space-y-1 text-zinc-100  list-inside;
 	}
-}
+	ul {
+		@apply list-disc;
+	}
+	ol {
+		@apply list-decimal;
+	}
 
-.portableText a {
-	@apply text-blue-500 underline;
-}
-.portableText a:hover {
-	@apply text-blue-800;
+	/* ================== */
+	/* LINKS */
+	/* ================== */
+	a {
+		@apply text-sky-500;
+	}
 }

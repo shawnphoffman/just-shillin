@@ -8,7 +8,7 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
 
-import { apiVersion, dataset, projectId } from './sanity/env'
+import { apiVersion, dataset, projectId } from './sanity/sanity.env'
 import { schema } from './sanity/schema'
 
 // https://www.sanity.io/docs/config-api-reference

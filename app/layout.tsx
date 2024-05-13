@@ -2,16 +2,19 @@ import '@/app/global.css'
 
 import { GeistSans } from 'geist/font/sans'
 
+const title = `Just Shillin' Podcast`
+const description =
+	'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome'
+const url = 'https://justshillin.com'
+
 export const metadata = {
-	title: `Just Shillin' Podcast`,
-	description:
-		'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
-	metadataBase: 'https://justshillin.com',
+	title,
+	description,
+	metadataBase: url,
 	openGraph: {
-		title: `Just Shillin' Podcast`,
-		description:
-			'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome',
-		url: 'https://justshillin.com',
+		title,
+		description,
+		url: url,
 		locale: 'en_US',
 		type: 'website',
 	},

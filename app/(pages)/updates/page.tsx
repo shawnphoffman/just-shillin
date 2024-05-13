@@ -1,16 +1,12 @@
 import Image from 'next/image'
 
-import AuthorAvatar from '@/components/updates/AuthorAvatar'
+import PostAuthor from '@/components/updates/PostAuthor'
 import PostDate from '@/components/updates/PostDate'
-import { sanityFetch } from '@/utils/sanity/sanity.client'
-import { Post, postsListQuery } from '@/utils/sanity/sanity.queries'
-import { urlForSanityImage } from '@/utils/sanity/sanity.utils'
+import { urlForSanityImage } from '@/sanity/sanity.image'
+import { getAllPosts } from '@/sanity/sanity.requests'
 
 export default async function UpdatesPage() {
-	const posts = await sanityFetch<Post[]>({
-		query: postsListQuery,
-		tags: ['post'],
-	})
+	const posts = await getAllPosts()
 
 	return (
 		<div className="flex flex-col justify-center w-full divide-y">
@@ -36,7 +32,7 @@ export default async function UpdatesPage() {
 								<PostDate dateString={post.publishedAt} />
 							</div>
 						</div>
-						<AuthorAvatar name={post?.author?.name} image={post?.author?.image} />
+						<PostAuthor name={post?.author?.name} image={post?.author?.image} />
 					</a>
 				)
 			})}
