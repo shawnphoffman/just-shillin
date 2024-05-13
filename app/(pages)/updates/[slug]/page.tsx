@@ -45,6 +45,6 @@ export default async function PostPage({ params }: PageProps) {
 
 export async function generateStaticParams() {
 	const slugs = await getAllPostsSlugs()
-	console.log(slugs)
+	// console.log(slugs)
 	return slugs
 }

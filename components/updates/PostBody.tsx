@@ -11,7 +11,6 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 			return <SanityImage {...value} />
 		},
 		youtube: ({ value }) => {
-			console.log('value', value)
 			const { url } = value
 			const match = url.match(/[?&]v=([^&]+)/)
 			const videoId = match ? match[1] : null
