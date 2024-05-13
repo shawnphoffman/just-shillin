@@ -34,7 +34,7 @@ export default async function PostPage({ params }: PageProps) {
 			<article style={{ textAlign: 'left', width: '100%' }}>
 				<PostBody content={body} />
 			</article>
-			{process.env.VERCEL_ENV !== 'production' && (
+			{!process.env.VERCEL_URL && (
 				<pre style={{ textAlign: 'left', fontSize: 10 }}>
 					<code>{JSON.stringify({ ...post, body: undefined }, null, 2)}</code>
 				</pre>

@@ -4,21 +4,11 @@ import { Post, postsListQuery } from '@/utils/sanity/sanity.queries'
 
 import styles from './page.module.css'
 
-// type Post = {
-// 	_id: string
-// 	title?: string
-// 	slug?: {
-// 		current: string
-// 	}
-// }
-
 export default async function UpdatesPage() {
 	const posts = await sanityFetch<Post[]>({
 		query: postsListQuery,
 		tags: ['post'],
 	})
-
-	// console.log(posts)
 
 	return (
 		<div className={styles.listContainer}>
