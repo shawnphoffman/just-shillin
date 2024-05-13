@@ -1,8 +1,8 @@
-import styles from './page.module.css'
-
 import AuthorAvatar from '@/components/updates/AuthorAvatar'
 import { sanityFetch } from '@/utils/sanity/sanity.client'
 import { Post, postsListQuery } from '@/utils/sanity/sanity.queries'
+
+import styles from './page.module.css'
 
 // type Post = {
 // 	_id: string
