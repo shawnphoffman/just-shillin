@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 
+import AuthorAvatar from '@/components/updates/AuthorAvatar'
 import PostBody from '@/components/updates/PostBody'
 import { getAllPostsSlugs, getPostBySlug } from '@/utils/sanity/sanity.client'
 
@@ -22,14 +23,21 @@ export default async function PostPage({ params }: PageProps) {
 
 	return (
 		<>
-			<h1>{title}</h1>
+			<div>
+				<h1>{title}</h1>
+			</div>
+
+			<div>
+				<AuthorAvatar name={post.author?.name} image={post.author?.image} />
+			</div>
+
 			<article style={{ textAlign: 'left', width: '100%' }}>
 				<PostBody content={body} />
 			</article>
 
 			<hr />
 			<pre style={{ textAlign: 'left', fontSize: 10 }}>
-				<code>{JSON.stringify(post, null, 2)}</code>
+				<code>{JSON.stringify({ ...post, body: undefined }, null, 2)}</code>
 			</pre>
 		</>
 	)
