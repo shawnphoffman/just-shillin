@@ -24,14 +24,14 @@ export default async function PostPage({ params }: PageProps) {
 	const { title, body = {}, mainImage, slug } = post
 
 	return (
-		<>
+		<div className="flex flex-col justify-center items-center">
 			<PostTitle>{title}</PostTitle>
 
 			<AuthorAvatar name={post.author?.name} image={post.author?.image} />
 
 			<CoverImage title={title} image={mainImage} priority />
 
-			<article className="text-left w-full">
+			<article className="text-left w-full bg-zinc-950/85 rounded-lg">
 				<PostBody content={body} />
 			</article>
 
@@ -41,7 +41,7 @@ export default async function PostPage({ params }: PageProps) {
 					<code>{JSON.stringify({ ...post, body: undefined }, null, 2)}</code>
 				</pre>
 			)}
-		</>
+		</div>
 	)
 }
 
