@@ -27,13 +27,13 @@ export default defineConfig({
 	schema,
 	plugins: [
 		structureTool(),
-		...(process.env.VERCEL_URL
-			? []
-			: [
+		...(process.env.VERCEL_ENV !== 'production'
+			? [
 					// Vision is a tool that lets you query your content with GROQ in the studio
 					// https://www.sanity.io/docs/the-vision-plugin
 					visionTool({ defaultApiVersion: apiVersion }),
 					media(),
-				]),
+				]
+			: []),
 	],
 })
