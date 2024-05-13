@@ -51,8 +51,8 @@ export interface Author {
 
 export interface Post {
 	_id: string
-	title?: string
-	coverImage?: any
+	title: string
+	mainImage?: any
 	date?: string
 	_updatedAt?: string
 	excerpt?: string

@@ -1,3 +1,4 @@
+/* BASELINE */
 .portableText {
 	@apply text-lg leading-relaxed;
 }
@@ -11,7 +12,7 @@
 
 .portableText {
 	/* ================== */
-	/* Headings */
+	/* HEADINGS */
 	/* ================== */
 	h1,
 	h2,
@@ -42,12 +43,15 @@
 	}
 
 	/* ================== */
-	/* xxx */
+	/* TEXT */
 	/* ================== */
 	blockquote {
 		@apply p-4 my-4 border-s-4 border-sky-500 bg-gray-900/75 text-xl italic font-medium leading-relaxed text-white;
 	}
 
+	/* ================== */
+	/* LISTS */
+	/* ================== */
 	ul {
 		@apply space-y-1 text-gray-100 list-disc list-inside;
 	}

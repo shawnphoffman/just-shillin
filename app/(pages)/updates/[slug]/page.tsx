@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation'
 
 import AuthorAvatar from '@/components/updates/AuthorAvatar'
+import CoverImage from '@/components/updates/CoverImage'
 import PostBody from '@/components/updates/PostBody'
+import PostTitle from '@/components/updates/PostTitle'
 import { getAllPostsSlugs, getPostBySlug } from '@/utils/sanity/sanity.client'
 
 type PageProps = {
@@ -19,23 +21,23 @@ export default async function PostPage({ params }: PageProps) {
 		return notFound()
 	}
 
-	const { title, body = {} } = post
+	const { title, body = {}, mainImage, slug } = post
 
 	return (
 		<>
-			<div>
-				<h1>{title}</h1>
-			</div>
+			<PostTitle>{title}</PostTitle>
 
-			<div>
-				<AuthorAvatar name={post.author?.name} image={post.author?.image} />
-			</div>
+			<AuthorAvatar name={post.author?.name} image={post.author?.image} />
 
-			<article style={{ textAlign: 'left', width: '100%' }}>
+			<CoverImage title={title} image={mainImage} priority />
+
+			<article className="text-left w-full">
 				<PostBody content={body} />
 			</article>
+
 			{!process.env.VERCEL_URL && (
-				<pre style={{ textAlign: 'left', fontSize: 10 }}>
+				// <pre style={{ textAlign: 'left', fontSize: 10 }}>
+				<pre className="text-left text-xs text-green-500">
 					<code>{JSON.stringify({ ...post, body: undefined }, null, 2)}</code>
 				</pre>
 			)}

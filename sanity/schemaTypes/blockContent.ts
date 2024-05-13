@@ -25,7 +25,7 @@ export default defineType({
 			// use your content.
 			styles: [
 				{ title: 'Normal', value: 'normal' },
-				{ title: 'Heading 1', value: 'h1' },
+				// { title: 'Heading 1', value: 'h1' },
 				{ title: 'Heading 2', value: 'h2' },
 				{ title: 'Heading 3', value: 'h3' },
 				{ title: 'Heading 4', value: 'h4' },
@@ -69,6 +69,12 @@ export default defineType({
 					name: 'alt',
 					type: 'string',
 					title: 'Alternative Text',
+				},
+				{
+					name: 'caption',
+					type: 'string',
+					title: 'Image caption',
+					description: 'Caption displayed below the image.',
 				},
 			],
 		}),

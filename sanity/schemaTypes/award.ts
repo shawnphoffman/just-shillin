@@ -1,8 +1,10 @@
+import { ConfettiIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'award',
 	title: 'Award',
+	icon: ConfettiIcon,
 	type: 'document',
 	fields: [
 		defineField({

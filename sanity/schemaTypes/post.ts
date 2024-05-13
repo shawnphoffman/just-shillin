@@ -1,8 +1,10 @@
+import { DocumentTextIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
 	name: 'post',
 	title: 'Post',
+	icon: DocumentTextIcon,
 	type: 'document',
 	//
 	fields: [
@@ -10,6 +12,7 @@ export default defineType({
 			name: 'title',
 			title: 'Title',
 			type: 'string',
+			validation: rule => rule.required(),
 		}),
 		defineField({
 			name: 'slug',
@@ -18,7 +21,9 @@ export default defineType({
 			options: {
 				source: 'title',
 				maxLength: 96,
+				isUnique: (value, context) => context.defaultIsUnique(value, context),
 			},
+			validation: rule => rule.required(),
 		}),
 		defineField({
 			name: 'author',
@@ -49,16 +54,21 @@ export default defineType({
 			// validation: (Rule) => Rule.required(),
 		}),
 		defineField({
+			name: 'body',
+			title: 'Body',
+			type: 'blockContent',
+		}),
+		defineField({
 			name: 'publishedAt',
 			title: 'Published at',
 			type: 'datetime',
 			initialValue: () => new Date().toISOString(),
 		}),
-		defineField({
-			name: 'body',
-			title: 'Body',
-			type: 'blockContent',
-		}),
+		// defineField({
+		//   name: 'excerpt',
+		//   title: 'Excerpt',
+		//   type: 'text',
+		// }),
 	],
 	//
 	preview: {
