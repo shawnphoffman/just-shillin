@@ -1,25 +1,61 @@
 .portableText {
-  @apply text-lg leading-relaxed;
+	@apply text-lg leading-relaxed;
 }
 
 .portableText p,
 .portableText ul,
 .portableText ol,
 .portableText blockquote {
-  @apply my-6;
+	@apply my-6;
 }
 
-.portableText h2 {
-  @apply mb-4 mt-12 text-3xl leading-snug;
-}
+.portableText {
+	/* ================== */
+	/* Headings */
+	/* ================== */
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply mb-4 leading-snug font-bold;
+	}
+	h1 {
+		@apply mt-12 text-4xl;
+		@apply md:text-5xl;
+		&:first-child {
+			@apply mt-0;
+		}
+	}
+	h2 {
+		@apply mt-10 text-3xl;
+		@apply md:text-4xl;
+	}
+	h3 {
+		@apply mt-8 text-2xl;
+		@apply md:text-3xl;
+	}
+	h4 {
+		@apply mt-6 text-xl;
+		@apply md:text-2xl;
+	}
 
-.portableText h3 {
-  @apply mb-4 mt-8 text-2xl leading-snug;
+	/* ================== */
+	/* xxx */
+	/* ================== */
+	blockquote {
+		@apply p-4 my-4 border-s-4 border-sky-500 bg-gray-900/75 text-xl italic font-medium leading-relaxed text-white;
+	}
+
+	ul {
+		@apply space-y-1 text-gray-100 list-disc list-inside;
+	}
 }
 
 .portableText a {
-  @apply text-blue-500 underline;
+	@apply text-blue-500 underline;
 }
 .portableText a:hover {
-  @apply text-blue-800;
+	@apply text-blue-800;
 }
