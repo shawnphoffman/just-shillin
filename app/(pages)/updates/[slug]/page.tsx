@@ -1,3 +1,4 @@
+import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import AuthorAvatar from '@/components/updates/AuthorAvatar'
@@ -24,29 +25,30 @@ export default async function PostPage({ params }: PageProps) {
 	const { title, body = {}, mainImage, slug } = post
 
 	return (
-		<div className="flex flex-col justify-center items-center">
+		<div className="flex flex-col justify-center items-center gap-4">
 			<PostTitle>{title}</PostTitle>
 
 			<AuthorAvatar name={post.author?.name} image={post.author?.image} />
 
 			<CoverImage title={title} image={mainImage} priority />
 
-			<article className="text-left w-full bg-zinc-950/85 rounded-lg">
+			<article className="text-left w-full bg-zinc-950/90 rounded-lg">
 				<PostBody content={body} />
 			</article>
-
-			{!process.env.VERCEL_URL && (
-				// <pre style={{ textAlign: 'left', fontSize: 10 }}>
-				<pre className="text-left text-xs text-green-500">
-					<code>{JSON.stringify({ ...post, body: undefined }, null, 2)}</code>
-				</pre>
-			)}
 		</div>
 	)
 }
 
 export async function generateStaticParams() {
 	const slugs = await getAllPostsSlugs()
-	// console.log(slugs)
 	return slugs
+}
+
+export async function generateMetadata({ params }: PageProps, parent: ResolvingMetadata): Promise<Metadata> {
+	const post = await getPostBySlug(params?.slug || '')
+	if (!post) return {}
+	return {
+		title: `${post.title} | Just Shillin'`,
+		description: post.excerpt,
+	}
 }

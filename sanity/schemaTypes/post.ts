@@ -49,6 +49,7 @@ export default defineType({
 		defineField({
 			name: 'categories',
 			title: 'Categories',
+			description: 'What podcasts is this relevant to? If one is not selected, the post will not be visible in the feeds.',
 			type: 'array',
 			of: [{ type: 'reference', to: { type: 'category' } }],
 			// validation: (Rule) => Rule.required(),

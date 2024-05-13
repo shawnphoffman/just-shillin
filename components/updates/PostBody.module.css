@@ -46,14 +46,14 @@
 	/* TEXT */
 	/* ================== */
 	blockquote {
-		@apply p-4 my-4 border-s-4 border-sky-500 bg-gray-900/75 text-xl italic font-medium leading-relaxed text-white;
+		@apply p-4 my-4 border-s-4 border-sky-500 bg-zinc-900/75 text-xl italic font-medium leading-relaxed text-white;
 	}
 
 	/* ================== */
 	/* LISTS */
 	/* ================== */
 	ul {
-		@apply space-y-1 text-gray-100 list-disc list-inside;
+		@apply space-y-1 text-zinc-100 list-disc list-inside;
 	}
 }
 

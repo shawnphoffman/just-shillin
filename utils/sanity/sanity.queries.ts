@@ -51,16 +51,14 @@ export interface Author {
 
 export interface Post {
 	_id: string
-	title: string
-	mainImage?: any
-	date?: string
 	_updatedAt?: string
-	excerpt?: string
+	title: string
+	slug: string
+	mainImage?: any
+	publishedAt: string
 	author?: Author
-	slug?: string
-	// TODO
-	content?: any
 	body?: any
+	excerpt?: string
 }
 
 export interface Settings {
