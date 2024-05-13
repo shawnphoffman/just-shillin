@@ -7,7 +7,7 @@
 }
 .link:hover {
 	color: var(--js3);
-	background-image: url('../public/squiggle.svg');
+	background-image: url('../../public/squiggle.svg');
 	background-position: 0 100%;
 	background-size: auto 36px;
 	background-repeat: repeat;

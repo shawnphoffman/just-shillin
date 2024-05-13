@@ -1,10 +1,10 @@
 import { Suspense } from 'react'
 
-import LinkCard from '@/components/LinkCard'
-import Loading from '@/components/Loading'
-import RatingsApple from '@/components/RatingsApple'
-import RatingsSpotify from '@/components/RatingsSpotify'
-import Reviews from '@/components/Reviews'
+import LinkCard from '@/components/core/LinkCard'
+import Loading from '@/components/core/Loading'
+import RatingsApple from '@/components/core/RatingsApple'
+import RatingsSpotify from '@/components/core/RatingsSpotify'
+import Reviews from '@/components/core/Reviews'
 
 import items from './links'
 

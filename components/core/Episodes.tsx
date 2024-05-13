@@ -3,9 +3,9 @@
 import { memo, startTransition, Suspense, useCallback, useDeferredValue, useMemo, useState } from 'react'
 import Fuse from 'fuse.js'
 
-import Episode from '@/components/Episode'
-import styles from '@/components/Episodes.module.css'
-import Loading from '@/components/Loading'
+import Episode from '@/components/core/Episode'
+import styles from '@/components/core/Episodes.module.css'
+import Loading from '@/components/core/Loading'
 
 const fuseOptions = {
 	includeScore: true,

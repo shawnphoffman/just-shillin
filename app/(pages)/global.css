@@ -105,31 +105,12 @@ a:not(.wow):hover {
 	margin: 1rem;
 }
 
-.headerLogo {
-	height: auto;
-	width: auto;
-}
-
-.iframe {
-	width: 100%;
-	max-width: 660px;
-	border: none;
-}
-
 .episodesContainer {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	max-width: 720px;
 	width: 100%;
-}
-
-.navContainer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 16px;
 }
 
 .ratingsWrapper {

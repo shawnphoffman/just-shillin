@@ -4,7 +4,7 @@ export default function ListenNow() {
 	return (
 		<div className="pageDescription">
 			<iframe
-				className="iframe"
+				className="mx-auto w-full border-none max-w-2xl"
 				src="https://open.spotify.com/embed/show/0BM9MOB6jdirna5f1vNcMe?utm_source=generator&t=0"
 				width="100%"
 				height="352"

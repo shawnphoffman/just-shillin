@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 
 import { getEpisodes } from '@/app/actions'
-import Loading from '@/components/Loading'
+import Loading from '@/components/core/Loading'
 
 import styles from './page.module.css'
 

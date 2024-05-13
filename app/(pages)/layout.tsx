@@ -4,10 +4,9 @@ import '@shawnphoffman/pod-sites-common/index.css'
 
 import Image from 'next/image'
 
-// import titleSvg from '@/app/title.svg'
 import headerImage from '@/app/title.png'
-import ActiveLink from '@/components/ActiveLink'
-import StarBackground from '@/components/StarBackground'
+import ActiveLink from '@/components/core/ActiveLink'
+import StarBackground from '@/components/core/StarBackground'
 
 export default function PageLayout({ children }) {
 	return (
@@ -17,15 +16,14 @@ export default function PageLayout({ children }) {
 				<div className="wrapper">
 					<div className="page">
 						<div className="header">
-							{/* <Image className="headerLogo" alt="Just Shillin'" src={titleLogo} width={292} height={139} priority /> */}
-							<Image className="headerLogo" alt="Just Shillin'" src={headerImage} width={300} height={300} priority />
-							{/* <Image src={titleSvg} alt="Just Shillin'" priority unoptimized className="headerLogo" /> */}
-							<div className="navContainer">
+							{/* IMAGE */}
+							<Image className="w-52 lg:w-72" alt="Just Shillin'" src={headerImage} width={300} height={300} priority />
+							{/* NAV */}
+							<div className="flex flex-row justify-center gap-4 flex-wrap">
 								<ActiveLink href="/" label="Links" />
+								{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/updates" label="Updates" />}
 								<ActiveLink href="/episodes" label="Episodes" />
 								<ActiveLink href="/listen-now" label="Listen Now" />
-								{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/updates" label="Updates" />}
-								{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/admin" label="Admin" style={{ color: 'var(--js2)' }} />}
 							</div>
 						</div>
 						<div className="pageDetails">{children}</div>
