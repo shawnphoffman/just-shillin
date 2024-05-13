@@ -1,5 +1,7 @@
 import { PortableText, type PortableTextReactComponents } from '@portabletext/react'
 
+import YoutubeLazyRender from '../sanity/YoutubeLazyRender'
+
 import styles from './PostBody.module.css'
 import { SanityImage } from './SanityImage'
 
@@ -7,6 +9,13 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 	types: {
 		image: ({ value }) => {
 			return <SanityImage {...value} />
+		},
+		youtube: ({ value }) => {
+			console.log('value', value)
+			const { url } = value
+			const match = url.match(/[?&]v=([^&]+)/)
+			const videoId = match ? match[1] : null
+			return <YoutubeLazyRender videoId={videoId} />
 		},
 	},
 }
