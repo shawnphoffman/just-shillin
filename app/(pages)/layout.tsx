@@ -1,4 +1,4 @@
-import '@/app/(pages)/global.css'
+import '@/app/(pages)/pages.css'
 import '@/app/(pages)/stars.css'
 import '@shawnphoffman/pod-sites-common/index.css'
 
