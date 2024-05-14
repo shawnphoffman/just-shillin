@@ -27,9 +27,9 @@ export default defineConfig({
 	schema,
 	plugins: [
 		structureTool(),
-		...(process.env.VERCEL_ENV === 'production'
+		...(!!process.env.VERCEL_URL
 			? [
-					// PREVIEW
+					// PRODUCTION
 				]
 			: [
 					// PREVIEW
