@@ -13,8 +13,14 @@ const postFields = groq`
 	"categories": categories[]->title,
 `
 
-export const postsListQuery = groq`
+export const postsListQuery =
+	process.env.VERCEL_ENV === 'production'
+		? groq`
 *[_type == "post" && "Just Shillin'" in categories[]->.title] | order(date desc, publishedAt desc) {
+  ${postFields}
+}`
+		: groq`
+*[_type == "post"] | order(date desc, publishedAt desc) {
   ${postFields}
 }`
 
