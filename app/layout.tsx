@@ -8,12 +8,19 @@ const description =
 const url = 'https://justshillin.com'
 
 export const metadata = {
-	title,
+	title: {
+		template: `%s | ${title}`,
+		default: title,
+	},
 	description,
 	metadataBase: url,
 	openGraph: {
-		title,
+		title: {
+			template: `%s | ${title}`,
+			default: title,
+		},
 		description,
+		siteName: title,
 		url: url,
 		locale: 'en_US',
 		type: 'website',

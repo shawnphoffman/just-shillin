@@ -18,6 +18,7 @@ export default defineType({
 			name: 'slug',
 			title: 'Slug',
 			type: 'slug',
+			description: 'This is the unique URL path for the post.',
 			options: {
 				source: 'title',
 				maxLength: 96,
@@ -28,12 +29,22 @@ export default defineType({
 		defineField({
 			name: 'author',
 			title: 'Author',
+			description: 'Who wrote this post?',
 			type: 'reference',
 			to: { type: 'author' },
 		}),
 		defineField({
+			name: 'categories',
+			title: 'Podcasts',
+			description: 'What podcasts is this relevant to? If one is not selected, the post will not be visible in the feeds.',
+			type: 'array',
+			of: [{ type: 'reference', to: { type: 'category' } }],
+			// validation: (Rule) => Rule.required(),
+		}),
+		defineField({
 			name: 'mainImage',
 			title: 'Main image',
+			description: 'This is the main image of the post.',
 			type: 'image',
 			options: {
 				hotspot: true,
@@ -47,29 +58,27 @@ export default defineType({
 			],
 		}),
 		defineField({
-			name: 'categories',
-			title: 'Categories',
-			description: 'What podcasts is this relevant to? If one is not selected, the post will not be visible in the feeds.',
-			type: 'array',
-			of: [{ type: 'reference', to: { type: 'category' } }],
-			// validation: (Rule) => Rule.required(),
+			name: 'excerpt',
+			title: 'Excerpt',
+			description: 'This ends up on summary pages, on Google, when shared on social media, etc.',
+			type: 'text',
+			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: 'body',
 			title: 'Body',
+			description: 'This is the main content of the post.',
 			type: 'blockContent',
+			validation: Rule => Rule.required(),
 		}),
 		defineField({
 			name: 'publishedAt',
 			title: 'Published at',
+			description: 'This controls the order of posts in the feed.',
 			type: 'datetime',
 			initialValue: () => new Date().toISOString(),
+			validation: Rule => Rule.required(),
 		}),
-		// defineField({
-		//   name: 'excerpt',
-		//   title: 'Excerpt',
-		//   type: 'text',
-		// }),
 	],
 	//
 	preview: {

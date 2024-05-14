@@ -10,9 +10,9 @@ export interface Post {
 	slug: string
 	mainImage?: any
 	publishedAt: string
-	author?: Author
-	body?: any
-	excerpt?: string
+	author: Author
+	body: any
+	excerpt: string
 }
 
 export interface Settings {

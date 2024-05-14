@@ -47,8 +47,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps, parent: ResolvingMetadata): Promise<Metadata> {
 	const post = await getPostBySlug(params?.slug || '')
 	if (!post) return {}
+	// const title = `${post.title} | Just Shillin'`
 	return {
-		title: `${post.title} | Just Shillin'`,
-		description: post.excerpt || '',
+		title: post.title,
+		description: post.excerpt,
+		openGraph: {
+			title: post.title,
+			description: post.excerpt,
+			url: `/updates/${post.slug}`,
+			type: 'article',
+			publishedTime: post.publishedAt,
+			authors: [post.author.name!],
+		},
 	}
 }
