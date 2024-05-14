@@ -7,4 +7,5 @@ export default createClient({
 	dataset,
 	projectId,
 	useCdn,
+	perspective: 'published',
 })

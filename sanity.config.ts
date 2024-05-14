@@ -6,6 +6,7 @@ import { RocketIcon } from '@sanity/icons'
 import { visionTool } from '@sanity/vision'
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
+// import { giphyAssetSourcePlugin } from 'sanity-plugin-asset-source-giphy'
 import { media } from 'sanity-plugin-media'
 
 import { apiVersion, dataset, projectId } from './sanity/sanity.env'
@@ -27,14 +28,10 @@ export default defineConfig({
 	schema,
 	plugins: [
 		structureTool(),
-		...(!!process.env.VERCEL_URL
-			? [
-					// PRODUCTION
-				]
-			: [
-					// PREVIEW
-					visionTool({ defaultApiVersion: apiVersion }),
-					media(),
-				]),
+		visionTool({ defaultApiVersion: apiVersion }),
+		media(),
+		// giphyAssetSourcePlugin({
+		// 	apiKey: giphyKey,
+		// }),
 	],
 })
