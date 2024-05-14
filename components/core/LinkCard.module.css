@@ -3,7 +3,7 @@
 	flex: 1 1 250px;
 	max-width: 350px;
 	transition: all 150ms linear;
-	border-radius: 3rem;
+	border-radius: 1rem;
 	height: 3.25rem;
 	display: flex;
 	justify-content: center;
@@ -13,9 +13,9 @@
 	padding-bottom: 0;
 	animation: 0.5s fadeInUp;
 
-	border: 0.25rem solid transparent;
-	background-origin: border-box;
-	background-clip: content-box, border-box;
+	/* border: 0.25rem solid transparent; */
+	/* background-origin: border-box; */
+	/* background-clip: content-box, border-box; */
 }
 .container:hover {
 	transform: scale(1.05) skewY(0deg);
