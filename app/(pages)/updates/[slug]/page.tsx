@@ -25,14 +25,14 @@ export default async function PostPage({ params }: PageProps) {
 	const { title, body = {}, mainImage, slug } = post
 
 	return (
-		<div className="flex flex-col justify-center items-center gap-4">
+		<div className="flex flex-col items-center justify-center gap-4">
 			<PostTitle>{title}</PostTitle>
 
 			<PostAuthor name={post.author?.name} image={post.author?.image} />
 
 			<PostCoverImage title={title} image={mainImage} priority />
 
-			<article className="text-left w-full bg-zinc-950/90 rounded-lg">
+			<article className="w-full text-left rounded-lg bg-zinc-950/90">
 				<PostBody content={body} />
 			</article>
 		</div>
@@ -49,6 +49,6 @@ export async function generateMetadata({ params }: PageProps, parent: ResolvingM
 	if (!post) return {}
 	return {
 		title: `${post.title} | Just Shillin'`,
-		description: post.excerpt,
+		description: post.excerpt || '',
 	}
 }
