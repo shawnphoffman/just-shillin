@@ -21,7 +21,7 @@ export default function PageLayout({ children }) {
 							{/* NAV */}
 							<div className="flex flex-row justify-center gap-4 flex-wrap">
 								<ActiveLink href="/" label="Links" />
-								{process.env.VERCEL_ENV !== 'production' && <ActiveLink href="/updates" label="Updates" />}
+								<ActiveLink href="/updates" label="Updates" />
 								<ActiveLink href="/episodes" label="Episodes" />
 								<ActiveLink href="/listen-now" label="Listen Now" />
 							</div>
