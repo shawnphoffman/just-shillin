@@ -11,9 +11,9 @@ module.exports = {
 		domains: ['cdn.sanity.io'],
 	},
 	// This is sanity-related
-	logging: {
-		fetches: {
-			fullUrl: true,
-		},
-	},
+	// logging: {
+	// 	fetches: {
+	// 		fullUrl: true,
+	// 	},
+	// },
 }
