@@ -3,20 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { getAppleReviews } from '@/app/actions'
 
-import styles from './Ratings.module.css'
-
 export default async function RatingsApple() {
 	const appleData = await getAppleReviews()
-
-	// console.log({ appleData })
 
 	if (!appleData || !appleData.appleRating) return null
 
 	return (
-		<a className={`${styles.container} wow`} href={appleData.appleRatingUrl || ''} target="_blank" rel="noopener noreferrer">
+		<a
+			className="flex flex-row items-center px-2 py-1 text-xs font-bold leading-normal rounded-lg whitespace-nowrap applepodcasts wow"
+			href={appleData.appleRatingUrl || ''}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<div>{appleData.appleRating}</div>
-			{/* <i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden /> */}
-			<FontAwesomeIcon icon={'fa-solid fa-star-sharp' as IconProp} className="text-xs mx-0.5" />
+			<FontAwesomeIcon icon={'fa-solid fa-star-sharp' as IconProp} className="text-[0.65rem] mx-0.5" />
 			<div>on Apple Podcasts</div>
 		</a>
 	)

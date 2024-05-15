@@ -15,7 +15,7 @@ html {
 }
 
 html body {
-	@apply p-0 m-0 text-white overflow-hidden h-full;
+	@apply h-full p-0 m-0 overflow-hidden text-white;
 	font-size: 16px;
 	width: 100vw;
 }
@@ -140,4 +140,14 @@ a:not(.wow):hover {
 		opacity: var(--fa-beat-fade-opacity, 1);
 		transform: scale(1.125);
 	}
+}
+
+/* BRANDS */
+.applepodcasts {
+	background: var(--applepodcasts);
+	@apply text-white;
+}
+.spotify {
+	background: var(--spotify);
+	@apply text-white;
 }

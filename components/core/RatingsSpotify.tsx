@@ -1,18 +1,22 @@
-import { getSpotifyReviews } from '@/app/actions'
+import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import styles from './Ratings.module.css'
+import { getSpotifyReviews } from '@/app/actions'
 
 export default async function RatingsSpotify() {
 	const spotifyData = await getSpotifyReviews()
 
-	// console.log({ spotifyData })
-
 	if (!spotifyData || !spotifyData.rating) return null
 
 	return (
-		<a className={`${styles.container} ${styles.spotify} wow`} href={spotifyData.url || ''} target="_blank" rel="noopener noreferrer">
+		<a
+			className="flex flex-row items-center px-2 py-1 text-xs font-bold leading-normal rounded-lg whitespace-nowrap spotify wow"
+			href={spotifyData.url || ''}
+			target="_blank"
+			rel="noopener noreferrer"
+		>
 			<div>{spotifyData.rating.toFixed(1)}</div>
-			<i className={`fa-solid fa-star-sharp ${styles.star}`} aria-hidden />
+			<FontAwesomeIcon icon={'fa-solid fa-star-sharp' as IconProp} className="text-[0.65rem] mx-0.5" />
 			<div>on Spotify</div>
 		</a>
 	)
