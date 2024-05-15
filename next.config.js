@@ -7,8 +7,11 @@ module.exports = {
 				port: '',
 				pathname: '/image-files/**',
 			},
+			{
+				protocol: 'https',
+				hostname: 'cdn.sanity.io',
+			},
 		],
-		domains: ['cdn.sanity.io'],
 	},
 	// This is sanity-related
 	// logging: {
