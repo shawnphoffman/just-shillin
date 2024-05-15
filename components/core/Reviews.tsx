@@ -1,7 +1,13 @@
 import { getAppleReviews } from '@/app/actions'
 
-import styles from './Reviews.module.css'
 import Stars from './Stars'
+
+type Review = {
+	title: string
+	author: string
+	stars: string
+	text: string
+}
 
 export default async function Reviews() {
 	const { reviews } = await getAppleReviews()
@@ -20,19 +26,21 @@ export default async function Reviews() {
 
 	return (
 		<>
-			<div className={styles.heading}>Recent Reviews</div>
-			{filteredReviews.map(r => (
-				<div className={styles.container} key={r.title}>
-					<div className={styles.header}>
-						<div className={styles.byline}>
-							<div className={styles.title}>{`"${r.title}"`}</div>
-							<div className={styles.author}>{r.author}</div>
+			<div className="mt-4 text-xl font-bold">Recent Reviews</div>
+			<div className="flex flex-col w-full px-2 mb-8 divide-y rounded-lg bg-zinc-950/75 divide-sky-500">
+				{filteredReviews.map((r: Review) => (
+					<div className="flex flex-col justify-start w-full p-2 text-left" key={r.title}>
+						<div className="flex flex-row items-center justify-between">
+							<div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center text-sky-400">
+								<div className="font-bold">{`"${r.title}"`}</div>
+								<div className="text-base italic"> - {r.author}</div>
+							</div>
+							<Stars count={r.stars} />
 						</div>
-						<Stars count={r.stars} />
+						<div className="py-2">{r.text}</div>
 					</div>
-					<div className={styles.text}>{r.text}</div>
-				</div>
-			))}
+				))}
+			</div>
 		</>
 	)
 }

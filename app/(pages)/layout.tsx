@@ -2,8 +2,8 @@ import '@/app/(pages)/pages.css'
 import '@/app/(pages)/stars.css'
 import '@shawnphoffman/pod-sites-common/index.css'
 
-// import { all } from '@awesome.me/kit-d7ccc5bb1a/icons'
-import { faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import { faSpaceStationMoonConstruction, faStar, faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import { faStar as faStarDuo } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 
@@ -11,8 +11,7 @@ import headerImage from '@/app/title.png'
 import ActiveLink from '@/components/core/ActiveLink'
 import StarBackground from '@/components/core/StarBackground'
 
-// library.add(...all)
-library.add(faStarSharp)
+library.add([faStarSharp, faStar, faStarDuo, faSpaceStationMoonConstruction])
 
 export default function PageLayout({ children }) {
 	return (
@@ -33,7 +32,6 @@ export default function PageLayout({ children }) {
 							</div>
 						</div>
 						<div className="pageDetails">{children}</div>
-						{/* <div className="mt-4">{all.length}</div> */}
 					</div>
 				</div>
 			</div>
