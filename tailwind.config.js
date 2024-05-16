@@ -7,7 +7,11 @@ module.exports = {
 		'./utils/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	theme: {
-		extend: {},
+		extend: {
+			backgroundImage: {
+				squiggle: "url('/squiggle.svg')",
+			},
+		},
 	},
 	plugins: [],
 }

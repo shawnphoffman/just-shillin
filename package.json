@@ -17,6 +17,7 @@
 		"@shawnphoffman/pod-sites-common": "^0.0.2",
 		"@vercel/analytics": "^1.2.2",
 		"@vercel/kv": "^1.0.1",
+		"classnames": "^2.5.1",
 		"date-fns": "^3.6.0",
 		"fast-xml-parser": "^4.3.6",
 		"fuse.js": "^6.6.2",
