@@ -26,7 +26,7 @@ export default async function Reviews() {
 
 	return (
 		<>
-			<div className="mt-4 text-xl font-bold">Recent Reviews</div>
+			<div className="text-xl font-bold ">Recent Reviews</div>
 			<div className="flex flex-col w-full px-2 mb-8 divide-y rounded-lg bg-zinc-950/75 divide-sky-500">
 				{filteredReviews.map((r: Review) => (
 					<div className="flex flex-col justify-start w-full p-2 text-left" key={r.title}>

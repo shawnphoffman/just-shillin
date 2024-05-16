@@ -82,7 +82,7 @@ function removeChaptersAndTimestamps(text) {
 	text = text.replace(regex3, '$1')
 
 	const regexFinal = /[\r\n]{3,}/g
-	text = text.replace(regexFinal, '\n')
+	text = text.replace(regexFinal, '\n').replace(/[\r\n]+\s*$/g, '')
 
 	return text
 }

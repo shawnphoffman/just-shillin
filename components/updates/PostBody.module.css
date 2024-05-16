@@ -20,7 +20,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply mb-4 leading-snug font-bold;
+		@apply mb-4 font-bold leading-snug;
 	}
 	h1 {
 		@apply mt-12 text-4xl;
@@ -46,7 +46,7 @@
 	/* TEXT */
 	/* ================== */
 	blockquote {
-		@apply p-4 my-4 border-s-4 border-sky-500 bg-zinc-900/75 text-xl italic font-medium leading-relaxed text-white;
+		@apply p-4 my-4 text-xl italic font-medium leading-relaxed text-white border-s-4 border-sky-500 bg-zinc-900/75;
 	}
 
 	/* ================== */
@@ -54,7 +54,7 @@
 	/* ================== */
 	ul,
 	ol {
-		@apply space-y-1 text-zinc-100  list-inside;
+		@apply space-y-1 list-inside text-zinc-100;
 	}
 	ul {
 		@apply list-disc;
@@ -67,6 +67,6 @@
 	/* LINKS */
 	/* ================== */
 	a {
-		@apply text-sky-500;
+		@apply text-sky-400;
 	}
 }

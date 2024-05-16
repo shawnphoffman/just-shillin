@@ -1,5 +1,4 @@
 import '@/app/(pages)/pages.css'
-import '@/app/(pages)/stars.css'
 
 // BRANDS
 import { faAmazon, faBluesky, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
@@ -54,10 +53,10 @@ export default function PageLayout({ children }) {
 	return (
 		<>
 			<StarBackground />
-			<div className="scroller">
-				<div className="wrapper">
-					<div className="page">
-						<div className="header">
+			<div className="w-full px-2 py-0 mx-auto overflow-scroll h-dvh">
+				<div className="flex flex-col items-center w-full max-w-screen-xl mx-auto">
+					<div className="flex flex-col w-full max-w-4xl min-h-dvh">
+						<div className="flex flex-col items-center m-4 text-center">
 							{/* IMAGE */}
 							<Image className="w-52 lg:w-72" alt="Just Shillin'" src={headerImage} width={300} height={300} priority />
 							{/* NAV */}
@@ -68,7 +67,7 @@ export default function PageLayout({ children }) {
 								<ActiveLink href="/listen-now" label="Listen Now" />
 							</div>
 						</div>
-						<div className="pageDetails">{children}</div>
+						<div className="flex flex-col items-center flex-1 gap-4 text-center">{children}</div>
 					</div>
 				</div>
 			</div>

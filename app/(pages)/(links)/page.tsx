@@ -11,19 +11,17 @@ import items from './links'
 export default async function Home() {
 	return (
 		<>
-			<div className="pageDescription">
+			<div className="w-full max-w-4xl text-base leading-normal sm:text-lg">
 				Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share
 				their love for the things that make life awesome.
 			</div>
-			<div className="ratingsWrapper">
+			<div className="flex flex-row flex-wrap items-center justify-center gap-2">
 				<Suspense fallback={''}>
 					<RatingsApple />
-					{/* </Suspense> */}
-					{/* <Suspense fallback={<Loading />}> */}
 					<RatingsSpotify />
 				</Suspense>
 			</div>
-			<div className="pageRow">
+			<div className="flex flex-row flex-wrap justify-center w-full gap-4">
 				{items.map(item => {
 					return (
 						<LinkCard
@@ -38,7 +36,7 @@ export default async function Home() {
 				})}
 			</div>
 
-			<div className="pageRow">
+			<div className="flex flex-row flex-wrap justify-center w-full">
 				<Suspense fallback={<Loading />}>
 					<Reviews />
 				</Suspense>

@@ -10,7 +10,7 @@ export default function IconsPage() {
 				<FontAwesomeIcon icon={faHouse} fixedWidth />
 				<FontAwesomeIcon icon={faHouse} symbol />
 			</div>
-			<div className="flex flex-row justify-center gap-4 text-3xl text-sky-500">
+			<div className="flex flex-row justify-center gap-4 text-3xl text-sky-400">
 				{/* <FontAwesomeIcon icon={faFoot} fixedWidth /> */}
 				<FontAwesomeIcon icon={faFoot} beatFade />
 				<span className="text-3xl text-lime-500">

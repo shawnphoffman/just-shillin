@@ -9,14 +9,14 @@ const ActiveLink = ({ label, href, ...rest }) => {
 	const isActive = currentRoute === href
 
 	const conditionalClasses = classnames(
-		isActive ? 'underline underline-offset-[6px] decoration-[1px] text-sky-400' : 'text-white hover:bg-squiggle'
+		isActive ? 'underline underline-offset-[6px] decoration-[1px] text-sky-400' : 'text-white hover:bg-squiggle hover:text-yellow-400'
 	)
 
 	return (
 		<Link
 			{...rest}
 			href={href}
-			className={`bg-[length:auto_36px] bg-repeat hover:text-sky-400 bg-bottom font-bold whitespace-nowrap cursor-pointer pb-1 ${conditionalClasses}`}
+			className={`bg-[length:auto_36px] bg-repeat text-lg bg-bottom font-bold whitespace-nowrap cursor-pointer pb-0.5 ${conditionalClasses}`}
 		>
 			{label}
 		</Link>

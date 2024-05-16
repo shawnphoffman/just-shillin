@@ -4,7 +4,6 @@ import { memo, startTransition, Suspense, useCallback, useDeferredValue, useMemo
 import Fuse from 'fuse.js'
 
 import Episode from '@/components/core/Episode'
-import styles from '@/components/core/Episodes.module.css'
 import Loading from '@/components/core/Loading'
 
 const fuseOptions = {
@@ -58,8 +57,17 @@ const Episodes = ({ episodes }) => {
 
 	return (
 		<>
-			<input className={`${styles.input} bubbled`} type="text" placeholder="Search" onChange={handleSearch} />
-			<div className={`${styles.episodesContainer} bubbled`}>
+			<div className="w-full mb-4">
+				<input
+					type="text"
+					id="first_name"
+					className="block w-full px-4 py-2 text-base leading-5 text-white border rounded-lg placeholder-zinc-500 border-zinc-500 bg-zinc-900 focus:border-sky-500 focus-visible:outline-red-800 focus-visible:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-2"
+					placeholder="Search"
+					onChange={handleSearch}
+				/>
+			</div>
+
+			<div className="flex flex-col items-center w-full border-t divide-y divide-sky-500 border-t-sky-500">
 				<Suspense fallback={<Loading />}>
 					<EpisodeList episodes={filtered} />
 				</Suspense>
