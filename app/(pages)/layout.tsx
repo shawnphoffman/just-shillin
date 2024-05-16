@@ -1,6 +1,5 @@
 import '@/app/(pages)/pages.css'
 import '@/app/(pages)/stars.css'
-import '@shawnphoffman/pod-sites-common/index.css'
 
 // BRANDS
 import { faAmazon, faBluesky, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'

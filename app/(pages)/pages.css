@@ -126,36 +126,69 @@ a:not(.wow):hover {
 }
 
 /* BRANDS */
-.applepodcasts {
-	background: var(--applepodcasts);
-	@apply text-white;
+/* .applepodcasts {
+	background: #872ec4;
 }
 .spotify {
-	background: var(--spotify);
-	@apply text-white;
+	background: #16883e;
 }
-
-/**
-	--applepodcasts: #872ec4;
-	--spotify: #16883e;
-	--twitter: #0d7ac4;
-	--teepublic: #374ecd;
-	--overcast: #be5a01;
-	--youtube: #ee0000;
-	--googlepodcasts: #206ff2;
-	--goodpods: #fcdb00;
-	--amazonmusic: #0077c1;
-	--iheart: #c6002b;
-	--pocketcasts: #ea150d;
-	--castbox: #db3c0e;
-	--zencastr: #1474e0;
-	--rss: #ce4a0c;
-	--facebook: #0866ff;
-	--bluesky: #0560ff;
-	--instagram: #c13584;
-	--etsy: #f56400;
-	--radiopublic: #ce262f;
-	--podbean: #5f7e1b;
-	--googlepodcasts: #206ff2;
-	--email: #52565e;
-*/
+.twitter {
+	background: #0d7ac4;
+}
+.teepublic {
+	background: #374ecd;
+}
+.overcast {
+	background: #be5a01;
+}
+.youtube {
+	background: #ee0000;
+}
+.googlepodcasts {
+	background: #206ff2;
+}
+.goodpods {
+	background: #fcdb00;
+}
+.amazonmusic {
+	background: #0077c1;
+}
+.iheart {
+	background: #c6002b;
+}
+.pocketcasts {
+	background: #ea150d;
+}
+.castbox {
+	background: #db3c0e;
+}
+.zencastr {
+	background: #1474e0;
+}
+.rss {
+	background: #ce4a0c;
+}
+.facebook {
+	background: #0866ff;
+}
+.bluesky {
+	background: #0560ff;
+}
+.instagram {
+	background: #c13584;
+}
+.etsy {
+	background: #f56400;
+}
+.radiopublic {
+	background: #ce262f;
+}
+.podbean {
+	background: #5f7e1b;
+}
+.googlepodcasts {
+	background: #206ff2;
+}
+.email {
+	background: #52565e;
+} */
