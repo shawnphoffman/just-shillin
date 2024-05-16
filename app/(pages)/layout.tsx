@@ -2,8 +2,28 @@ import '@/app/(pages)/pages.css'
 import '@/app/(pages)/stars.css'
 import '@shawnphoffman/pod-sites-common/index.css'
 
-import { faSpaceStationMoonConstruction, faStar, faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+// BRANDS
+import { faAmazon, faBluesky, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
+// CLASSIC - SOLID
+import {
+	faAt,
+	faPodcast,
+	faSpaceStationMoonConstruction,
+	faSquareRss,
+	faStar,
+	faStarSharp,
+} from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+// DUO - SOLID
 import { faStar as faStarDuo } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
+// CUSTOM
+import {
+	faGoodpods,
+	faOvercast,
+	faPocketCasts,
+	faRadioPublic,
+	faYoutubeMusic,
+	faZencastr,
+} from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Image from 'next/image'
 
@@ -11,7 +31,25 @@ import headerImage from '@/app/title.png'
 import ActiveLink from '@/components/core/ActiveLink'
 import StarBackground from '@/components/core/StarBackground'
 
-library.add([faStarSharp, faStar, faStarDuo, faSpaceStationMoonConstruction])
+library.add([
+	faStarSharp,
+	faStar,
+	faStarDuo,
+	faSpaceStationMoonConstruction,
+	faAt,
+	faPodcast,
+	faSquareRss,
+	faAmazon,
+	faBluesky,
+	faSpotify,
+	faYoutube,
+	faGoodpods,
+	faOvercast,
+	faPocketCasts,
+	faRadioPublic,
+	faYoutubeMusic,
+	faZencastr,
+])
 
 export default function PageLayout({ children }) {
 	return (

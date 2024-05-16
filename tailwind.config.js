@@ -11,6 +11,15 @@ module.exports = {
 			backgroundImage: {
 				squiggle: "url('/squiggle.svg')",
 			},
+			keyframes: {
+				fadeInUp: {
+					'0%': { opacity: 0 },
+					'100%': { transform: 1 },
+				},
+			},
+			animation: {
+				fadeInUp: '0.5s fadeInUp',
+			},
 		},
 	},
 	plugins: [],

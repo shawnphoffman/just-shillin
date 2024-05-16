@@ -79,7 +79,7 @@ const items = [
 	{
 		title: 'BlueSky Feed',
 		href: 'https://bsky.app/profile/did:plc:q7ul4lz2j3d6qtcjzvz4rrjh/feed/shawnbot-pods',
-		icon: 'fa-solid fa-clouds',
+		icon: 'fa-brands fa-bluesky',
 		background: 'var(--bluesky)',
 	},
 ]

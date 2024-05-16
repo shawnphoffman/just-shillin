@@ -1,11 +1,6 @@
-// 'use client'
-
 import { faHouse } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
-import { faFoot } from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
-import { IconProp } from '@fortawesome/fontawesome-svg-core'
+import { faAndy2, faFoot, faShawn2 } from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-const footIcon = 'fa-kit fa-foot' as IconProp
 
 export default function IconsPage() {
 	return (
@@ -15,13 +10,18 @@ export default function IconsPage() {
 				<FontAwesomeIcon icon={faHouse} fixedWidth />
 				<FontAwesomeIcon icon={faHouse} symbol />
 			</div>
-			<div className="text-3xl text-sky-500">
-				<FontAwesomeIcon icon={faFoot} fixedWidth />
-				<FontAwesomeIcon icon={faFoot} />
+			<div className="flex flex-row justify-center gap-4 text-3xl text-sky-500">
+				{/* <FontAwesomeIcon icon={faFoot} fixedWidth /> */}
 				<FontAwesomeIcon icon={faFoot} beatFade />
+				<span className="text-3xl text-lime-500">
+					<FontAwesomeIcon icon={faFoot} />
+				</span>
 			</div>
-			<div className="text-3xl text-lime-500">
-				<FontAwesomeIcon icon={footIcon} />
+			<div className="text-red-500 text-[12rem] flex flex-row gap-4 justify-center">
+				{/* <FontAwesomeIcon icon={faAndy1} /> */}
+				<FontAwesomeIcon icon={faAndy2} />
+				{/* <FontAwesomeIcon icon={faShawn1} /> */}
+				<FontAwesomeIcon icon={faShawn2} />
 			</div>
 		</div>
 	)
