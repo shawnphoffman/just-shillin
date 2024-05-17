@@ -13,6 +13,15 @@ module.exports = {
 			},
 		],
 	},
+	async redirects() {
+		return [
+			{
+				source: '/studio',
+				destination: 'https://pod-content-studio.vercel.app/studio',
+				permanent: false,
+			},
+		]
+	},
 	// This is sanity-related
 	// logging: {
 	// 	fetches: {
