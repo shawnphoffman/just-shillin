@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { PortableText, type PortableTextReactComponents } from '@portabletext/react'
 
 import PostImage from '../portableText/PostImage'
@@ -20,7 +21,9 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 			return (
 				<div className="grid items-center justify-center grid-cols-2 gap-4 md:grid-cols-3">
 					{value.images.map(i => (
-						<PostImage key={i._key} className="h-auto max-w-full rounded-lg" {...i} />
+						<Suspense key={i._key}>
+							<PostImage className="h-auto max-w-full rounded-lg" {...i} />
+						</Suspense>
 					))}
 				</div>
 			)
