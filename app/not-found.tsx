@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function NotFound() {
 	return (
-		<div className="flex flex-col items-center justify-center max-w-2xl gap-8 mx-auto text-white h-dvh w-dvw">
+		<div className="flex flex-col items-center justify-center max-w-2xl gap-8 p-4 mx-auto text-white h-dvh w-dvw">
 			<div className="flex flex-col w-full gap-2">
 				<h1 className="text-6xl font-bold text-yellow-400">Uh oh...</h1>
 				<h2 className="text-xl text-white/80">These aren&apos;t the droids you&apos;re looking for...</h2>
@@ -17,7 +17,7 @@ export default function NotFound() {
 					<FontAwesomeIcon icon={faArrowRight} />
 				</Link>
 			</div>
-			<div className="text-red-600 animate-pulse text-[20rem] flex flex-row gap-4 justify-center flex-wrap">
+			<div className="text-red-600 animate-pulse text-[8rem] sm:text-[20rem] flex flex-row gap-4 justify-center flex-wrap">
 				<FontAwesomeIcon icon={faAndy2} />
 				<FontAwesomeIcon icon={faShawn2} />
 			</div>
