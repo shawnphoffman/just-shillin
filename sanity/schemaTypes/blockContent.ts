@@ -1,3 +1,4 @@
+import { ImageIcon } from '@sanity/icons'
 import { defineArrayMember, defineType } from 'sanity'
 
 export default defineType({
@@ -49,6 +50,7 @@ export default defineType({
 		//
 		defineArrayMember({
 			type: 'image',
+			icon: ImageIcon,
 			options: { hotspot: true },
 			fields: [
 				{
@@ -67,6 +69,10 @@ export default defineType({
 		//
 		defineArrayMember({
 			type: 'youtube',
+		}),
+		//
+		defineArrayMember({
+			type: 'gallery',
 		}),
 	],
 })

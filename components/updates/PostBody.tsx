@@ -16,6 +16,15 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 			const videoId = match ? match[1] : null
 			return <YoutubeEmbed videoId={videoId} />
 		},
+		gallery: ({ value }) => {
+			return (
+				<div className="grid items-center justify-center grid-cols-2 gap-4 md:grid-cols-3">
+					{value.images.map(i => (
+						<PostImage key={i._key} className="h-auto max-w-full rounded-lg" {...i} />
+					))}
+				</div>
+			)
+		},
 	},
 }
 

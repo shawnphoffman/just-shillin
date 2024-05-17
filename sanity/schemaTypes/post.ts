@@ -79,12 +79,6 @@ export default defineType({
 			initialValue: () => new Date().toISOString(),
 			validation: Rule => Rule.required(),
 		}),
-		// defineField({
-		// 	name: 'gallery',
-		// 	title: 'Gallery',
-		// 	description: 'This is a test',
-		// 	type: 'gallery',
-		// }),
 	],
 	//
 	preview: {
