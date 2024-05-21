@@ -3,6 +3,7 @@ import 'server-only'
 import { type QueryParams } from 'next-sanity'
 
 import sanityClient from '@/sanity/sanity.client'
+// TODO Merge this into the same file
 import { postBySlugQuery, postsListQuery, postSlugsQuery } from '@/sanity/sanity.queries'
 import { type Post } from '@/sanity/sanity.types'
 
