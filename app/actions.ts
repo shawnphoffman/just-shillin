@@ -6,14 +6,9 @@ import { appleRatingUrl } from './(pages)/(links)/links'
 
 export async function getAppleReviews() {
 	try {
-		// const tempPromise = new Promise(resolve => setTimeout(resolve, 2000))
-		const resPromise = await fetch(`https://api.shawn.party/api/pod-data/apple?url=${appleRatingUrl}`, {
+		const res = await fetch(`https://api.shawn.party/api/pod-data/apple?url=${appleRatingUrl}`, {
 			next: { revalidate: 60 * 60 * 1 },
 		})
-		const [res] = await Promise.all([
-			resPromise,
-			// tempPromise
-		])
 		const data = await res.json()
 		const { rating, ratingsUrl, reviews } = data
 
@@ -23,27 +18,27 @@ export async function getAppleReviews() {
 			reviews: reviews?.length
 				? reviews
 				: !process.env.VERCEL_URL
-					? [
-							{
-								title: 'Great Show!',
-								author: 'Shawn',
-								stars: '4',
-								text: 'Wow this is a great show! I love it!',
-							},
-							{
-								title: 'Great Show!',
-								author: 'Shawn',
-								stars: '3',
-								text: 'Wow this is a great show! I love it!',
-							},
-							{
-								title: 'Great Show!',
-								author: 'Shawn',
-								stars: '5',
-								text: 'Wow this is a great show! I love it!',
-							},
-						]
-					: [],
+				? [
+						{
+							title: 'Great Show!',
+							author: 'Shawn',
+							stars: '4',
+							text: 'Wow this is a great show! I love it!',
+						},
+						{
+							title: 'Great Show!',
+							author: 'Shawn',
+							stars: '3',
+							text: 'Wow this is a great show! I love it!',
+						},
+						{
+							title: 'Great Show!',
+							author: 'Shawn',
+							stars: '5',
+							text: 'Wow this is a great show! I love it!',
+						},
+				  ]
+				: [],
 		}
 	} catch (e) {
 		console.error(e)
@@ -53,17 +48,9 @@ export async function getAppleReviews() {
 
 export async function getSpotifyReviews() {
 	try {
-		// const tempPromise = new Promise(resolve => setTimeout(resolve, 4000))
-		const resPromise = await fetch(
-			`https://api.shawn.party/api/pod-data/spotify?url=${'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe'}`,
-			{
-				next: { revalidate: 60 * 60 * 1 },
-			}
-		)
-		const [res] = await Promise.all([
-			resPromise,
-			// tempPromise
-		])
+		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify?url=${'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe'}`, {
+			next: { revalidate: 60 * 60 * 1 },
+		})
 		const data = await res.json()
 		return data
 	} catch {
@@ -91,12 +78,9 @@ export async function getEpisodes() {
 	try {
 		// const tempPromise = new Promise(resolve => setTimeout(resolve, 5000))
 		const resPromise = fetch('https://feeds.zencastr.com/f/l5bmy6wm.rss', {
-			next: { revalidate: 60 * 60 * 1 },
+			next: { tags: ['episodes'] },
 		})
-		const [res] = await Promise.all([
-			resPromise,
-			// tempPromise
-		])
+		const [res] = await Promise.all([resPromise])
 		const xml = await res.text()
 		const parser = new XMLParser({
 			ignoreAttributes: false,
