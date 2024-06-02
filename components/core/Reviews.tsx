@@ -25,7 +25,7 @@ export default async function Reviews() {
 	if (!filteredReviews || !filteredReviews.length) return null
 
 	return (
-		<>
+		<div className="flex flex-row flex-wrap justify-center w-full">
 			<div className="text-xl font-bold ">Recent Reviews</div>
 			<div className="flex flex-col w-full px-2 mb-8 divide-y rounded-lg bg-zinc-950/75 divide-sky-500">
 				{filteredReviews.map((r: Review) => (
@@ -41,6 +41,6 @@ export default async function Reviews() {
 					</div>
 				))}
 			</div>
-		</>
+		</div>
 	)
 }

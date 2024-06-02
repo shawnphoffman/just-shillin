@@ -9,6 +9,7 @@ import Reviews from '@/components/core/Reviews'
 import items from './links'
 
 export default async function Home() {
+	// await new Promise(resolve => setTimeout(resolve, 2000))
 	return (
 		<>
 			<div className="w-full max-w-4xl text-base leading-normal sm:text-lg">
@@ -36,11 +37,9 @@ export default async function Home() {
 				})}
 			</div>
 
-			<div className="flex flex-row flex-wrap justify-center w-full">
-				<Suspense fallback={<Loading />}>
-					<Reviews />
-				</Suspense>
-			</div>
+			<Suspense fallback={<Loading />}>
+				<Reviews />
+			</Suspense>
 		</>
 	)
 }

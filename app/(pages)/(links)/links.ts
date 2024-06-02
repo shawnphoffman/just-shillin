@@ -2,7 +2,15 @@ export const applePodcastId = '1726695035'
 export const applePodcastUrl = `https://podcasts.apple.com/us/podcast/id${applePodcastId}`
 export const appleRatingUrl = `${applePodcastUrl}?see-all=reviews`
 
-const items = [
+type LinkItem = {
+	title: string
+	href: string
+	icon: string
+	background: string
+	color?: string
+}
+
+const items: LinkItem[] = [
 	{
 		title: 'Apple Podcasts',
 		href: applePodcastUrl,
@@ -82,6 +90,6 @@ const items = [
 		icon: 'fa-brands fa-bluesky',
 		background: 'bg-bluesky',
 	},
-]
+] as const
 
 export default items
