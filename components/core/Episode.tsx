@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import EpisodeSummary from './EpisodeSummary'
 
-const options = { year: 'numeric', month: 'long', day: 'numeric' } as const
+const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'America/Los_Angeles' } as const
 
 export default function Episodes({ episode }) {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)
@@ -12,7 +12,7 @@ export default function Episodes({ episode }) {
 			<div className="flex flex-col items-center justify-start gap-4 md:flex-row md:items-start">
 				<Image src={episode.imgSrc} alt={episode.title} className="w-32 rounded md:w-48 h-fit aspect-square" width={192} height={192} />
 				<div className="flex flex-col self-stretch overflow-hidden whitespace-break-spaces text-wrap text-ellipsis">
-					<div className="mb-2 text-xs text-white/75">Posted: {pubDate}</div>
+					<div className="mb-2 text-xs text-white/75">Posted:&nbsp;{pubDate}</div>
 					<div className="[&_a]:text-sky-400 mb-1 [&_a]:pb-0.5 [&_a]:font-bold [&_a:hover]:text-yellow-400 [&_a:hover]:bg-squiggle [&_a]:break-words">
 						<EpisodeSummary summary={episode.summary} />
 					</div>
