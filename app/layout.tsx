@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { GeistSans } from 'geist/font/sans'
 
-const title = `Just Shillin' Podcast`
+export const title = `Just Shillin' Podcast`
 const description =
 	'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome'
 const url = 'https://justshillin.com'

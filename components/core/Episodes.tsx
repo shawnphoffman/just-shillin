@@ -58,9 +58,12 @@ const Episodes = ({ episodes }) => {
 	return (
 		<>
 			<div className="w-full mb-4">
+				<label className="sr-only" htmlFor="search">
+					Search
+				</label>
 				<input
 					type="text"
-					id="first_name"
+					id="search"
 					className="block w-full px-4 py-2 text-base leading-5 text-white border rounded-lg placeholder-zinc-500 border-zinc-500 bg-zinc-900 focus:border-sky-500 focus-visible:outline-red-800 focus-visible:outline-offset-2 focus-visible:outline-dashed focus-visible:outline-2"
 					placeholder="Search"
 					onChange={handleSearch}
