@@ -25,7 +25,7 @@ export default async function PostPage({ params }: PageProps) {
 	const { title, body = {}, mainImage, slug } = post
 
 	return (
-		<div className="flex flex-col items-center justify-center gap-4">
+		<div className="flex flex-col items-center justify-center w-full gap-4">
 			<PostTitle>{title}</PostTitle>
 
 			<PostAuthor name={post.author?.name} image={post.author?.image} />
