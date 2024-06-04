@@ -6,6 +6,17 @@ import YoutubeEmbed from './portableText/YoutubeEmbed'
 import styles from './PostBody.module.css'
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
+	marks: {
+		textRed: ({ children }) => {
+			return <span className="text-red-500">{children}</span>
+		},
+		textBlue: ({ children }) => {
+			return <span className="text-sky-500">{children}</span>
+		},
+		textGreen: ({ children }) => {
+			return <span className="text-green-500">{children}</span>
+		},
+	},
 	types: {
 		image: ({ value }) => {
 			return <PostImage {...value} />
@@ -29,6 +40,11 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 		},
 	},
 }
+
+// const onMissingComponent = (type: any) => {
+// 	console.error('Missing component:', type)
+// 	return null
+// }
 
 export default function PostBody({ content }) {
 	return (
