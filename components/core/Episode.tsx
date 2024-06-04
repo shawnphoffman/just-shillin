@@ -7,7 +7,7 @@ const options = { year: 'numeric', month: 'long', day: 'numeric' } as const
 export default function Episodes({ episode }) {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)
 	return (
-		<div className="flex flex-col justify-start w-full py-4 text-sm text-left">
+		<section className="flex flex-col justify-start w-full py-4 text-sm text-left" id={episode.guid}>
 			<h2 className="mb-2 text-2xl font-bold text-center text-red-600 md:mb-4">{episode.title}</h2>
 			<div className="flex flex-col items-center justify-start gap-4 md:flex-row md:items-start">
 				<Image src={episode.imgSrc} alt={episode.title} className="w-32 rounded md:w-48 h-fit aspect-square" width={192} height={192} />
@@ -27,6 +27,6 @@ export default function Episodes({ episode }) {
 					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
