@@ -2,7 +2,7 @@ import '@/app/(pages)/icons'
 
 import Image from 'next/image'
 
-import { title } from '@/app/layout'
+import { siteTitle } from '@/app/meta'
 import headerImage from '@/app/title.png'
 import ActiveLink from '@/components/core/ActiveLink'
 import StarBackground from '@/components/core/StarBackground'
@@ -15,7 +15,7 @@ export default function PageLayout({ children }) {
 				<div className="flex flex-col items-center w-full max-w-screen-xl mx-auto">
 					<div className="flex flex-col w-full max-w-4xl min-h-dvh">
 						<div className="flex flex-col items-center m-4 text-center">
-							<h1 className="sr-only">{title}</h1>
+							<h1 className="sr-only">{siteTitle}</h1>
 							{/* IMAGE */}
 							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={300} height={300} priority />
 							{/* NAV */}

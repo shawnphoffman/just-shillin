@@ -3,26 +3,23 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { GeistSans } from 'geist/font/sans'
 
-export const title = `Just Shillin' Podcast`
-const description =
-	'Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share their love for the things that make life awesome'
-const url = 'https://justshillin.com'
+import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
 
 export const metadata = {
 	title: {
-		template: `%s | ${title}`,
-		default: title,
+		template: `%s | ${siteTitle}`,
+		default: siteTitle,
 	},
-	description,
-	metadataBase: url,
+	description: siteDescription,
+	metadataBase: siteUrl,
 	openGraph: {
 		title: {
-			template: `%s | ${title}`,
-			default: title,
+			template: `%s | ${siteTitle}`,
+			default: siteTitle,
 		},
-		description,
-		siteName: title,
-		url: url,
+		description: siteDescription,
+		siteName: siteTitle,
+		url: siteUrl,
 		locale: 'en_US',
 		type: 'website',
 	},
