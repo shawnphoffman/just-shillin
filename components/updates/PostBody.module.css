@@ -44,7 +44,10 @@
 	/* ================== */
 	ul,
 	ol {
-		@apply space-y-1 list-inside text-zinc-100;
+		@apply space-y-1 text-white list-inside;
+		::marker {
+			@apply text-yellow-400;
+		}
 	}
 	li ul,
 	li ol {
@@ -61,6 +64,6 @@
 	/* LINKS */
 	/* ================== */
 	a {
-		@apply text-sky-400;
+		@apply text-sky-400 hover:bg-squiggle hover:text-yellow-400;
 	}
 }
