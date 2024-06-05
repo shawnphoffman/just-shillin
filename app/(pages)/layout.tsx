@@ -17,7 +17,7 @@ export default function PageLayout({ children }) {
 						<div className="flex flex-col items-center m-4 text-center">
 							<h1 className="sr-only">{siteTitle}</h1>
 							{/* IMAGE */}
-							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={300} height={300} priority />
+							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={300} height={300} priority role="banner" />
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
@@ -26,7 +26,7 @@ export default function PageLayout({ children }) {
 								<ActiveLink href="/listen-now" label="Listen Now" />
 							</nav>
 						</div>
-						<div className="flex flex-col items-center flex-1 gap-4 text-center">{children}</div>
+						<main className="flex flex-col items-center flex-1 gap-4 text-center">{children}</main>
 					</div>
 				</div>
 			</div>
