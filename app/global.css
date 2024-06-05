@@ -2,26 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-	@apply bg-black;
-}
-
-html body {
-	@apply h-full p-0 m-0 overflow-hidden text-white w-dvw;
-}
-
 a {
 	@apply no-underline transition-colors;
 }
 
 /* STARS */
 body {
-	@apply relative h-dvh;
 	--stars: #a1a1aa;
 }
 
 .stars:after {
-	@apply absolute content-[''] opacity-100 z-[-1];
+	@apply fixed top-0 content-[''] opacity-100 z-[-1];
 }
 
 .stars-1:after {
