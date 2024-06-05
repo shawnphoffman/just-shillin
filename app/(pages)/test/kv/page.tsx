@@ -4,7 +4,7 @@ import { kv } from '@vercel/kv'
 // import { getEpisodes } from '@/app/actions'
 import Loading from '@/components/core/Loading'
 
-export const revalidate = 60 * 60 * 6 // 1 hour
+export const revalidate = 21600
 export const dynamic = 'force-dynamic'
 
 const TempClient = async () => {
