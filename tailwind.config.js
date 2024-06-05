@@ -1,4 +1,5 @@
 import tailwindColors from '@shawnphoffman/pod-sites-common/tailwind'
+import colors from 'tailwindcss/colors'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,6 +11,13 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			colors: {
+				brand: {
+					red: colors.red['600'],
+					blue: colors.sky['400'],
+					yellow: colors.yellow['400'],
+				},
+			},
 			backgroundImage: {
 				squiggle: "url('/squiggle.svg')",
 			},
