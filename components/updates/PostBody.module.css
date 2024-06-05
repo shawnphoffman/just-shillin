@@ -36,7 +36,7 @@
 	/* TEXT */
 	/* ================== */
 	blockquote {
-		@apply p-4 my-4 text-xl italic font-medium leading-relaxed text-white border-s-4 border-sky-500 bg-zinc-900/75;
+		@apply p-4 my-4 text-xl italic font-medium leading-relaxed text-white border-s-4 border-brand-blue bg-white/5;
 	}
 
 	/* ================== */
