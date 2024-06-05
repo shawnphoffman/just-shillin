@@ -26,13 +26,13 @@ export async function getAppleReviews() {
 							text: 'Wow this is a great show! I love it!',
 						},
 						{
-							title: 'Great Show!',
+							title: 'Great Show!!',
 							author: 'Shawn',
 							stars: '3',
 							text: 'Wow this is a great show! I love it!',
 						},
 						{
-							title: 'Great Show!',
+							title: 'Great Show!!!',
 							author: 'Shawn',
 							stars: '5',
 							text: 'Wow this is a great show! I love it!',

@@ -6,18 +6,18 @@ export default function IconsPage() {
 	return (
 		<div className="flex flex-col gap-4">
 			<h1 className="text-3xl font-bold">Icons</h1>
-			<div className="text-3xl text-red-600">
+			<div className="text-3xl text-brand-red">
 				<FontAwesomeIcon icon={faHouse} fixedWidth />
 				<FontAwesomeIcon icon={faHouse} symbol />
 			</div>
-			<div className="flex flex-row justify-center gap-4 text-3xl text-sky-400">
+			<div className="flex flex-row justify-center gap-4 text-3xl text-brand-blue">
 				{/* <FontAwesomeIcon icon={faFoot} fixedWidth /> */}
 				<FontAwesomeIcon icon={faFoot} beatFade />
 				<span className="text-3xl text-lime-500">
 					<FontAwesomeIcon icon={faFoot} />
 				</span>
 			</div>
-			<div className="text-red-600 text-[12rem] flex flex-row gap-4 justify-center">
+			<div className="text-brand-red text-[12rem] flex flex-row gap-4 justify-center">
 				{/* <FontAwesomeIcon icon={faAndy1} /> */}
 				<FontAwesomeIcon icon={faAndy2} />
 				{/* <FontAwesomeIcon icon={faShawn1} /> */}

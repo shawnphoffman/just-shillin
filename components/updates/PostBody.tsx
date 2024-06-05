@@ -17,7 +17,7 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 			return <span className="text-green-500">{children}</span>
 		},
 		underline: ({ children }) => {
-			return <span className="underline underline-offset-2 decoration-red-600">{children}</span>
+			return <span className="underline underline-offset-2 decoration-brand-red">{children}</span>
 		},
 	},
 	types: {
