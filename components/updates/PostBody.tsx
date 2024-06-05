@@ -19,6 +19,9 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 		underline: ({ children }) => {
 			return <span className="underline underline-offset-2 decoration-brand-red">{children}</span>
 		},
+		'strike-through': ({ children }) => {
+			return <span className="line-through decoration-brand-blue decoration-2">{children}</span>
+		},
 	},
 	types: {
 		image: ({ value }) => {
