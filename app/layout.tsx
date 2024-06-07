@@ -2,6 +2,7 @@ import '@/app/global.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import '@/app/(pages)/icons'
 
+import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
 import Image from 'next/image'
 
@@ -47,7 +48,7 @@ export default function RootLayout({ children }) {
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
-								<ActiveLink href="/updates" label="Updates" />
+								<ActiveLink href="/updates" label="Updates" fuzzy />
 								<ActiveLink href="/episodes" label="Episodes" />
 								<ActiveLink href="/listen-now" label="Listen Now" />
 							</nav>
@@ -55,6 +56,8 @@ export default function RootLayout({ children }) {
 						<main className="flex flex-col items-center flex-1 gap-4 text-center">{children}</main>
 					</div>
 				</div>
+				{process.env.VERCEL_ENV && <Analytics />}
+				{/* <SpeedInsights /> */}
 			</body>
 		</html>
 	)

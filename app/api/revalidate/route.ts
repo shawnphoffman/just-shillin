@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
 	try {
 		const { isValidSignature, body } = await parseBody<WebhookPayload>(req, process.env.SANITY_REVALIDATE_SECRET)
 
-		if (!isValidSignature) {
+		if (process.env.VERCEL_ENV === 'production' && !isValidSignature) {
 			const message = 'Invalid signature'
 			return new Response(JSON.stringify({ message, isValidSignature, body }), { status: 401 })
 		}

@@ -1,6 +1,7 @@
 export const applePodcastId = '1726695035'
 export const applePodcastUrl = `https://podcasts.apple.com/us/podcast/id${applePodcastId}`
 export const appleRatingUrl = `${applePodcastUrl}?see-all=reviews`
+export const goodpodsUrl = 'https://goodpods.com/podcasts/just-shillin-303749'
 
 type LinkItem = {
 	title: string
@@ -49,7 +50,7 @@ const items: LinkItem[] = [
 	},
 	{
 		title: 'Goodpods',
-		href: 'https://goodpods.com/podcasts/just-shillin-303749',
+		href: goodpodsUrl,
 		icon: 'fak fa-goodpods',
 		background: 'bg-goodpods',
 		color: 'text-black',
