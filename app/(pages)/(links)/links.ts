@@ -33,7 +33,7 @@ const items: LinkItem[] = [
 	{
 		title: 'Overcast',
 		href: 'https://overcast.fm/itunes1726695035/just-shillin',
-		icon: 'fak fa-overcast fa-lg',
+		icon: 'fak fa-overcast-1',
 		background: 'bg-overcast',
 	},
 	{
