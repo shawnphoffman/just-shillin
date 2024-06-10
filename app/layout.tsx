@@ -1,6 +1,5 @@
 import '@/app/global.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
-import '@/app/(pages)/icons'
 
 import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'

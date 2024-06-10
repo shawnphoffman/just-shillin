@@ -1,4 +1,3 @@
-import { type IconProp } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import classnames from 'classnames'
 
@@ -10,10 +9,8 @@ export default function LinkCard({ link, bg, icon, title, color = 'text-white' }
 			href={link}
 			target="_blank"
 			rel="noopener noreferrer"
-			// style={{ backgroundColor: `var(--${bg})`, color: `var(--${color})` }}
-			// style={{ backgroundColor: `var(--${bg})` }}
 		>
-			<FontAwesomeIcon icon={icon as IconProp} />
+			<FontAwesomeIcon icon={icon} />
 			<h2 className="m-0 text-xl font-bold">{title}</h2>
 		</a>
 	)

@@ -1,7 +1,20 @@
 import { faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { getGoodpodsReviews } from '@/app/actions'
+import { goodpodsUrl } from '@/app/(pages)/(links)/links'
+
+async function getGoodpodsReviews() {
+	try {
+		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods?url=${goodpodsUrl}`, {
+			next: { revalidate: 60 * 60 * 6 },
+		})
+		const data = await res.json()
+		// console.log('getGoodpodsReviews', data)
+		return data
+	} catch {
+		return {}
+	}
+}
 
 export default async function RatingsGoodpods() {
 	const spotifyData = await getGoodpodsReviews()

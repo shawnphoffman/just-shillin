@@ -1,12 +1,28 @@
+import { faAmazon, faBluesky, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
+import { faAt, faRssSquare } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import { faPodcast } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
+import {
+	faGoodpods,
+	faOvercast,
+	faPocketCasts,
+	faRadioPublic,
+	faYoutubeMusic,
+	faZencastr,
+} from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+
 export const applePodcastId = '1726695035'
 export const applePodcastUrl = `https://podcasts.apple.com/us/podcast/id${applePodcastId}`
 export const appleRatingUrl = `${applePodcastUrl}?see-all=reviews`
 export const goodpodsUrl = 'https://goodpods.com/podcasts/just-shillin-303749'
+export const rssFeedUrl = 'https://anchor.fm/s/5dc2916c/podcast/rss'
+export const spotifyId = '0BM9MOB6jdirna5f1vNcMe'
+export const spotifyUrl = `https://open.spotify.com/show/${spotifyId}`
 
 type LinkItem = {
 	title: string
 	href: string
-	icon: string
+	icon: IconDefinition
 	background: string
 	color?: string
 }
@@ -15,80 +31,80 @@ const items: LinkItem[] = [
 	{
 		title: 'Apple Podcasts',
 		href: applePodcastUrl,
-		icon: 'fa-solid fa-podcast',
+		icon: faPodcast,
 		background: 'bg-applepodcasts',
 	},
 	{
 		title: 'Spotify',
-		href: 'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe',
-		icon: 'fa-brands fa-spotify',
+		href: spotifyUrl,
+		icon: faSpotify,
 		background: 'bg-spotify',
 	},
 	{
 		title: 'Email',
 		href: 'mailto:feedback@justshillin.com',
-		icon: 'fa-solid fa-at',
+		icon: faAt,
 		background: 'bg-email',
 	},
 	{
 		title: 'Overcast',
 		href: 'https://overcast.fm/itunes1726695035/just-shillin',
-		icon: 'fak fa-overcast-1',
+		icon: faOvercast,
 		background: 'bg-overcast',
 	},
 	{
 		title: 'YouTube',
 		href: 'https://www.youtube.com/@JustShillin',
-		icon: 'fa-brands fa-youtube',
+		icon: faYoutube,
 		background: 'bg-youtube',
 	},
 	{
 		title: 'YouTube Music',
 		href: 'https://music.youtube.com/playlist?list=PLRxEa7NQRmKFKsoGeQBLb_IGNcFRZoBp1',
-		icon: 'fak fa-youtube-music',
+		icon: faYoutubeMusic,
 		background: 'bg-youtube',
 	},
 	{
 		title: 'Goodpods',
 		href: goodpodsUrl,
-		icon: 'fak fa-goodpods',
+		icon: faGoodpods,
 		background: 'bg-goodpods',
 		color: 'text-black',
 	},
 	{
 		title: 'Amazon Music',
 		href: 'https://music.amazon.com/podcasts/41b5996a-f09d-4657-991f-d495150756f3/just-shillin',
-		icon: 'fa-brands fa-amazon',
+		icon: faAmazon,
 		background: 'bg-amazonmusic',
 	},
 	{
 		title: 'Pocket Casts',
 		href: 'https://pca.st/74wq5erg',
-		icon: 'fak fa-pocket-casts',
+		icon: faPocketCasts,
 		background: 'bg-pocketcasts',
 	},
 	{
 		title: 'Radio Public',
 		href: 'https://radiopublic.com/just-shillin-6pQpmN',
-		icon: 'fak fa-radio-public',
+		icon: faRadioPublic,
 		background: 'bg-radiopublic',
 	},
 	{
 		title: 'Zencastr',
 		href: 'https://zencastr.com/Just-Shillin',
-		icon: 'fak fa-zencastr',
+		icon: faZencastr,
 		background: 'bg-zencastr',
 	},
 	{
 		title: 'RSS',
 		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
-		icon: 'fa-solid fa-square-rss',
+		icon: faRssSquare,
 		background: 'bg-rss',
 	},
 	{
 		title: 'BlueSky Feed',
 		href: 'https://bsky.app/profile/did:plc:q7ul4lz2j3d6qtcjzvz4rrjh/feed/shawnbot-pods',
-		icon: 'fa-brands fa-bluesky',
+		icon: faBluesky,
 		background: 'bg-bluesky',
 	},
 ] as const

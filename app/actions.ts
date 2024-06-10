@@ -2,7 +2,7 @@
 
 import { XMLParser } from 'fast-xml-parser'
 
-import { appleRatingUrl, goodpodsUrl } from './(pages)/(links)/links'
+import { appleRatingUrl } from './(pages)/(links)/links'
 
 export async function getAppleReviews() {
 	try {
@@ -42,31 +42,6 @@ export async function getAppleReviews() {
 		}
 	} catch (e) {
 		console.error(e)
-		return {}
-	}
-}
-
-export async function getSpotifyReviews() {
-	try {
-		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify?url=${'https://open.spotify.com/show/0BM9MOB6jdirna5f1vNcMe'}`, {
-			next: { revalidate: 60 * 60 * 1 },
-		})
-		const data = await res.json()
-		return data
-	} catch {
-		return {}
-	}
-}
-
-export async function getGoodpodsReviews() {
-	try {
-		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods?url=${goodpodsUrl}`, {
-			next: { revalidate: 60 * 60 * 6 },
-		})
-		const data = await res.json()
-		// console.log('getGoodpodsReviews', data)
-		return data
-	} catch {
 		return {}
 	}
 }
