@@ -1,9 +1,22 @@
 import { Suspense } from 'react'
-import { PortableText, type PortableTextReactComponents } from '@portabletext/react'
+import { PortableText, type PortableTextReactComponents, PortableTextTypeComponentProps } from '@portabletext/react'
+import { SanityImageCrop, SanityImageSource } from '@sanity/image-url/lib/types/types'
 
-import PostImage from './portableText/PostImage'
-import YoutubeEmbed from './portableText/YoutubeEmbed'
+import PostImage from '@/components/updates/portableText/PostImage'
+import UrlEmbed from '@/components/updates/portableText/UrlEmbed'
+import YoutubeEmbed from '@/components/updates/portableText/YoutubeEmbed'
+import { SanityImageHotspot } from '@/sanity/sanity.types'
+
 import styles from './PostBody.module.css'
+
+type ImageAsset = {
+	asset: SanityImageSource
+	hotspot?: SanityImageHotspot
+	crop?: SanityImageCrop
+	caption?: string
+	_type: 'image'
+	_key: string
+}
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 	marks: {
@@ -24,8 +37,12 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 		},
 	},
 	types: {
-		image: ({ value }) => {
+		image: ({ value }: PortableTextTypeComponentProps<ImageAsset>) => {
 			return <PostImage {...value} />
+		},
+		embed: ({ value }) => {
+			const { url } = value
+			return <UrlEmbed url={url} />
 		},
 		youtube: ({ value }) => {
 			const { url } = value

@@ -63,7 +63,7 @@
 	/* ================== */
 	/* LINKS */
 	/* ================== */
-	a {
+	a:not(:global(.embed)) {
 		@apply text-brand-blue hover:bg-squiggle hover:text-brand-yellow;
 	}
 }
