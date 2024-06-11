@@ -26,7 +26,7 @@ const LazyYoutube = ({ videoId }) => {
 	}, [])
 
 	return (
-		<div ref={videoRef} className="my-6 mx-4">
+		<div ref={videoRef} className="mx-4 my-6 overflow-hidden border rounded-lg border-zinc-900 bg-zinc-950/75 hover:border-zinc-500">
 			{load ? (
 				<iframe
 					width="100%"
