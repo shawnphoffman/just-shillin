@@ -1,5 +1,10 @@
+import { Metadata } from 'next/types'
+
 import { getEpisodes } from '@/app/actions'
 import Episodes from '@/components/core/Episodes'
+export const metadata: Metadata = {
+	title: 'Episodes',
+}
 
 // NOTE Loading.tsx wraps Pages in Suspense but it seems to only work when it is nested and not the root Loading component
 
