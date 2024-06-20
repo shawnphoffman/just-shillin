@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 
+import Awards from '@/components/core/Awards'
 import LinkCard from '@/components/core/LinkCard'
 import Loading from '@/components/core/Loading'
 import RatingsApple from '@/components/core/RatingsApple'
@@ -38,6 +39,10 @@ export default async function Home() {
 					)
 				})}
 			</div>
+
+			<Suspense>
+				<Awards />
+			</Suspense>
 
 			<Suspense fallback={<Loading />}>
 				<Reviews />

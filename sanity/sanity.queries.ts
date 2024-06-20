@@ -1,5 +1,7 @@
 import { groq } from 'next-sanity'
 
+const podId = '2e803c28-4870-46c7-90d3-70520ec90af8'
+
 const postFields = groq`
   _id,
   _updatedAt,
@@ -34,3 +36,11 @@ export const postBySlugQuery = groq`
   ${postFields}
 }
 `
+
+// =======================
+// AWARD QUERIES
+// =======================
+export const AWARDS_QUERY =
+	process.env.VERCEL_ENV === 'production'
+		? groq`*[_type == "award" && category._ref == "${podId}" && active==true]`
+		: groq`*[_type == "award" && category._ref == "${podId}"]`
