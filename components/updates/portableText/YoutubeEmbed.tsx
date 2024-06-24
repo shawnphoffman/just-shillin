@@ -2,7 +2,11 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-const LazyYoutube = ({ videoId }) => {
+type LazyYoutubeProps = {
+	videoId: string
+}
+
+const LazyYoutube = ({ videoId }: LazyYoutubeProps) => {
 	const [load, setLoad] = useState(false)
 	const videoRef = useRef(null)
 
@@ -33,7 +37,6 @@ const LazyYoutube = ({ videoId }) => {
 					height="400"
 					src={`https://www.youtube.com/embed/${videoId}`}
 					title="YouTube video player"
-					frameBorder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 					allowFullScreen
 				></iframe>
