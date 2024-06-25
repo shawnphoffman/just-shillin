@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
-import { PortableText, type PortableTextReactComponents, PortableTextTypeComponentProps } from '@portabletext/react'
+import { PortableText, type PortableTextReactComponents, PortableTextTypeComponentProps, toPlainText } from '@portabletext/react'
 import { SanityImageCrop, SanityImageSource } from '@sanity/image-url/lib/types/types'
+import slugify from 'slugify'
 
 import PostImage from '@/components/updates/portableText/PostImage'
 import UrlEmbed from '@/components/updates/portableText/UrlEmbed'
@@ -8,7 +9,6 @@ import YoutubeEmbed from '@/components/updates/portableText/YoutubeEmbed'
 import { SanityImageHotspot } from '@/sanity/sanity.types'
 
 import styles from './PostBody.module.css'
-import { getSlug } from './TableOfContents'
 
 type ImageAsset = {
 	asset: SanityImageSource
@@ -22,19 +22,19 @@ type ImageAsset = {
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 	block: {
 		h2: props => {
-			return <h2 id={getSlug(props)}>{props.children}</h2>
+			return <h2 id={slugify(toPlainText(props.value))}>{props.children}</h2>
 		},
 		h3: props => {
-			return <h3 id={getSlug(props)}>{props.children}</h3>
+			return <h3 id={slugify(toPlainText(props.value))}>{props.children}</h3>
 		},
 		h4: props => {
-			return <h4 id={getSlug(props)}>{props.children}</h4>
+			return <h4 id={slugify(toPlainText(props.value))}>{props.children}</h4>
 		},
 		h5: props => {
-			return <h5 id={getSlug(props)}>{props.children}</h5>
+			return <h5 id={slugify(toPlainText(props.value))}>{props.children}</h5>
 		},
 		h6: props => {
-			return <h6 id={getSlug(props)}>{props.children}</h6>
+			return <h6 id={slugify(toPlainText(props.value))}>{props.children}</h6>
 		},
 	},
 	marks: {

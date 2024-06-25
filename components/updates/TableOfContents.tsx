@@ -1,4 +1,5 @@
-import speakingurl from 'speakingurl'
+import { toPlainText } from '@portabletext/react'
+import slugify from 'slugify'
 
 import { OutlineProps } from '@/sanity/sanity.types-old'
 
@@ -12,7 +13,7 @@ const filter = (ast, match) =>
 const findHeadings = ast =>
 	filter(ast, node => /h\d/.test(node.style)).map(node => {
 		const text = getChildrenText(node)
-		const slug = speakingurl(text)
+		const slug = slugify(toPlainText(node))
 
 		return { ...node, text, slug }
 	})
@@ -20,10 +21,8 @@ const findHeadings = ast =>
 const get = (object, path) => path.reduce((prev, curr) => prev[curr], object)
 const getObjectPath = path => (path.length === 0 ? path : ['subheadings'].concat(path.join('.subheadings.').split('.')))
 
-export const getSlug = node => {
-	const text = getChildrenText(node)
-	const slug = speakingurl(text)
-	return slug
+export const getSluggyBoi = ({ value }) => {
+	return slugify(toPlainText(value))
 }
 
 export const parseOutline = ast => {
