@@ -21,10 +21,6 @@ const findHeadings = ast =>
 const get = (object, path) => path.reduce((prev, curr) => prev[curr], object)
 const getObjectPath = path => (path.length === 0 ? path : ['subheadings'].concat(path.join('.subheadings.').split('.')))
 
-export const getSluggyBoi = ({ value }) => {
-	return slugify(toPlainText(value))
-}
-
 export const parseOutline = ast => {
 	const outline = { subheadings: [] }
 	const headings = findHeadings(ast)

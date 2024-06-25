@@ -1,4 +1,6 @@
 import { Suspense } from 'react'
+import { faLink } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { PortableText, type PortableTextReactComponents, PortableTextTypeComponentProps, toPlainText } from '@portabletext/react'
 import { SanityImageCrop, SanityImageSource } from '@sanity/image-url/lib/types/types'
 import slugify from 'slugify'
@@ -22,13 +24,47 @@ type ImageAsset = {
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 	block: {
 		h2: props => {
-			return <h2 id={slugify(toPlainText(props.value))}>{props.children}</h2>
+			const slug = slugify(toPlainText(props.value))
+			return (
+				<div className="relative group">
+					<h2 id={slug}>{props.children}</h2>
+					<a
+						href={`#${slug}`}
+						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-2 -left-6 group-hover:!bg-none !text-brand-red"
+					>
+						<FontAwesomeIcon icon={faLink} />
+					</a>
+				</div>
+			)
 		},
 		h3: props => {
-			return <h3 id={slugify(toPlainText(props.value))}>{props.children}</h3>
+			const slug = slugify(toPlainText(props.value))
+			return (
+				<div className="relative group">
+					<h3 id={slug}>{props.children}</h3>
+					<a
+						href={`#${slug}`}
+						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-1 -left-6 group-hover:!bg-none !text-brand-yellow"
+					>
+						<FontAwesomeIcon icon={faLink} />
+					</a>
+				</div>
+			)
 		},
 		h4: props => {
-			return <h4 id={slugify(toPlainText(props.value))}>{props.children}</h4>
+			const slug = slugify(toPlainText(props.value))
+			return (
+				<div className="relative group">
+					<h4 id={slug}>{props.children}</h4>
+					<a
+						href={`#${slug}`}
+						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-0.5 -left-6 group-hover:!bg-none !text-brand-blue"
+					>
+						<FontAwesomeIcon icon={faLink} size="sm" />
+					</a>
+				</div>
+			)
+			// return <h4 id={slugify(toPlainText(props.value))}>{props.children}</h4>
 		},
 		h5: props => {
 			return <h5 id={slugify(toPlainText(props.value))}>{props.children}</h5>
