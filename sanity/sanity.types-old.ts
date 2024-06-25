@@ -3,6 +3,13 @@ export interface Author {
 	image?: any
 }
 
+export type OutlineProps = {
+	_key: string
+	style: string
+	subheadings: OutlineProps[]
+	slug: string
+}
+
 export interface Post {
 	_id: string
 	_updatedAt?: string

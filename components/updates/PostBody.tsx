@@ -8,6 +8,7 @@ import YoutubeEmbed from '@/components/updates/portableText/YoutubeEmbed'
 import { SanityImageHotspot } from '@/sanity/sanity.types'
 
 import styles from './PostBody.module.css'
+import { getSlug } from './TableOfContents'
 
 type ImageAsset = {
 	asset: SanityImageSource
@@ -19,6 +20,23 @@ type ImageAsset = {
 }
 
 const myPortableTextComponents: Partial<PortableTextReactComponents> = {
+	block: {
+		h2: props => {
+			return <h2 id={getSlug(props)}>{props.children}</h2>
+		},
+		h3: props => {
+			return <h3 id={getSlug(props)}>{props.children}</h3>
+		},
+		h4: props => {
+			return <h4 id={getSlug(props)}>{props.children}</h4>
+		},
+		h5: props => {
+			return <h5 id={getSlug(props)}>{props.children}</h5>
+		},
+		h6: props => {
+			return <h6 id={getSlug(props)}>{props.children}</h6>
+		},
+	},
 	marks: {
 		textRed: ({ children }) => {
 			return <span className="text-red-500">{children}</span>

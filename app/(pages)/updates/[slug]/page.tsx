@@ -7,6 +7,7 @@ import PostBody from '@/components/updates/PostBody'
 import PostCoverImage from '@/components/updates/PostCoverImage'
 import PostTitle from '@/components/updates/PostTitle'
 import ShareButtons from '@/components/updates/ShareButtons'
+import TableOfContents from '@/components/updates/TableOfContents'
 import { urlForSanityImage } from '@/sanity/sanity.image'
 import { getAllPostsSlugs, getPostBySlug } from '@/sanity/sanity.requests'
 
@@ -37,6 +38,8 @@ export default async function PostPage({ params }: PageProps) {
 			</div>
 
 			<PostCoverImage title={title} image={mainImage} priority />
+
+			<TableOfContents content={body} />
 
 			<article className="w-full mb-8 text-left rounded-lg bg-zinc-950/75">
 				<PostBody content={body} />
