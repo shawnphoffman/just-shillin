@@ -63,27 +63,32 @@ export default async function PostComments({ url }: Props) {
 const getPostThread = async (uri: string) => {
 	const params = new URLSearchParams({ uri })
 
-	const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?' + params.toString(), {
-		method: 'GET',
-		headers: {
-			Accept: 'application/json',
-		},
-		next: { revalidate: 0 },
-		// cache: 'no-store',
-	})
+	try {
+		const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?' + params.toString(), {
+			method: 'GET',
+			headers: {
+				Accept: 'application/json',
+			},
+			next: { revalidate: 0 },
+			// cache: 'no-store',
+		})
 
-	if (!res.ok) {
-		console.error(await res.text())
-		throw new Error('Failed to fetch post thread')
+		if (!res.ok) {
+			console.error(await res.text())
+			throw new Error('Failed to fetch post thread')
+		}
+
+		const data = (await res.json()) as AppBskyFeedGetPostThread.OutputSchema
+
+		if (!AppBskyFeedDefs.isThreadViewPost(data.thread)) {
+			throw new Error('Could not find thread')
+		}
+
+		return data.thread
+	} catch (error) {
+		console.error('getPostThread error', error)
+		return null
 	}
-
-	const data = (await res.json()) as AppBskyFeedGetPostThread.OutputSchema
-
-	if (!AppBskyFeedDefs.isThreadViewPost(data.thread)) {
-		throw new Error('Could not find thread')
-	}
-
-	return data.thread
 }
 
 const sortByLikes = (a: unknown, b: unknown) => {
