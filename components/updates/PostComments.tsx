@@ -40,7 +40,7 @@ async function getPostThread(uri: string) {
 export default async function PostComments({ url }: Props) {
 	if (!url) return null
 
-	console.log('url', url)
+	// console.log('url', url)
 
 	const [, , did, _, rkey] = url.split('/')
 
@@ -55,7 +55,9 @@ export default async function PostComments({ url }: Props) {
 	return (
 		<div className="flex flex-col items-center justify-center w-full max-w-screen-md gap-2 p-4 text-left rounded-lg bg-zinc-950/75">
 			{/* STATS */}
-			<h2 className="text-2xl font-bold text-center text-brand-red">Stats</h2>
+			<h2 className="text-2xl font-bold text-center text-brand-red" id="comments-section">
+				Stats
+			</h2>
 			<Link href={postUrl} target="_blank" rel="noreferrer noopener" className="group">
 				<p className="flex flex-row gap-2">
 					<span className="group-hover:text-pink-500">

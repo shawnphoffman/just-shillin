@@ -23,7 +23,7 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 
 	let counter = 0
 	for (const segment of rt.segments()) {
-		console.log({ segment })
+		// console.log({ segment })
 		if (segment.isLink() && segment.link) {
 			richText.push(
 				<Link key={counter} href={segment.link.uri} target="_blank" rel="noreferrer noopener" className="text-brand-blue hover:bg-squiggle">
