@@ -30,6 +30,7 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 					<h2 id={slug}>{props.children}</h2>
 					<a
 						href={`#${slug}`}
+						aria-label={props.children as string}
 						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-2 -left-6 group-hover:!bg-none !text-brand-red"
 					>
 						<FontAwesomeIcon icon={faLink} />
@@ -44,6 +45,7 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 					<h3 id={slug}>{props.children}</h3>
 					<a
 						href={`#${slug}`}
+						aria-label={props.children as string}
 						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-1 -left-6 group-hover:!bg-none !text-brand-yellow"
 					>
 						<FontAwesomeIcon icon={faLink} />
@@ -58,6 +60,7 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 					<h4 id={slug}>{props.children}</h4>
 					<a
 						href={`#${slug}`}
+						aria-label={props.children as string}
 						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-0.5 -left-6 group-hover:!bg-none !text-brand-blue"
 					>
 						<FontAwesomeIcon icon={faLink} size="sm" />
