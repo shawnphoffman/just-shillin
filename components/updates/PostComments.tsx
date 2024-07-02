@@ -1,4 +1,4 @@
-import { AppBskyFeedDefs, type AppBskyFeedGetPostThread, AppBskyFeedPost, RichText } from '@atproto/api'
+import { AppBskyFeedDefs, type AppBskyFeedGetPostThread } from '@atproto/api'
 import { faArrowsRepeat, faHeart } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
@@ -9,8 +9,38 @@ type Props = {
 	url?: string
 }
 
+async function getPostThread(uri: string) {
+	const params = new URLSearchParams({ uri })
+
+	const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?' + params.toString(), {
+		method: 'GET',
+		headers: {
+			Accept: 'application/json',
+		},
+		// cache: 'no-store',
+		next: {
+			revalidate: 60,
+		},
+	})
+
+	if (!res.ok) {
+		console.error(await res.text())
+		return null
+	}
+
+	const data = (await res.json()) as AppBskyFeedGetPostThread.OutputSchema
+
+	if (!data || !AppBskyFeedDefs.isThreadViewPost(data.thread)) {
+		return null
+	}
+
+	return data?.thread
+}
+
 export default async function PostComments({ url }: Props) {
 	if (!url) return null
+
+	console.log('url', url)
 
 	const [, , did, _, rkey] = url.split('/')
 
@@ -58,37 +88,6 @@ export default async function PostComments({ url }: Props) {
 			)}
 		</div>
 	)
-}
-
-const getPostThread = async (uri: string) => {
-	const params = new URLSearchParams({ uri })
-
-	try {
-		const res = await fetch('https://public.api.bsky.app/xrpc/app.bsky.feed.getPostThread?' + params.toString(), {
-			method: 'GET',
-			headers: {
-				Accept: 'application/json',
-			},
-			next: { revalidate: 0 },
-			// cache: 'no-store',
-		})
-
-		if (!res.ok) {
-			console.error(await res.text())
-			throw new Error('Failed to fetch post thread')
-		}
-
-		const data = (await res.json()) as AppBskyFeedGetPostThread.OutputSchema
-
-		if (!AppBskyFeedDefs.isThreadViewPost(data.thread)) {
-			throw new Error('Could not find thread')
-		}
-
-		return data.thread
-	} catch (error) {
-		console.error('getPostThread error', error)
-		return null
-	}
 }
 
 const sortByLikes = (a: unknown, b: unknown) => {

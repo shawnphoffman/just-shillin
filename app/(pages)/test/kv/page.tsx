@@ -1,20 +1,20 @@
 import { Suspense } from 'react'
-import { kv } from '@vercel/kv'
 
+// import { kv } from '@vercel/kv'
 // import { getEpisodes } from '@/app/actions'
 import Loading from '@/components/core/Loading'
 
 export const revalidate = 21600
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 const TempClient = async () => {
 	const setKey = 'test:set:episodes'
-	const episodeKeys = await kv.smembers(setKey)
+	// const episodeKeys = await kv.smembers(setKey)
 
 	const ep1HashKey = 'test:ep:1'
 	const ep2HashKey = 'test:ep:2'
 
-	await kv.sadd(setKey, [ep1HashKey, ep2HashKey])
+	// await kv.sadd(setKey, [ep1HashKey, ep2HashKey])
 
 	const ep1 = {
 		id: 1,
@@ -25,10 +25,10 @@ const TempClient = async () => {
 		title: 'test-2',
 	}
 	// HSETNX
-	await kv.hset(ep1HashKey, ep1)
-	await kv.hset(ep2HashKey, ep2)
-	const ep1Resp = await kv.hgetall(ep1HashKey)
-	const ep2Resp = await kv.hgetall(ep2HashKey)
+	// await kv.hset(ep1HashKey, ep1)
+	// await kv.hset(ep2HashKey, ep2)
+	// const ep1Resp = await kv.hgetall(ep1HashKey)
+	// const ep2Resp = await kv.hgetall(ep2HashKey)
 
 	// const [data] = await Promise.all([
 	// 	// getEpisodes(),
@@ -39,9 +39,9 @@ const TempClient = async () => {
 
 	return (
 		<div>
-			<h1>{JSON.stringify(episodeKeys)}</h1>
+			{/* <h1>{JSON.stringify(episodeKeys)}</h1>
 			<p>{JSON.stringify(ep1Resp)}</p>
-			<p>{JSON.stringify(ep2Resp)}</p>
+			<p>{JSON.stringify(ep2Resp)}</p> */}
 		</div>
 	)
 }
