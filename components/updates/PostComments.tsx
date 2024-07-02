@@ -16,53 +16,48 @@ export default async function PostComments({ url }: Props) {
 
 	const postUrl = `https://bsky.app/profile/${did}/post/${rkey}`
 
-	try {
-		const thread = await getPostThread(url)
+	const thread = await getPostThread(url)
 
-		if (!thread) {
-			return null
-		}
-
-		return (
-			<div className="flex flex-col items-center justify-center w-full max-w-screen-md gap-2 p-4 text-left rounded-lg bg-zinc-950/75">
-				{/* STATS */}
-				<h2 className="text-2xl font-bold text-center text-brand-red">Stats</h2>
-				<Link href={postUrl} target="_blank" rel="noreferrer noopener" className="group">
-					<p className="flex flex-row gap-2">
-						<span className="group-hover:text-pink-500">
-							{thread.post.likeCount ?? 0} <FontAwesomeIcon icon={faHeart} title={`${thread.post.likeCount ?? 0} likes`} />
-						</span>
-						<>-</>
-						<span className="group-hover:text-green-500">
-							{thread.post.repostCount ?? 0} <FontAwesomeIcon icon={faArrowsRepeat} title={`${thread.post.repostCount ?? 0} reposts`} />
-						</span>
-					</p>
-				</Link>
-				{!thread.replies || thread.replies.length === 0 ? null : (
-					<>
-						{/* COMMENTS */}
-						<h2 className="text-2xl font-bold text-center text-brand-red">Comments</h2>
-						<p className="text-sm">
-							Comments are fetched directly from{' '}
-							<Link href={postUrl} className="underline" target="_blank" rel="noreferrer noopener">
-								this post
-							</Link>{' '}
-							- reply there to add your own comment.
-						</p>
-						<div className="w-full space-y-8">
-							{thread.replies.sort(sortByLikes).map(reply => {
-								if (!AppBskyFeedDefs.isThreadViewPost(reply)) return null
-								return <Comment key={reply.post.uri} comment={reply} />
-							})}
-						</div>
-					</>
-				)}
-			</div>
-		)
-	} catch (error) {
-		console.error(error)
+	if (!thread) {
 		return null
 	}
+
+	return (
+		<div className="flex flex-col items-center justify-center w-full max-w-screen-md gap-2 p-4 text-left rounded-lg bg-zinc-950/75">
+			{/* STATS */}
+			<h2 className="text-2xl font-bold text-center text-brand-red">Stats</h2>
+			<Link href={postUrl} target="_blank" rel="noreferrer noopener" className="group">
+				<p className="flex flex-row gap-2">
+					<span className="group-hover:text-pink-500">
+						{thread.post.likeCount ?? 0} <FontAwesomeIcon icon={faHeart} title={`${thread.post.likeCount ?? 0} likes`} />
+					</span>
+					<>-</>
+					<span className="group-hover:text-green-500">
+						{thread.post.repostCount ?? 0} <FontAwesomeIcon icon={faArrowsRepeat} title={`${thread.post.repostCount ?? 0} reposts`} />
+					</span>
+				</p>
+			</Link>
+			{!thread.replies || thread.replies.length === 0 ? null : (
+				<>
+					{/* COMMENTS */}
+					<h2 className="text-2xl font-bold text-center text-brand-red">Comments</h2>
+					<p className="text-sm">
+						Comments are fetched directly from{' '}
+						<Link href={postUrl} className="underline" target="_blank" rel="noreferrer noopener">
+							this post
+						</Link>{' '}
+						- reply there to add your own comment.
+					</p>
+					<div className="w-full space-y-8">
+						{thread.replies.sort(sortByLikes).map(reply => {
+							if (!AppBskyFeedDefs.isThreadViewPost(reply)) return null
+							return <Comment key={reply.post.uri} comment={reply} />
+						})}
+					</div>
+				</>
+			)}
+		</div>
+	)
 }
 
 const getPostThread = async (uri: string) => {
@@ -73,7 +68,8 @@ const getPostThread = async (uri: string) => {
 		headers: {
 			Accept: 'application/json',
 		},
-		cache: 'no-store',
+		next: { revalidate: 0 },
+		// cache: 'no-store',
 	})
 
 	if (!res.ok) {
