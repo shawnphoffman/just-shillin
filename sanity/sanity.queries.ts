@@ -10,6 +10,7 @@ const postFields = groq`
 	publishedAt,
   excerpt,
   mainImage,
+	commentsAtUrl,
   "slug": slug.current,
   "author": author->{name, image},
 	"categories": categories[]->title,

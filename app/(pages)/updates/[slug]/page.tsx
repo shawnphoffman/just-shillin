@@ -1,9 +1,12 @@
+import { Suspense } from 'react'
 import type { Metadata, ResolvingMetadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { siteTitle } from '@/app/meta'
+import Loading from '@/components/core/Loading'
 import PostAuthor from '@/components/updates/PostAuthor'
 import PostBody from '@/components/updates/PostBody'
+import PostComments from '@/components/updates/PostComments'
 import PostCoverImage from '@/components/updates/PostCoverImage'
 import PostTitle from '@/components/updates/PostTitle'
 import ShareButtons from '@/components/updates/ShareButtons'
@@ -26,10 +29,10 @@ export default async function PostPage({ params }: PageProps) {
 		return notFound()
 	}
 
-	const { title, body = {}, mainImage, slug } = post
+	const { title, body = {}, mainImage, slug, commentsAtUrl } = post
 
 	return (
-		<div className="flex flex-col items-center justify-center w-full gap-4">
+		<div className="flex flex-col items-center justify-center w-full gap-4 mb-4">
 			<PostTitle>{title}</PostTitle>
 
 			<div className="flex flex-row gap-8">
@@ -41,9 +44,13 @@ export default async function PostPage({ params }: PageProps) {
 
 			<TableOfContents content={body} />
 
-			<article className="w-full mb-8 text-left rounded-lg bg-zinc-950/75">
+			<article className="w-full pb-4 text-left rounded-lg bg-zinc-950/75">
 				<PostBody content={body} />
 			</article>
+
+			<Suspense fallback={<Loading />}>
+				<PostComments url={commentsAtUrl} />
+			</Suspense>
 		</div>
 	)
 }

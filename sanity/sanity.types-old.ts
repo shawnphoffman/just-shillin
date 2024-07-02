@@ -20,6 +20,7 @@ export interface Post {
 	author: Author
 	body: any
 	excerpt: string
+	commentsAtUrl?: string
 }
 
 export interface Settings {

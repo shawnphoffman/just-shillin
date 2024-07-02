@@ -46,7 +46,7 @@ export const parseOutline = ast => {
 const getChildrenText = props => props.children.map(node => (typeof node === 'string' ? node : node.text || '')).join('')
 
 const InnerContents = ({ outline }) => (
-	<ul className="my-0 space-y-0 text-white list-disc list-inside  marker:text-brand-yellow [&_ul]:ps-4">
+	<ul className="my-0 space-y-0 text-white list-disc list-inside marker:text-brand-yellow [&_ul]:ps-4">
 		{outline.map((heading: OutlineProps) => (
 			<li key={heading._key}>
 				<a href={'#' + heading.slug} className="text-lg leading-normal text-brand-blue hover:bg-squiggle hover:text-brand-yellow">
