@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }) => {
 	const author = comment.post.author
-	const avatarClassName = 'h-8 w-8 shrink-0 rounded-full bg-brand-blue'
+	const avatarClassName = 'h-6 w-6 shrink-0 rounded-full bg-brand-blue'
 
 	if (!AppBskyFeedPost.isRecord(comment.post.record)) return null
 
@@ -16,8 +16,14 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 
 	const richText: any[] = []
 
+	const hasEmbed = !!comment.post.embed?.images
+	// @ts-expect-error
+	const commentImage = hasEmbed ? comment.post.embed?.images[0] : null
+	// console.log({ commentImage, hasEmbed, embed: JSON.stringify(comment.post.embed, null, 2) })
+
 	let counter = 0
 	for (const segment of rt.segments()) {
+		console.log({ segment })
 		if (segment.isLink() && segment.link) {
 			richText.push(
 				<Link key={counter} href={segment.link.uri} target="_blank" rel="noreferrer noopener" className="text-brand-blue hover:bg-squiggle">
@@ -47,7 +53,7 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 
 	return (
 		<div className="my-4 text-base">
-			<div className="flex flex-col max-w-xl gap-2">
+			<div className="flex flex-col max-w-xl gap-1">
 				{/* AUTHOR */}
 				<Link
 					className="flex flex-row items-center gap-2 group w-fit"
@@ -65,16 +71,22 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 						{author.displayName ?? author.handle} <span className="text-gray-500">@{author.handle}</span>
 					</p>
 				</Link>
+
 				{/* CONTENT */}
-				{/* <Link
-					href={`https://bsky.app/profile/${author.did}/post/${comment.post.uri.split('/').pop()}`}
-					target="_blank"
-					rel="noreferrer noopener"
-				> */}
 				<p>{richText}</p>
+
+				{/* EMBEDS */}
+				{commentImage && (
+					// eslint-disable-next-line @next/next/no-img-element
+					<img
+						src={(commentImage.thumb as string) ?? ''}
+						alt={(commentImage.alt as string) ?? ''}
+						className="w-full h-auto max-w-xl rounded-lg"
+					/>
+				)}
+
 				{/* STATS */}
 				<Actions post={comment.post} url={actionsUrl} />
-				{/* </Link> */}
 			</div>
 			{comment.replies && comment.replies.length > 0 && (
 				<div className="pl-2 ml-2 border-l border-brand-red">
