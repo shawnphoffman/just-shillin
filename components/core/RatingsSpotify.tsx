@@ -5,11 +5,14 @@ import { spotifyUrl } from '@/app/(pages)/(links)/links'
 
 async function getSpotifyReviews() {
 	try {
-		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify?url=${spotifyUrl}`, {
-			next: { revalidate: 60 * 60 * 1 },
+		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify-scrape?url=${spotifyUrl}`, {
+			next: { revalidate: 60 * 60 * 6 },
 		})
 		const data = await res.json()
-		return data
+		return {
+			url: data?.url,
+			rating: data?.vals?.rating ? Number(data?.vals?.rating) : undefined,
+		}
 	} catch {
 		return {}
 	}
@@ -18,7 +21,7 @@ async function getSpotifyReviews() {
 export default async function RatingsSpotify() {
 	const spotifyData = await getSpotifyReviews()
 
-	if (!spotifyData || !spotifyData.rating) return null
+	if (!spotifyData || !spotifyData?.rating) return null
 
 	return (
 		<a
@@ -27,7 +30,7 @@ export default async function RatingsSpotify() {
 			target="_blank"
 			rel="noopener noreferrer"
 		>
-			<div>{spotifyData.rating.toFixed(1)}</div>
+			<div>{spotifyData?.rating.toFixed(1)}</div>
 			<FontAwesomeIcon icon={faStarSharp} className="text-[0.85em] mx-0.5" />
 			<div>on Spotify</div>
 		</a>
