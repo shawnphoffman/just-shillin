@@ -26,6 +26,7 @@ export default function ShareButtons({ slug, title }) {
 			<EmailShareButton url={url} subject={formattedTitle} body={title}>
 				<FontAwesomeIcon icon={faSquareEnvelope} size="2x" className="hover:text-white text-neutral-400" />
 			</EmailShareButton>
+			{/* https://bsky.app/intent/compose?text=blalbla */}
 		</div>
 	)
 }

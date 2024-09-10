@@ -1,4 +1,4 @@
-import { faAmazon, faBluesky, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
+import { faAmazon, faBluesky, faInstagram, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
 import { faAt, faRssSquare } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
 import { faPodcast } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
 import {
@@ -100,6 +100,18 @@ const items: LinkItem[] = [
 		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
 		icon: faRssSquare,
 		background: 'bg-rss',
+	},
+	{
+		title: 'Just Shillin',
+		href: 'https://www.instagram.com/justshillinpod',
+		icon: faInstagram,
+		background: 'bg-instagram',
+	},
+	{
+		title: 'Just Craftin',
+		href: 'https://www.instagram.com/justcraftinpod',
+		icon: faInstagram,
+		background: 'bg-instagram',
 	},
 	{
 		title: 'BlueSky Feed',
