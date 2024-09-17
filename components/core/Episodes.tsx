@@ -34,6 +34,7 @@ const EpisodeList = memo(({ episodes }: EpisodeListProps): any => {
 EpisodeList.displayName = 'EpisodeList'
 
 const Episodes = ({ episodes }) => {
+	// const [guestsOnly, setGuestsOnly] = useState(false)
 	const [search, setSearch] = useState('')
 	const deferredSearch = useDeferredValue(search)
 
@@ -57,7 +58,7 @@ const Episodes = ({ episodes }) => {
 
 	return (
 		<>
-			<div className="w-full mb-4">
+			<div className="flex flex-row w-full gap-2 mb-4">
 				<label className="sr-only" htmlFor="search">
 					Search
 				</label>
@@ -68,6 +69,9 @@ const Episodes = ({ episodes }) => {
 					placeholder="Search"
 					onChange={handleSearch}
 				/>
+				{/* <button className="px-2 font-medium text-black rounded-lg bg-brand-blue hover:bg-brand-blue/90 hover:scale-105 whitespace-nowrap">
+					Guest Episodes
+				</button> */}
 			</div>
 
 			<div className="flex flex-col items-center w-full border-t divide-y divide-brand-blue border-t-brand-blue">

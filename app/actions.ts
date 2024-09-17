@@ -62,6 +62,14 @@ function removeChaptersAndTimestamps(text) {
 	return text
 }
 
+function formatEpisodeDuration(seconds: number) {
+	const hours = Math.floor(seconds / 3600)
+	const minutes = Math.floor((seconds % 3600) / 60)
+	const secs = seconds % 60
+	const pad = (num: number) => String(num).padStart(2, '0')
+	return `${pad(hours)}:${pad(minutes)}:${pad(secs)}`
+}
+
 export async function getEpisodes() {
 	try {
 		// const tempPromise = new Promise(resolve => setTimeout(resolve, 5000))
@@ -75,14 +83,19 @@ export async function getEpisodes() {
 			attributeNamePrefix: '@_',
 		})
 		const parsed = parser.parse(xml)
-		const episodes = parsed.rss.channel.item.map(ep => ({
-			guid: ep.guid['#text'],
-			title: ep.title,
-			imgSrc: ep['itunes:image']['@_href'],
-			summary: removeChaptersAndTimestamps(ep['itunes:summary']),
-			link: ep.link,
-			pubDate: ep.pubDate,
-		}))
+		const episodes = parsed.rss.channel.item.map(ep => {
+			// console.log({ ep })
+			return {
+				guid: ep.guid['#text'],
+				title: ep.title,
+				imgSrc: ep['itunes:image']['@_href'],
+				summary: removeChaptersAndTimestamps(ep['itunes:summary']),
+				link: ep.link,
+				pubDate: ep.pubDate,
+				keywords: ep['itunes:keywords']?.split() || [],
+				duration: formatEpisodeDuration(ep['itunes:duration']),
+			}
+		})
 		return {
 			episodes,
 		}

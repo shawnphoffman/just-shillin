@@ -10,18 +10,31 @@ const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Ame
 export default function Episodes({ episode }) {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)
 	const slug = slugify(episode.title)
+
+	// console.log({ episode })
+
+	const hasGuest = episode.keywords.includes('guest')
+
 	return (
-		<article className="flex flex-col justify-start w-full py-4 text-sm text-left" id={episode.guid}>
-			<a href={`#${slug}`} className="cursor-pointer group !text-brand-red flex flex-row justify-center items-center mb-2 md:mb-4 gap-1">
+		<article className="flex flex-col justify-start w-full py-4 text-sm text-left" id={episode.guid} data-guest={hasGuest}>
+			<a href={`#${slug}`} className="cursor-pointer group !text-brand-red flex flex-row justify-center items-center mb-2 md:mb-4 gap-2">
 				<FontAwesomeIcon className="opacity-0 group-hover:opacity-100" icon={faLink} size="lg" />
 				<h2 id={slug} className="text-2xl font-bold text-center text-brand-red">
 					{episode.title}
 				</h2>
+				{hasGuest && (
+					<span className="px-1.5 py-0.5 text-xs font-bold text-black border rounded-lg border-brand-yellow bg-brand-yellow">Guests</span>
+				)}
 			</a>
 			<div className="flex flex-col items-center justify-start gap-4 md:flex-row md:items-start">
 				<Image src={episode.imgSrc} alt={episode.title} className="w-32 rounded md:w-48 h-fit aspect-square" width={192} height={192} />
 				<div className="flex flex-col self-stretch overflow-hidden whitespace-break-spaces text-wrap text-ellipsis">
-					<div className="mb-2 text-xs text-white/75">Posted:&nbsp;{pubDate}</div>
+					<div className="flex flex-row items-center gap-4 mb-2">
+						<div className="text-xs text-white/75">Posted:&nbsp;{pubDate}</div>
+						<span className="px-1 py-0.5 leading-none text-xs font-bold text-brand-blue border rounded-lg border-brand-blue bg-brand-black">
+							{episode.duration}
+						</span>
+					</div>
 					<div className="[&_a]:text-brand-blue mb-1 [&_a]:pb-0.5 [&_a]:font-bold [&_a:hover]:text-brand-yellow [&_a:hover]:bg-squiggle [&_a]:break-words">
 						<EpisodeSummary summary={episode.summary} />
 					</div>
