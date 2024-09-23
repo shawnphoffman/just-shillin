@@ -27,6 +27,12 @@ export const postsListQuery =
   ${postFields}
 }`
 
+export const postsMetadataQuery = groq`
+*[_type == "post" && "Just Shillin'" in categories[]->.title]{
+  "slug": slug.current,
+	_updatedAt
+}`
+
 export const postSlugsQuery = groq`
 *[_type == "post" && defined(slug.current) && "Just Shillin'" in categories[]->.title][].slug.current
 `
