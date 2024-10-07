@@ -26,6 +26,8 @@ export async function getAwards() {
 		const data: AwardsResponse = await res.json()
 		const { awards } = data
 
+		console.log('getAwards', awards)
+
 		return awards
 	} catch (e) {
 		console.error(e)
