@@ -21,8 +21,8 @@ export async function getAwards() {
 	try {
 		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods-scrape?url=${goodpodsUrl}`, {
 			// Revalidate in seconds (12 hours)
-			// next: { revalidate: 43200 },
-			next: { revalidate: 60 },
+			next: { revalidate: 43200 },
+			// next: { revalidate: 60 },
 		})
 		const data: AwardsResponse = await res.json()
 		const { awards } = data
