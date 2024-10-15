@@ -22,12 +22,11 @@ export async function getAwards() {
 		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods-scrape?url=${goodpodsUrl}`, {
 			// Revalidate in seconds (12 hours)
 			next: { revalidate: 43200 },
-			// next: { revalidate: 60 },
 		})
 		const data: AwardsResponse = await res.json()
 		const { awards } = data
 
-		console.log('getAwards', awards)
+		// console.log('getAwards', awards)
 
 		return awards
 	} catch (e) {
