@@ -10,6 +10,7 @@ type Award = {
 	frequency: string
 	linkUrl: string
 	imageUrl: string
+	category: string
 }
 
 type AwardsResponse = {
@@ -56,6 +57,7 @@ export default async function Awards() {
 			{awards.map(award =>
 				award.linkUrl ? (
 					<Link
+						title="Goodpods Award"
 						key={award.linkUrl}
 						href={award.linkUrl}
 						target="_blank"
@@ -65,7 +67,6 @@ export default async function Awards() {
 					</Link>
 				) : (
 					<div key={award.linkUrl} className={`flex flex-col items-center`}>
-						{/* <ImageWithFallback src={award.imageUrl} alt="" width={award.imageWidth} height={award.imageHeight} /> */}
 						<Image src={award.imageUrl} alt="" width={award.imageWidth} height={award.imageHeight} />
 					</div>
 				)
