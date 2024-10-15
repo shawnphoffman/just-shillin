@@ -20,13 +20,13 @@ type AwardsResponse = {
 export async function getAwards() {
 	try {
 		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods-scrape?url=${goodpodsUrl}`, {
-			// Revalidate in seconds (12 hours)
-			next: { revalidate: 43200 },
+			next: { revalidate: 3600 },
+			// next: { revalidate: 360 },
 		})
 		const data: AwardsResponse = await res.json()
 		const { awards } = data
 
-		// console.log('getAwards', awards)
+		console.log('getAwards', awards)
 
 		return awards
 	} catch (e) {
