@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
-const TimeClient = dynamic(() => import('./TimeClient'), { ssr: false })
+const TimeClient = dynamic(() => import('./TimeClient'))
 
 export default function TimesPage() {
 	return (
