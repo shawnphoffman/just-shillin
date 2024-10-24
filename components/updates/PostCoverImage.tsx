@@ -1,8 +1,5 @@
-// 'use client'
-
 import Image from 'next/image'
 
-// import SimpleParallax from 'simple-parallax-js'
 import { urlForSanityImage } from '@/sanity/sanity.image'
 
 interface CoverImageProps {
@@ -18,7 +15,6 @@ export default function PostCoverImage(props: CoverImageProps) {
 	if (!image) return null
 
 	return (
-		// <SimpleParallax scale={1.2}>
 		<Image
 			className="w-full h-auto rounded-xl"
 			width={2000}
@@ -28,6 +24,5 @@ export default function PostCoverImage(props: CoverImageProps) {
 			sizes="100vw"
 			priority={priority}
 		/>
-		// </SimpleParallax>
 	)
 }

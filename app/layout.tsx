@@ -49,7 +49,7 @@ export default function RootLayout({ children }) {
 								<ActiveLink href="/" label="Links" />
 								<ActiveLink href="/updates" label="Updates" fuzzy />
 								<ActiveLink href="/episodes" label="Episodes" />
-								<ActiveLink href="/listen-now" label="Listen Now" />
+								{/* <ActiveLink href="/listen-now" label="Listen Now" /> */}
 							</nav>
 						</div>
 						<main className="flex flex-col items-center flex-1 gap-4 text-center">{children}</main>
