@@ -9,6 +9,7 @@ async function getSpotifyReviews() {
 			next: { revalidate: 60 * 60 * 6 },
 		})
 		const data = await res.json()
+		console.log('getSpotifyReviews', data)
 		return {
 			url: data?.url,
 			rating: data?.vals?.rating ? Number(data?.vals?.rating) : undefined,
