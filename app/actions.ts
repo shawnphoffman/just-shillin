@@ -18,27 +18,27 @@ export async function getAppleReviews() {
 			reviews: reviews?.length
 				? reviews
 				: !process.env.VERCEL_URL
-				? [
-						{
-							title: 'Great Show!',
-							author: 'Shawn',
-							stars: '4',
-							text: 'Wow this is a great show! I love it!',
-						},
-						{
-							title: 'Great Show!!',
-							author: 'Shawn',
-							stars: '3',
-							text: 'Wow this is a great show! I love it!',
-						},
-						{
-							title: 'Great Show!!!',
-							author: 'Shawn',
-							stars: '5',
-							text: 'Wow this is a great show! I love it!',
-						},
-				  ]
-				: [],
+					? [
+							{
+								title: 'Great Show!',
+								author: 'Shawn',
+								stars: '4',
+								text: 'Wow this is a great show! I love it!',
+							},
+							{
+								title: 'Great Show!!',
+								author: 'Shawn',
+								stars: '3',
+								text: 'Wow this is a great show! I love it!',
+							},
+							{
+								title: 'Great Show!!!',
+								author: 'Shawn',
+								stars: '5',
+								text: 'Wow this is a great show! I love it!',
+							},
+						]
+					: [],
 		}
 	} catch (e) {
 		console.error(e)
@@ -94,6 +94,8 @@ export async function getEpisodes() {
 				pubDate: ep.pubDate,
 				keywords: ep['itunes:keywords']?.split() || [],
 				duration: formatEpisodeDuration(ep['itunes:duration']),
+				season: ep['itunes:season'],
+				episode: ep['itunes:episode'],
 			}
 		})
 		return {

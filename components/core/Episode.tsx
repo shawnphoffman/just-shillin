@@ -11,9 +11,16 @@ export default function Episodes({ episode }) {
 	const pubDate = new Date(episode.pubDate).toLocaleDateString('en-US', options)
 	const slug = slugify(episode.title)
 
-	// console.log({ episode })
+	// console.log('ep', episode)
 
 	const hasGuest = episode.keywords.includes('guest')
+	const isBonus = !(episode.season || episode.episode)
+
+	// console.log('isBonus', {
+	// 	isBonus,
+	// 	season: episode.season,
+	// 	episode: episode.episode,
+	// })
 
 	return (
 		<article className="flex flex-col justify-start w-full py-4 text-sm text-left" id={episode.guid} data-guest={hasGuest}>
@@ -22,8 +29,10 @@ export default function Episodes({ episode }) {
 				<h2 id={slug} className="text-2xl font-bold text-center text-brand-red">
 					{episode.title}
 				</h2>
-				{hasGuest && (
-					<span className="px-1.5 py-0.5 text-xs font-bold text-black border rounded-lg border-brand-yellow bg-brand-yellow">Guests</span>
+				{(hasGuest || isBonus) && (
+					<span className="px-1.5 py-0.5 text-xs font-bold text-black border rounded-lg border-brand-yellow bg-brand-yellow">
+						{isBonus ? 'Bonus' : 'Guests'}
+					</span>
 				)}
 			</a>
 			<div className="flex flex-col items-center justify-start gap-4 md:flex-row md:items-start">
