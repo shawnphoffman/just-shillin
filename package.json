@@ -40,15 +40,17 @@
     "yet-another-react-lightbox": "^3.21.6"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.13.0",
     "@shawnphoffman/eslint-config": "^1.0.4",
     "@shawnphoffman/prettier-config": "^1.0.1",
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@types/node": "20.12.11",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "autoprefixer": "^10.4.20",
-    "eslint": "^8.56.0",
+    "eslint": "^9.13.0",
     "eslint-config-next": "15.0.1",
-    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react": "^7.37.2",
     "postcss": "^8.4.47",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.13"
