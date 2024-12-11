@@ -5,8 +5,10 @@ const TimeClient = dynamic(() => import('./TimeClient'))
 
 export default function TimesPage() {
 	return (
-		<Suspense>
-			<TimeClient />
-		</Suspense>
+		<div className="flex flex-col w-full gap-1">
+			<Suspense>
+				<TimeClient />
+			</Suspense>
+		</div>
 	)
 }
