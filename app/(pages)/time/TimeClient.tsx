@@ -59,17 +59,25 @@ export default function TimeClient() {
 			</div>
 			{/* Misc */}
 			<div className="flex flex-col w-full px-2 overflow-hidden border divide-y rounded-lg divide-brand-blue border-brand-blue bg-zinc-950/75 [&>*]:py-2">
-				<FitText compressor={1.5}>
+				<FitText compressor={1}>
 					<div className="flex flex-col items-center font-medium leading-none">
-						<h2 className="text-4xl font-semibold text-brand-blue">US East</h2>
+						<h2 className="text-3xl font-semibold text-brand-blue">US Central</h2>
+						<h3>
+							<Clock date={time} format={'h:mm A'} ticking={false} timezone={'US/Central'} />
+						</h3>
+					</div>
+				</FitText>
+				<FitText compressor={1}>
+					<div className="flex flex-col items-center font-medium leading-none">
+						<h2 className="text-3xl font-semibold text-brand-blue">US East</h2>
 						<h3>
 							<Clock date={time} format={'h:mm A'} ticking={false} timezone={'US/Eastern'} />
 						</h3>
 					</div>
 				</FitText>
-				<FitText compressor={1.5}>
+				<FitText compressor={1}>
 					<div className="flex flex-col items-center font-medium leading-none">
-						<h2 className="text-4xl font-semibold text-brand-blue">AUS East</h2>
+						<h2 className="text-3xl font-semibold text-brand-blue">AUS East</h2>
 						<h3>
 							<Clock date={time} format={'h:mm A'} ticking={false} timezone={'Australia/Melbourne'} />
 						</h3>
