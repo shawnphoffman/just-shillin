@@ -115,7 +115,7 @@ const items: LinkItem[] = [
 	},
 	{
 		title: 'BlueSky Feed',
-		href: 'https://bsky.app/profile/did:plc:q7ul4lz2j3d6qtcjzvz4rrjh/feed/shawnbot-pods',
+		href: 'https://bsky.app/profile/dev.shawn.party/feed/star-wars',
 		icon: faBluesky,
 		background: 'bg-bluesky',
 	},
