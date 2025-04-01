@@ -30,13 +30,19 @@ export const metadata = {
 	},
 }
 
-export default function RootLayout({ children }) {
+type LayoutProps = {
+	andy: React.ReactNode
+	children: React.ReactNode
+}
+
+export default function RootLayout({ andy, children }: LayoutProps) {
 	return (
 		<html lang="en" className={`${GeistSans.className} bg-black h-full p-0 m-0 overflow-x-hidden w-dvw`}>
 			<head>
 				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
 			<body className="px-2 py-0 mx-auto my-0 text-white min-h-dvh w-dvw">
+				<>{andy}</>
 				<StarBackground />
 				<div className="flex flex-col items-center w-full max-w-screen-xl mx-auto">
 					<div className="flex flex-col w-full max-w-4xl min-h-dvh">
@@ -47,8 +53,10 @@ export default function RootLayout({ children }) {
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
+								<ActiveLink href="https://www.online-tribute.com/AndyBell" label="Andy" target="_blank" classes="text-purple-500" />
 								<ActiveLink href="/updates" label="Updates" fuzzy />
 								<ActiveLink href="/episodes" label="Episodes" />
+								{/* <ActiveLink href="/updates/trivia" label="Trivia" /> */}
 								{/* <ActiveLink href="/listen-now" label="Listen Now" /> */}
 							</nav>
 						</div>
