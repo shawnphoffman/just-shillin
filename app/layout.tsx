@@ -7,6 +7,7 @@ import Image from 'next/image'
 
 import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
 import headerImage from '@/app/title.png'
+import AndyModal from '@/components/AndyModal/AndyModal'
 import ActiveLink from '@/components/core/ActiveLink'
 import StarBackground from '@/components/core/StarBackground'
 
@@ -42,7 +43,6 @@ export default function RootLayout({ andy, children }: LayoutProps) {
 				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
 			<body className="px-2 py-0 mx-auto my-0 text-white min-h-dvh w-dvw">
-				<>{andy}</>
 				<StarBackground />
 				<div className="flex flex-col items-center w-full max-w-screen-xl mx-auto">
 					<div className="flex flex-col w-full max-w-4xl min-h-dvh">
@@ -65,6 +65,7 @@ export default function RootLayout({ andy, children }: LayoutProps) {
 				</div>
 				{process.env.VERCEL_ENV && <Analytics />}
 				{/* <SpeedInsights /> */}
+				<AndyModal />
 			</body>
 		</html>
 	)
