@@ -32,11 +32,10 @@ export const metadata = {
 }
 
 type LayoutProps = {
-	andy: React.ReactNode
 	children: React.ReactNode
 }
 
-export default function RootLayout({ andy, children }: LayoutProps) {
+export default function RootLayout({ children }: LayoutProps) {
 	return (
 		<html lang="en" className={`${GeistSans.className} bg-black h-full p-0 m-0 overflow-x-hidden w-dvw`}>
 			<head>
