@@ -7,7 +7,8 @@ import Image from 'next/image'
 
 import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
 import headerImage from '@/app/title.png'
-import AndyModal from '@/components/AndyModal/AndyModal'
+// import AndyModal from '@/components/AndyModal/AndyModal'
+import ChrisRunModal from '@/components/ChrisRunModal/ChrisRunModal'
 import ActiveLink from '@/components/core/ActiveLink'
 import StarBackground from '@/components/core/StarBackground'
 
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: LayoutProps) {
 				</div>
 				{process.env.VERCEL_ENV && <Analytics />}
 				{/* <SpeedInsights /> */}
-				<AndyModal />
+				<ChrisRunModal />
 			</body>
 		</html>
 	)
