@@ -20,10 +20,14 @@ type AwardsResponse = {
 
 export async function getAwards() {
 	try {
+		// const controller = new AbortController()
+		// const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
+
 		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods-scrape?url=${goodpodsUrl}`, {
 			next: { revalidate: 3600 },
-			// next: { revalidate: 360 },
+			// signal: controller.signal,
 		})
+		// clearTimeout(timeoutId)
 		const data: AwardsResponse = await res.json()
 		const { awards } = data
 
@@ -40,15 +44,17 @@ export default async function Awards() {
 	let awards: Award[] = []
 
 	try {
-		awards = await getAwards()
+		const timeoutPromise = new Promise<never>((_, reject) => setTimeout(() => reject(new Error('Timeout')), 5000))
+		awards = await Promise.race([getAwards(), timeoutPromise])
 	} catch (e) {
 		console.error(e)
-		return null
+		// return null
 	}
 
-	// console.log('Awards.awards', awards)
+	console.log('Awards.awards', awards)
 
 	if (!awards || !awards.length) {
+		// return <div>Awards not available</div>
 		return null
 	}
 

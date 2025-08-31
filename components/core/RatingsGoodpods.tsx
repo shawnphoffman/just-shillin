@@ -5,9 +5,14 @@ import { goodpodsUrl } from '@/app/(pages)/(links)/links'
 
 async function getGoodpodsReviews() {
 	try {
+		const controller = new AbortController()
+		const timeoutId = setTimeout(() => controller.abort(), 5000) // 5 second timeout
+
 		const res = await fetch(`https://api.shawn.party/api/pod-data/goodpods?url=${goodpodsUrl}`, {
 			next: { revalidate: 60 * 60 * 6 },
+			signal: controller.signal,
 		})
+		clearTimeout(timeoutId)
 		const data = await res.json()
 		// console.log('getGoodpodsReviews', data)
 		return data
