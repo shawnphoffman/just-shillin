@@ -15,8 +15,8 @@ export default async function Home() {
 	return (
 		<>
 			<div className="w-full max-w-4xl text-base leading-normal sm:text-lg">
-				Join Andy and Shawn for a casual and light-hearted podcast experience. Discover what happens when two friends come together to share
-				their love for the things that make life awesome.
+				Join us for a casual and light-hearted podcast experience. Discover what happens when friends come together to share their love for
+				the things that make life awesome
 			</div>
 			<div className="flex flex-row flex-wrap items-center justify-center gap-2">
 				<Suspense fallback={''}>

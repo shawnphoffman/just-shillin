@@ -71,30 +71,30 @@ const items: LinkItem[] = [
 		background: 'bg-goodpods',
 		color: 'text-black',
 	},
-	{
-		title: 'Amazon Music',
-		href: 'https://music.amazon.com/podcasts/41b5996a-f09d-4657-991f-d495150756f3/just-shillin',
-		icon: faAmazon,
-		background: 'bg-amazonmusic',
-	},
-	{
-		title: 'Pocket Casts',
-		href: 'https://pca.st/74wq5erg',
-		icon: faPocketCasts,
-		background: 'bg-pocketcasts',
-	},
-	{
-		title: 'Radio Public',
-		href: 'https://radiopublic.com/just-shillin-6pQpmN',
-		icon: faRadioPublic,
-		background: 'bg-radiopublic',
-	},
-	{
-		title: 'Zencastr',
-		href: 'https://zencastr.com/Just-Shillin',
-		icon: faZencastr,
-		background: 'bg-zencastr',
-	},
+	// {
+	// 	title: 'Amazon Music',
+	// 	href: 'https://music.amazon.com/podcasts/41b5996a-f09d-4657-991f-d495150756f3/just-shillin',
+	// 	icon: faAmazon,
+	// 	background: 'bg-amazonmusic',
+	// },
+	// {
+	// 	title: 'Pocket Casts',
+	// 	href: 'https://pca.st/74wq5erg',
+	// 	icon: faPocketCasts,
+	// 	background: 'bg-pocketcasts',
+	// },
+	// {
+	// 	title: 'Radio Public',
+	// 	href: 'https://radiopublic.com/just-shillin-6pQpmN',
+	// 	icon: faRadioPublic,
+	// 	background: 'bg-radiopublic',
+	// },
+	// {
+	// 	title: 'Zencastr',
+	// 	href: 'https://zencastr.com/Just-Shillin',
+	// 	icon: faZencastr,
+	// 	background: 'bg-zencastr',
+	// },
 	{
 		title: 'RSS',
 		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
@@ -102,7 +102,7 @@ const items: LinkItem[] = [
 		background: 'bg-rss',
 	},
 	{
-		title: 'Just Shillin',
+		title: 'Instagram',
 		href: 'https://www.instagram.com/justshillinpod',
 		icon: faInstagram,
 		background: 'bg-instagram',

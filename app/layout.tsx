@@ -6,7 +6,7 @@ import { GeistSans } from 'geist/font/sans'
 import Image from 'next/image'
 
 import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
-import headerImage from '@/app/title.png'
+import headerImage from '@/app/title-og.png'
 // import AndyModal from '@/components/AndyModal/AndyModal'
 // import ChrisRunModal from '@/components/ChrisRunModal/ChrisRunModal'
 import ActiveLink from '@/components/core/ActiveLink'
@@ -49,7 +49,7 @@ export default function RootLayout({ children }: LayoutProps) {
 						<div className="flex flex-col items-center m-4 text-center">
 							<h1 className="sr-only">{siteTitle}</h1>
 							{/* IMAGE */}
-							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={300} height={300} priority />
+							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={288} height={177} priority />
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
