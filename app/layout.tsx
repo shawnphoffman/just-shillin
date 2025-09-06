@@ -53,7 +53,7 @@ export default function RootLayout({ children }: LayoutProps) {
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
-								<ActiveLink href="https://www.online-tribute.com/AndyBell" label="Andy" target="_blank" classes="text-purple-500" />
+								{/* <ActiveLink href="https://www.online-tribute.com/AndyBell" label="Andy" target="_blank" classes="text-purple-500" /> */}
 								<ActiveLink href="/updates" label="Updates" fuzzy />
 								<ActiveLink href="/episodes" label="Episodes" />
 								{/* <ActiveLink href="/updates/trivia" label="Trivia" /> */}
