@@ -33,9 +33,6 @@ module.exports = {
 			},
 		]
 	},
-	experimental: {
-		reactCompiler: true,
-	},
 	// This is sanity-related
 	// logging: {
 	// 	fetches: {

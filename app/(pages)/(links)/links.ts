@@ -1,5 +1,8 @@
-import { faAmazon, faBluesky, faInstagram, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
-import { faAt, faRssSquare } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import {
+	faBluesky, faInstagram,
+	faSpotify, faYoutube
+} from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
+import { faAt, faRssSquare, faShirt } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
 import { faPodcast } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
 import {
 	faGoodpods,
@@ -42,6 +45,12 @@ const items: LinkItem[] = [
 		href: 'mailto:feedback@justshillin.com',
 		icon: faAt,
 		background: 'bg-email',
+	},
+	{
+		title: 'Merch Store',
+		href: 'https://shop.justshillin.com',
+		icon: faShirt,
+		background: 'bg-teepublic',
 	},
 	{
 		title: 'Overcast',
