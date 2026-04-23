@@ -2862,6 +2862,15 @@ fraction.js@^4.3.7:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.3.7.tgz#06ca0085157e42fda7f9e726e79fefc4068840f7"
   integrity sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==
 
+framer-motion@^12.38.0:
+  version "12.38.0"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.38.0.tgz#cf28e072a95942881ca4e33fd33be41192fd146b"
+  integrity sha512-rFYkY/pigbcswl1XQSb7q424kSTQ8q6eAC+YUsSKooHQYuLdzdHjrt6uxUC+PRAO++q5IS7+TamgIw1AphxR+g==
+  dependencies:
+    motion-dom "^12.38.0"
+    motion-utils "^12.36.0"
+    tslib "^2.4.0"
+
 framer-motion@^12.6.3:
   version "12.6.3"
   resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-12.6.3.tgz#ee8e1a7c55e9a0f2d5afe6c23d1c7a7c2e4c8edc"
@@ -3937,6 +3946,13 @@ moment@^2.29.1, moment@^2.29.4, moment@^2.30.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
   integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
 
+motion-dom@^12.38.0:
+  version "12.38.0"
+  resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.38.0.tgz#9ef3253ea0fb28b6757588327073848d940e9aab"
+  integrity sha512-pdkHLD8QYRp8VfiNLb8xIBJis1byQ9gPT3Jnh2jqfFtAsWUA3dEepDlsWe/xMpO8McV+VdpKVcp+E+TGJEtOoA==
+  dependencies:
+    motion-utils "^12.36.0"
+
 motion-dom@^12.6.3:
   version "12.6.3"
   resolved "https://registry.yarnpkg.com/motion-dom/-/motion-dom-12.6.3.tgz#7cb8af2757bbe56c87dd3cbc20f35bd9c7dfba1d"
@@ -3944,10 +3960,23 @@ motion-dom@^12.6.3:
   dependencies:
     motion-utils "^12.6.3"
 
+motion-utils@^12.36.0:
+  version "12.36.0"
+  resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.36.0.tgz#cff2df2a28c3fe53a3de7e0103ba7f73ff7d77a7"
+  integrity sha512-eHWisygbiwVvf6PZ1vhaHCLamvkSbPIeAYxWUuL3a2PD/TROgE7FvfHWTIH4vMl798QLfMw15nRqIaRDXTlYRg==
+
 motion-utils@^12.6.3:
   version "12.6.3"
   resolved "https://registry.yarnpkg.com/motion-utils/-/motion-utils-12.6.3.tgz#6f80e0b6d203b7a915cc6451860467e61590c077"
   integrity sha512-R/b3Ia2VxtTNZ4LTEO5pKYau1OUNHOuUfxuP0WFCTDYdHkeTBR9UtxR1cc8mDmKr8PEhmmfnTKGz3rSMjNRoRg==
+
+motion@^12.38.0:
+  version "12.38.0"
+  resolved "https://registry.yarnpkg.com/motion/-/motion-12.38.0.tgz#851fb591f98ed98815e223c09a0de13614ea4155"
+  integrity sha512-uYfXzeHlgThchzwz5Te47dlv5JOUC7OB4rjJ/7XTUgtBZD8CchMN8qEJ4ZVsUmTyYA44zjV0fBwsiktRuFnn+w==
+  dependencies:
+    framer-motion "^12.38.0"
+    tslib "^2.4.0"
 
 ms@2.0.0:
   version "2.0.0"
@@ -4986,16 +5015,7 @@ stop-iteration-iterator@^1.1.0:
     es-errors "^1.3.0"
     internal-slot "^1.1.0"
 
-"string-width-cjs@npm:string-width@^4.2.0":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
-  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
-  dependencies:
-    emoji-regex "^8.0.0"
-    is-fullwidth-code-point "^3.0.0"
-    strip-ansi "^6.0.1"
-
-string-width@^4.1.0:
+"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -5134,14 +5154,7 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
-  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
-  dependencies:
-    ansi-regex "^5.0.1"
-
-strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
