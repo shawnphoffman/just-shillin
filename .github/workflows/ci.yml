@@ -15,10 +15,15 @@ jobs:
           node-version: 22
           cache: yarn
       - name: Configure FontAwesome registry auth
+        env:
+          FA_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
         run: |
           echo "@awesome.me:registry=https://npm.fontawesome.com/" >> ~/.npmrc
           echo "@fortawesome:registry=https://npm.fontawesome.com/" >> ~/.npmrc
-          echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}" >> ~/.npmrc
+          echo "//npm.fontawesome.com/:_authToken=${FA_TOKEN}" >> ~/.npmrc
+          echo "token length: ${#FA_TOKEN}"
+          echo "token has leading/trailing whitespace: $([ "$FA_TOKEN" = "$(echo -n "$FA_TOKEN" | xargs)" ] && echo no || echo YES)"
+          npm whoami --registry=https://npm.fontawesome.com/ || true
       - run: yarn install --frozen-lockfile
       - run: yarn tsc --noEmit
       - run: yarn lint
