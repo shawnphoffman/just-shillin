@@ -5,7 +5,7 @@ import { spotifyUrl } from '@/app/(pages)/(links)/links'
 
 async function getSpotifyReviews() {
 	try {
-		const res = await fetch(`https://api.shawn.party/api/pod-data/spotify-scrape?url=${spotifyUrl}`, {
+		const res = await fetch(`https://api.shawn.party/api/podcast-data/spotify-scrape?url=${spotifyUrl}`, {
 			next: { revalidate: 60 * 60 * 6 },
 		})
 		const data = await res.json()
