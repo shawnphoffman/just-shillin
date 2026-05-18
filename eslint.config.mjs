@@ -1,22 +1,26 @@
-import nextTypescript from "eslint-config-next/typescript";
-import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
-import shawnEslint from '@shawnphoffman/eslint-config/eslint.config.mjs'
-import react from 'eslint-plugin-react'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import nextCoreWebVitals from 'eslint-config-next/core-web-vitals'
+import nextTypescript from 'eslint-config-next/typescript'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-const config = [...nextTypescript, ...nextCoreWebVitals, shawnEslint[0], {
-    plugins: {
-        react,
-    },
-    rules: {
-        'react/no-unescaped-entities': 'warn',
-    },
-}, {
-    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "next-env.d.ts"]
-}]
+const config = [
+	...nextCoreWebVitals,
+	...nextTypescript,
+	{
+		ignores: ['node_modules/**', '.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+	},
+	{
+		rules: {
+			'@typescript-eslint/no-explicit-any': 'off',
+			'@typescript-eslint/no-require-imports': 'off',
+			'@typescript-eslint/ban-ts-comment': 'off',
+			'@typescript-eslint/no-wrapper-object-types': 'off',
+			'@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+			'@typescript-eslint/no-unused-vars': 'warn',
+			'react-hooks/error-boundaries': 'off',
+			'react-hooks/set-state-in-effect': 'off',
+			'react-hooks/purity': 'off',
+			'prefer-const': 'warn',
+		},
+	},
+]
 
 export default config
