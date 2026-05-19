@@ -1,13 +1,13 @@
 import { faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
-import { RatingsApple, RatingsGoodpods, RatingsSpotify } from '@shawnphoffman/pod-sites-shared/ratings'
+import { Awards, RatingsApple, RatingsGoodpods, RatingsSpotify } from '@shawnphoffman/pod-sites-shared/ratings'
 import { Suspense } from 'react'
 
-import Awards from '@/components/core/Awards'
 import LinkCard from '@/components/core/LinkCard'
 import Loading from '@/components/core/Loading'
 import Reviews from '@/components/core/Reviews'
 
 import { getAppleReviews, getSpotifyReviews } from '@/app/actions'
+import { getAwards } from '@/sanity/sanity.requests'
 
 import items, { appleRatingUrl, goodpodsUrl, spotifyUrl } from './links'
 
@@ -42,7 +42,7 @@ export default async function Home() {
 			</div>
 
 			<Suspense fallback={null}>
-				<Awards />
+				<Awards getAwards={getAwards} />
 			</Suspense>
 
 			<Suspense fallback={<Loading />}>
