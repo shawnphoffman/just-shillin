@@ -1050,10 +1050,10 @@
     use-effect-event "^2.0.3"
     xstate "^5.21.0"
 
-"@shawnphoffman/pod-sites-shared@^0.4.1":
-  version "0.4.1"
-  resolved "https://npm.pkg.github.com/download/@shawnphoffman/pod-sites-shared/0.4.1/ab90a15378fc80d84f1313c4b6bd23991be90cbf#ab90a15378fc80d84f1313c4b6bd23991be90cbf"
-  integrity sha512-HDTim6aC2FL/vCjengsRyf57PXKqypx33kGTHUrpiB8HpAfH+WJp140xsYtb0bDVFgQmnh20qXKwAkJJKdjdCw==
+"@shawnphoffman/pod-sites-shared@^0.4.2":
+  version "0.4.2"
+  resolved "https://npm.pkg.github.com/download/@shawnphoffman/pod-sites-shared/0.4.2/bd993aff32011a3a0f2104249a038792f989790a#bd993aff32011a3a0f2104249a038792f989790a"
+  integrity sha512-8nabmI6puJG0DMilg9x8moUDFlbvfkB8XYa7ACjmNsjR6UtPWiN2i7vXNYmhfxZ5EQgWqiaarJVkG35l3M9d5Q==
 
 "@swc/helpers@0.5.15":
   version "0.5.15"
