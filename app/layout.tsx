@@ -8,7 +8,21 @@ import Image from 'next/image'
 import { VisualEditing } from 'next-sanity/visual-editing'
 
 import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
-import headerImage from '@/app/title-og.png'
+import headerImageDefault from '@/app/title-og.png'
+import headerImageCmyk from '@/app/js-cmyk.png'
+import headerImageHalftone1 from '@/app/js-halftone_1.png'
+import headerImageHalftone2 from '@/app/js-halftone_2.png'
+import headerImageHalftone3 from '@/app/js-halftone_3.png'
+import headerImageHalftone4 from '@/app/js-halftone_4.png'
+
+const headerImages = [
+	headerImageDefault,
+	headerImageCmyk,
+	headerImageHalftone1,
+	headerImageHalftone2,
+	headerImageHalftone3,
+	headerImageHalftone4,
+]
 // import AndyModal from '@/components/AndyModal/AndyModal'
 // import ChrisRunModal from '@/components/ChrisRunModal/ChrisRunModal'
 import ActiveLink from '@/components/core/ActiveLink'
@@ -41,6 +55,7 @@ type LayoutProps = {
 
 export default async function RootLayout({ children }: LayoutProps) {
 	const { isEnabled: isDraftMode } = await draftMode()
+	const headerImage = headerImages[Math.floor(Math.random() * headerImages.length)]
 	return (
 		<html lang="en" className={`${GeistSans.className} bg-black h-full p-0 m-0 overflow-x-hidden w-dvw`}>
 			<head>
@@ -55,7 +70,7 @@ export default async function RootLayout({ children }: LayoutProps) {
 						<div className="flex flex-col items-center m-4 text-center">
 							<h1 className="sr-only">{siteTitle}</h1>
 							{/* IMAGE */}
-							<Image className="w-52 lg:w-72" alt="" src={headerImage} width={288} height={177} priority />
+							<Image className="w-72 lg:w-96" alt="" src={headerImage} width={288} height={177} priority />
 							{/* NAV */}
 							<nav className="flex flex-row flex-wrap justify-center gap-4">
 								<ActiveLink href="/" label="Links" />
