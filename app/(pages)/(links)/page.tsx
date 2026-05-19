@@ -1,14 +1,14 @@
+import { faStarSharp } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
+import { RatingsApple, RatingsGoodpods, RatingsSpotify } from '@shawnphoffman/pod-sites-shared/ratings'
 import { Suspense } from 'react'
 
-// import Awards from '@/components/core/AwardsScrape'
 import LinkCard from '@/components/core/LinkCard'
 import Loading from '@/components/core/Loading'
-import RatingsApple from '@/components/core/RatingsApple'
-import RatingsGoodpods from '@/components/core/RatingsGoodpods'
-import RatingsSpotify from '@/components/core/RatingsSpotify'
 import Reviews from '@/components/core/Reviews'
 
-import items from './links'
+import { getAppleReviews, getSpotifyReviews } from '@/app/actions'
+
+import items, { appleRatingUrl, goodpodsUrl, spotifyUrl } from './links'
 
 export default async function Home() {
 	// await new Promise(resolve => setTimeout(resolve, 2000))
@@ -20,9 +20,9 @@ export default async function Home() {
 			</div>
 			<div className="flex flex-row flex-wrap items-center justify-center gap-2">
 				<Suspense fallback={''}>
-					<RatingsApple />
-					<RatingsGoodpods />
-					<RatingsSpotify />
+					<RatingsApple appleRatingUrl={appleRatingUrl} getReviews={getAppleReviews} starIcon={faStarSharp} />
+					<RatingsGoodpods goodpodsUrl={goodpodsUrl} starIcon={faStarSharp} />
+					<RatingsSpotify spotifyUrl={spotifyUrl} getReviews={getSpotifyReviews} starIcon={faStarSharp} />
 				</Suspense>
 			</div>
 			<div className="flex flex-row flex-wrap justify-center w-full gap-4">
