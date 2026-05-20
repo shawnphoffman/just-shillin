@@ -1051,9 +1051,9 @@
     xstate "^5.21.0"
 
 "@shawnphoffman/pod-sites-shared@^0.6.0":
-  version "0.6.1"
-  resolved "https://npm.pkg.github.com/download/@shawnphoffman/pod-sites-shared/0.6.1/a43ed353317fd0bd45fb70c5f3f61e429302e449#a43ed353317fd0bd45fb70c5f3f61e429302e449"
-  integrity sha512-tYsTDgLH/xWyKVo7vMxa860kjz3kPF66Qec655C6rCsLz7Ao6953k+FpQPok8ox8PbwhdolDp+d1dvUbhVFDNw==
+  version "0.6.2"
+  resolved "https://npm.pkg.github.com/download/@shawnphoffman/pod-sites-shared/0.6.2/9d4dc155d76c3db99730ec4d1b01d71468c9e7d6#9d4dc155d76c3db99730ec4d1b01d71468c9e7d6"
+  integrity sha512-amASJSKv8TonEuZpNGsmyaQdThKmnjYBMue3z7GvxMOl+rkXLst4cjYL3Uo15l1ltoRD4eujTz69A0HLZpHmQg==
 
 "@swc/helpers@0.5.15":
   version "0.5.15"
