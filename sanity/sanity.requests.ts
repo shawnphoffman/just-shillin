@@ -1,10 +1,12 @@
 import 'server-only'
 
+import { draftMode } from 'next/headers'
 import { type PortableTextBlock, type QueryParams } from 'next-sanity'
 
 import sanityClient from '@/sanity/sanity.client'
 // TODO Merge this into the same file
 import { AWARDS_QUERY, BANNER_QUERY, postBySlugQuery, postsListQuery, postSlugsQuery, postsMetadataQuery } from '@/sanity/sanity.queries'
+import { token } from '@/sanity/sanity.token'
 import { AWARDS_QUERYResult } from '@/sanity/sanity.types'
 import { type Post } from '@/sanity/sanity.types-old'
 
@@ -21,11 +23,22 @@ type SanityFetchProps = {
 	tags?: string[]
 }
 
+async function isDraftModeEnabled(): Promise<boolean> {
+	// draftMode() throws when called outside a request scope (e.g. from
+	// generateStaticParams at build time). Treat that as "not in draft mode".
+	try {
+		const { isEnabled } = await draftMode()
+		return isEnabled
+	} catch {
+		return false
+	}
+}
+
 async function sanityFetch<QueryResponse>({ query, params = {}, tags }: SanityFetchProps) {
-	return sanityClient.fetch<QueryResponse>(query, params, {
-		next: {
-			tags,
-		},
+	const isDraftMode = await isDraftModeEnabled()
+	const client = isDraftMode ? sanityClient.withConfig({ token, perspective: 'previewDrafts', useCdn: false }) : sanityClient
+	return client.fetch<QueryResponse>(query, params, {
+		next: isDraftMode ? { revalidate: 0 } : { tags },
 	})
 }
 

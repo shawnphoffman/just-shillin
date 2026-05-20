@@ -30,7 +30,7 @@ export default async function PostPage(props: PageProps) {
 		return notFound()
 	}
 
-	const { title, body = {}, mainImage, slug, commentsAtUrl } = post
+	const { title, body = [], mainImage, slug, commentsAtUrl, predictions } = post
 
 	return (
 		<div className="flex flex-col items-center justify-center w-full gap-4 mb-4">
@@ -46,7 +46,7 @@ export default async function PostPage(props: PageProps) {
 			<TableOfContents content={body} />
 
 			<article className="w-full pb-4 text-left rounded-lg bg-zinc-950/75">
-				<PostBody content={body} />
+				<PostBody content={body} predictions={predictions} />
 			</article>
 
 			<Suspense fallback={<Loading />}>

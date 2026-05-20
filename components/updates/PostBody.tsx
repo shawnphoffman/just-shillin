@@ -5,12 +5,26 @@ import { PortableText, type PortableTextReactComponents, PortableTextTypeCompone
 import { SanityImageCrop, SanityImageSource } from '@sanity/image-url/lib/types/types'
 import slugify from 'slugify'
 
+import { PredictionGrid, type Prediction, type PredictionsTheme } from '@shawnphoffman/pod-sites-shared/components'
+
+import { urlForSanityImage } from '@/sanity/sanity.image'
 import PostImage from '@/components/updates/portableText/PostImage'
 import UrlEmbed from '@/components/updates/portableText/UrlEmbed'
 import YoutubeEmbed from '@/components/updates/portableText/YoutubeEmbed'
 import { SanityImageHotspot } from '@/sanity/sanity.types'
 
 import styles from './PostBody.module.css'
+
+// Just Shillin' brand: yellow primary, blue secondary.
+const justShillinPredictionsTheme: PredictionsTheme = {
+	accentBar: 'bg-brand-yellow',
+	cardTitle: 'text-brand-yellow',
+	summaryTitle: 'text-brand-yellow',
+	winnerRing: 'ring-brand-yellow/60',
+	winnerBg: 'bg-brand-yellow/10',
+	winnerText: 'text-brand-yellow',
+	winnerIcon: 'text-brand-yellow',
+}
 
 type ImageAsset = {
 	asset: SanityImageSource
@@ -21,7 +35,8 @@ type ImageAsset = {
 	_key: string
 }
 
-const myPortableTextComponents: Partial<PortableTextReactComponents> = {
+function buildComponents(predictions?: Prediction[] | null): Partial<PortableTextReactComponents> {
+	return {
 	block: {
 		h2: props => {
 			const slug = slugify(toPlainText(props.value))
@@ -117,18 +132,38 @@ const myPortableTextComponents: Partial<PortableTextReactComponents> = {
 				</div>
 			)
 		},
+		predictionsMarker: () => {
+			if (!predictions?.length) return null
+			return (
+				<div className="my-6 not-prose">
+					<PredictionGrid predictions={predictions} theme={justShillinPredictionsTheme} urlForImage={urlForSanityImage} />
+				</div>
+			)
+		},
 	},
 }
+}
 
-// const onMissingComponent = (type: any) => {
-// 	console.error('Missing component:', type)
-// 	return null
-// }
+function hasMarker(content: any[] | undefined | null): boolean {
+	return Array.isArray(content) && content.some(b => b?._type === 'predictionsMarker')
+}
 
-export default function PostBody({ content }) {
+type PostBodyProps = {
+	content: any
+	predictions?: Prediction[] | null
+}
+
+export default function PostBody({ content, predictions }: PostBodyProps) {
+	const components = buildComponents(predictions)
+	const showAppendedGrid = !hasMarker(content) && Boolean(predictions?.length)
 	return (
 		<div className={`mx-auto max-w-3xl ${styles.portableText}`}>
-			<PortableText value={content} components={myPortableTextComponents} />
+			<PortableText value={content} components={components} />
+			{showAppendedGrid ? (
+				<div className="mt-6 not-prose">
+					<PredictionGrid predictions={predictions!} theme={justShillinPredictionsTheme} urlForImage={urlForSanityImage} />
+				</div>
+			) : null}
 		</div>
 	)
 }

@@ -4,9 +4,9 @@ import slugify from 'slugify'
 import { OutlineProps } from '@/sanity/sanity.types-old'
 
 const filter = (ast, match) =>
-	ast.reduce((acc, node) => {
+	(Array.isArray(ast) ? ast : []).reduce((acc, node) => {
 		if (match(node)) acc.push(node)
-		if (node.children) acc.push(...filter(node.children, match))
+		if (Array.isArray(node.children)) acc.push(...filter(node.children, match))
 		return acc
 	}, [])
 
