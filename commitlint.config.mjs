@@ -1,5 +1,5 @@
 /** @type {import('@commitlint/types').UserConfig} */
-export default {
+const config = {
 	extends: ['@commitlint/config-conventional'],
 	rules: {
 		// Keep subjects concise but descriptive (matches recent repo history).
@@ -11,3 +11,5 @@ export default {
 		'footer-leading-blank': [2, 'always'],
 	},
 }
+
+export default config
