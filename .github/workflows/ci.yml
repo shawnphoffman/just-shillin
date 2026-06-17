@@ -36,6 +36,7 @@ jobs:
           echo "@shawnphoffman:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${GH_PACKAGES_TOKEN}" >> ~/.npmrc
       - run: pnpm install --frozen-lockfile
+      - run: pnpm typegen
       - run: pnpm exec tsc --noEmit
       - run: pnpm lint
       - name: Lint commit messages

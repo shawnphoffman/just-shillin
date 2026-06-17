@@ -63,6 +63,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint .",
+		"typegen": "next typegen",
 		"postinstall": "simple-git-hooks"
 	},
 	"simple-git-hooks": {
