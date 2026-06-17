@@ -49,19 +49,19 @@ try {
 	const prettierTargets = staged.filter(f => PRETTIER_EXT.test(f) && existsSync(resolve(repoRoot, f)))
 	if (prettierTargets.length > 0) {
 		console.log(`[precommit] prettier --write on ${prettierTargets.length} staged file(s)`)
-		run('yarn', ['exec', 'prettier', '--write', '--ignore-unknown', '--log-level', 'warn', ...prettierTargets])
+		run('pnpm', ['exec', 'prettier', '--write', '--ignore-unknown', '--log-level', 'warn', ...prettierTargets])
 		run('git', ['add', ...prettierTargets])
 	}
 
 	if (hasTsStaged) {
 		console.log('[precommit] typechecking (tsc --noEmit)')
-		run('yarn', ['exec', 'tsc', '--noEmit'])
+		run('pnpm', ['exec', 'tsc', '--noEmit'])
 	}
 
 	process.exit(0)
 } catch (err) {
 	console.error('[precommit] hook failed:')
 	console.error(err?.message ?? err)
-	console.error('Resolve the error above (format: `yarn exec prettier --write .`; types: `yarn exec tsc --noEmit`) and retry.')
+	console.error('Resolve the error above (format: `pnpm exec prettier --write .`; types: `pnpm exec tsc --noEmit`) and retry.')
 	process.exit(1)
 }

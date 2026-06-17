@@ -20,10 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: yarn
+          cache: pnpm
       - name: Configure registry auth
         env:
           FA_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
@@ -34,9 +35,9 @@ jobs:
           echo "//npm.fontawesome.com/:_authToken=${FA_TOKEN}" >> ~/.npmrc
           echo "@shawnphoffman:registry=https://npm.pkg.github.com" >> ~/.npmrc
           echo "//npm.pkg.github.com/:_authToken=${GH_PACKAGES_TOKEN}" >> ~/.npmrc
-      - run: yarn install --frozen-lockfile --prefer-offline
-      - run: yarn tsc --noEmit
-      - run: yarn lint
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec tsc --noEmit
+      - run: pnpm lint
       - name: Lint commit messages
         if: github.event_name == 'pull_request'
-        run: yarn exec commitlint --from ${{ github.event.pull_request.base.sha }} --to HEAD
+        run: pnpm exec commitlint --from ${{ github.event.pull_request.base.sha }} --to HEAD

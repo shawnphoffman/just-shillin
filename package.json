@@ -2,6 +2,7 @@
 	"name": "just-shillin",
 	"version": "1.0.0",
 	"private": true,
+	"packageManager": "pnpm@10.12.1",
 	"dependencies": {
 		"@atproto/api": "^0.13.12",
 		"@awesome.me/kit-d7ccc5bb1a": "^1.0.87",
@@ -78,7 +79,14 @@
 			"last 1 safari version"
 		]
 	},
-	"resolutions": {
-		"@types/react": "19.2.9"
+	"pnpm": {
+		"overrides": {
+			"@types/react": "19.2.9"
+		},
+		"onlyBuiltDependencies": [
+			"esbuild",
+			"sharp",
+			"simple-git-hooks"
+		]
 	}
 }
