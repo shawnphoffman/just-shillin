@@ -5,3 +5,137 @@
 a {
 	@apply no-underline transition-colors;
 }
+
+/* ---- Just Shillin' sticker/halftone design language ---- */
+
+/* dark ground with soft rainbow corner glows */
+body {
+	background-color: #0b0a0e;
+	background-image:
+		radial-gradient(closest-side at 8% 6%, rgba(255, 80, 80, 0.08), transparent 60%),
+		radial-gradient(closest-side at 92% 4%, rgba(80, 160, 255, 0.08), transparent 60%),
+		radial-gradient(closest-side at 96% 96%, rgba(180, 80, 255, 0.08), transparent 60%),
+		radial-gradient(closest-side at 4% 92%, rgba(80, 210, 120, 0.08), transparent 60%);
+	background-attachment: fixed;
+}
+
+/* subtle film grain over everything */
+body::after {
+	content: '';
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	z-index: 60;
+	opacity: 0.05;
+	mix-blend-mode: overlay;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* tie the shared rating pills into the sticker theme (cream die-cut edge) */
+.links-ratings > * {
+	border: 2px solid rgba(212, 207, 195, 0.45);
+	border-radius: 0.6rem;
+	overflow: hidden;
+}
+
+/* rainbow halftone accent (section divider bars, flourishes) */
+.rainbow-halftone {
+	background:
+		radial-gradient(circle at center, #0000 0 24%, #0b0a0e 26%) 0 0 / 9px 9px,
+		linear-gradient(112deg, #ff3b3b, #ff8a00 18%, #ffd400 34%, #37cf57 54%, #23a7ff 74%, #b14bff 94%);
+}
+
+/* CMYK-twist halftone divider: overlapping cyan / red-magenta / yellow process
+   dots that dissolve at both ends. Used as a section break in long-form content. */
+.halftone-divider {
+	height: 6px;
+	background:
+		radial-gradient(circle, #00aeef 1.4px, transparent 1.8px) 0 0 / 8px 6px,
+		radial-gradient(circle, #f5294b 1.4px, transparent 1.8px) 3px 3px / 8px 6px,
+		radial-gradient(circle, #ffd23f 1.4px, transparent 1.8px) 1px 4px / 8px 6px;
+	-webkit-mask: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+	mask: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+
+/* link sticker: black panel + platform-color halftone, darkened for legible copy.
+   the platform color is provided per-card via the --pc custom property. */
+.link-card {
+	position: relative;
+	isolation: isolate;
+	overflow: hidden;
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.12s ease;
+}
+.link-card > * {
+	position: relative;
+	z-index: 1;
+}
+/* halftone dot field */
+.link-card::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	opacity: 0.4;
+	background: radial-gradient(circle, var(--pc, #888) 1.7px, transparent 2.1px) 0 0 / 7px 7px;
+	-webkit-mask: linear-gradient(120deg, #000 40%, rgba(0, 0, 0, 0.45));
+	mask: linear-gradient(120deg, #000 40%, rgba(0, 0, 0, 0.45));
+}
+/* dark scrim so copy stays sharp (darkest behind text, fades toward the edge) */
+.link-card::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background: linear-gradient(90deg, rgba(8, 7, 11, 0.92) 0%, rgba(8, 7, 11, 0.7) 42%, rgba(8, 7, 11, 0.25) 100%);
+}
+
+/* hand-placed sticker angles within the grid */
+.link-grid > .link-card:nth-child(2n) {
+	transform: rotate(-1.2deg);
+}
+.link-grid > .link-card:nth-child(3n) {
+	transform: rotate(1deg);
+}
+.link-grid > .link-card:nth-child(5n) {
+	transform: rotate(-0.6deg);
+}
+.link-grid > .link-card:hover {
+	transform: translateY(-4px) rotate(0);
+	box-shadow: 0 16px 28px rgba(0, 0, 0, 0.6);
+}
+
+/* hand-placed sticker angles for the review wall (straighten + lift on hover) */
+.review-card {
+	transition:
+		transform 0.12s ease,
+		box-shadow 0.12s ease;
+}
+.review-card:nth-child(3n + 1) {
+	transform: rotate(-0.8deg);
+}
+.review-card:nth-child(3n + 2) {
+	transform: rotate(0.9deg);
+}
+.review-card:nth-child(3n) {
+	transform: rotate(-0.4deg);
+}
+.review-card:hover {
+	transform: translateY(-3px) rotate(0);
+	box-shadow: 0 12px 22px rgba(0, 0, 0, 0.5);
+}
+
+/* episode cover stickers: accent die-cut frame, hand-placed tilt (--rot set
+   per episode), straighten + lift on hover */
+.episode-cover {
+	transform: rotate(var(--rot, 0deg));
+	transition:
+		transform 0.15s ease,
+		box-shadow 0.15s ease;
+}
+.episode-cover:hover {
+	transform: rotate(0deg) translateY(-3px) scale(1.02);
+	box-shadow: 0 14px 26px rgba(0, 0, 0, 0.55);
+}

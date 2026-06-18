@@ -1,5 +1,3 @@
-import colors from 'tailwindcss/colors'
-
 const podSitesColors = {
 	amazonmusic: '#0077c1',
 	applepodcasts: '#872ec4',
@@ -29,7 +27,6 @@ const podSitesColors = {
 	zencastr: '#1474e0',
 }
 
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: [
@@ -41,12 +38,23 @@ module.exports = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				display: ['var(--font-display)', 'sans-serif'],
+				mono: ['var(--font-mono)', 'monospace'],
+			},
 			colors: {
 				...podSitesColors,
+				cream: '#ece6d4',
+				'cream-edge': '#d4cfc3',
+				shill: {
+					bg: '#0b0a0e',
+					ink: '#ece6d4',
+					accent: '#00aeef',
+				},
 				brand: {
-					red: colors.red['600'],
-					blue: colors.sky['400'],
-					yellow: colors.yellow['400'],
+					red: '#f5294b',
+					blue: '#00aeef',
+					yellow: '#ffd23f',
 				},
 			},
 			backgroundImage: {
