@@ -1,14 +1,7 @@
-import {
-	faBluesky, faInstagram,
-	faSpotify, faYoutube
-} from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
+import { faBluesky, faInstagram, faSpotify, faYoutube } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/brands'
 import { faAt, faRssSquare, faShirt } from '@awesome.me/kit-d7ccc5bb1a/icons/classic/solid'
 import { faPodcast } from '@awesome.me/kit-d7ccc5bb1a/icons/duotone/solid'
-import {
-	faGoodpods,
-	faOvercast,
-	faYoutubeMusic,
-} from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
+import { faGoodpods, faOvercast, faYoutubeMusic } from '@awesome.me/kit-d7ccc5bb1a/icons/kit/custom'
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 
 export const applePodcastId = '1726695035'
@@ -19,12 +12,28 @@ export const rssFeedUrl = 'https://anchor.fm/s/5dc2916c/podcast/rss'
 export const spotifyId = '0BM9MOB6jdirna5f1vNcMe'
 export const spotifyUrl = `https://open.spotify.com/show/${spotifyId}`
 
+export type LinkKind = 'listen' | 'watch' | 'follow' | 'subscribe' | 'shop' | 'contact'
+
+const kindLabels: Record<LinkKind, string> = {
+	listen: 'Listen',
+	watch: 'Watch',
+	follow: 'Follow',
+	subscribe: 'Subscribe',
+	shop: 'Shop',
+	contact: 'Say hi',
+}
+
 type LinkItem = {
 	title: string
 	href: string
 	icon: IconDefinition
-	background: string
-	color?: string
+	accent: string
+	kind?: LinkKind
+	subtitle?: string
+}
+
+export function resolveSubtitle(item: LinkItem): string | undefined {
+	return item.subtitle ?? (item.kind ? kindLabels[item.kind] : undefined)
 }
 
 const items: LinkItem[] = [
@@ -32,98 +41,85 @@ const items: LinkItem[] = [
 		title: 'Apple Podcasts',
 		href: applePodcastUrl,
 		icon: faPodcast,
-		background: 'bg-applepodcasts',
+		accent: '#b06bff',
+		kind: 'listen',
 	},
 	{
 		title: 'Spotify',
 		href: spotifyUrl,
 		icon: faSpotify,
-		background: 'bg-spotify',
+		accent: '#2ee06a',
+		kind: 'listen',
 	},
 	{
 		title: 'Email',
 		href: 'mailto:feedback@justshillin.com',
 		icon: faAt,
-		background: 'bg-email',
+		accent: '#b9c1d0',
+		kind: 'contact',
 	},
 	{
 		title: 'Merch Store',
 		href: 'https://shop.justshillin.com',
 		icon: faShirt,
-		background: 'bg-teepublic',
+		accent: '#6b82ff',
+		kind: 'shop',
 	},
 	{
 		title: 'Overcast',
 		href: 'https://overcast.fm/itunes1726695035/just-shillin',
 		icon: faOvercast,
-		background: 'bg-overcast',
+		accent: '#ff9a3d',
+		kind: 'listen',
 	},
 	{
 		title: 'YouTube',
 		href: 'https://www.youtube.com/@JustShillin',
 		icon: faYoutube,
-		background: 'bg-youtube',
+		accent: '#ff5a52',
+		kind: 'watch',
 	},
 	{
 		title: 'YouTube Music',
 		href: 'https://music.youtube.com/playlist?list=PLRxEa7NQRmKFKsoGeQBLb_IGNcFRZoBp1',
 		icon: faYoutubeMusic,
-		background: 'bg-youtube',
+		accent: '#ff5a52',
+		kind: 'listen',
 	},
 	{
 		title: 'Goodpods',
 		href: goodpodsUrl,
 		icon: faGoodpods,
-		background: 'bg-goodpods',
-		color: 'text-black',
+		accent: '#ffe04d',
+		kind: 'listen',
 	},
-	// {
-	// 	title: 'Amazon Music',
-	// 	href: 'https://music.amazon.com/podcasts/41b5996a-f09d-4657-991f-d495150756f3/just-shillin',
-	// 	icon: faAmazon,
-	// 	background: 'bg-amazonmusic',
-	// },
-	// {
-	// 	title: 'Pocket Casts',
-	// 	href: 'https://pca.st/74wq5erg',
-	// 	icon: faPocketCasts,
-	// 	background: 'bg-pocketcasts',
-	// },
-	// {
-	// 	title: 'Radio Public',
-	// 	href: 'https://radiopublic.com/just-shillin-6pQpmN',
-	// 	icon: faRadioPublic,
-	// 	background: 'bg-radiopublic',
-	// },
-	// {
-	// 	title: 'Zencastr',
-	// 	href: 'https://zencastr.com/Just-Shillin',
-	// 	icon: faZencastr,
-	// 	background: 'bg-zencastr',
-	// },
 	{
 		title: 'RSS',
 		href: 'https://feeds.zencastr.com/f/l5bmy6wm.rss',
 		icon: faRssSquare,
-		background: 'bg-rss',
+		accent: '#ff7a3d',
+		kind: 'subscribe',
 	},
 	{
 		title: 'Instagram',
 		href: 'https://www.instagram.com/justshillinpod',
 		icon: faInstagram,
-		background: 'bg-instagram',
+		accent: '#ff6fc1',
+		kind: 'follow',
 	},
 	{
 		title: 'Just Craftin',
 		href: 'https://www.instagram.com/justcraftinpod',
 		icon: faInstagram,
-		background: 'bg-instagram',
+		accent: '#ff6fc1',
+		kind: 'follow',
 	},
 	{
 		title: 'BlueSky Feed',
 		href: 'https://bsky.app/profile/dev.shawn.party/feed/star-wars',
 		icon: faBluesky,
-		background: 'bg-bluesky',
+		accent: '#3aa8ff',
+		kind: 'follow',
 	},
 ] as const
 

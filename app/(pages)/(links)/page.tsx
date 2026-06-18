@@ -9,24 +9,23 @@ import Reviews from '@/components/core/Reviews'
 import { getAppleReviews, getSpotifyReviews } from '@/app/actions'
 import { getAwards } from '@/sanity/sanity.requests'
 
-import items, { appleRatingUrl, goodpodsUrl, spotifyUrl } from './links'
+import items, { appleRatingUrl, goodpodsUrl, resolveSubtitle, spotifyUrl } from './links'
 
 export default async function Home() {
-	// await new Promise(resolve => setTimeout(resolve, 2000))
 	return (
 		<>
 			<div className="w-full max-w-4xl text-base leading-normal sm:text-lg">
 				Join us for a casual and light-hearted podcast experience. Discover what happens when friends come together to share their love for
 				the things that make life awesome
 			</div>
-			<div className="flex flex-row flex-wrap items-center justify-center gap-2">
+			<div className="links-ratings flex flex-row flex-wrap items-center justify-center gap-2">
 				<Suspense fallback={''}>
 					<RatingsApple appleRatingUrl={appleRatingUrl} getReviews={getAppleReviews} starIcon={faStarSharp} />
 					<RatingsGoodpods goodpodsUrl={goodpodsUrl} starIcon={faStarSharp} />
 					<RatingsSpotify spotifyUrl={spotifyUrl} getReviews={getSpotifyReviews} starIcon={faStarSharp} />
 				</Suspense>
 			</div>
-			<div className="flex flex-row flex-wrap justify-center w-full gap-4">
+			<div className="link-grid grid w-full grid-cols-[repeat(auto-fill,minmax(230px,1fr))] gap-[18px]">
 				{items.map(item => {
 					return (
 						<LinkCard
@@ -34,8 +33,8 @@ export default async function Home() {
 							title={item.title}
 							link={item.href}
 							icon={item.icon}
-							bg={item.background}
-							color={item.color}
+							accent={item.accent}
+							subtitle={resolveSubtitle(item)}
 						></LinkCard>
 					)
 				})}
@@ -46,7 +45,7 @@ export default async function Home() {
 			</Suspense>
 
 			<Suspense fallback={<Loading />}>
-				<Reviews />
+				<Reviews appleRatingUrl={appleRatingUrl} />
 			</Suspense>
 		</>
 	)
