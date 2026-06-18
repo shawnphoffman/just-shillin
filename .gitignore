@@ -36,3 +36,4 @@ yarn-error.log*
 .claude/
 
 tsconfig.tsbuildinfo
+.pnpm-store/
