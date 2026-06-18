@@ -19,14 +19,14 @@ const ActiveLink = ({ label, href, fuzzy, classes, ...rest }: Props) => {
 		: currentRoute === href
 
 	const conditionalClasses = classnames(
-		isActive ? 'underline underline-offset-[6px] decoration-[1px] text-brand-blue' : 'text-white hover:bg-squiggle hover:text-brand-yellow'
+		isActive ? 'bg-shill-accent text-black border-shill-accent' : 'text-cream border-cream hover:bg-white/10'
 	)
 
 	return (
 		<Link
 			{...rest}
 			href={href}
-			className={`bg-[length:auto_36px] bg-repeat text-lg bg-bottom font-bold whitespace-nowrap cursor-pointer pb-0.5 ${conditionalClasses} ${classes}`}
+			className={`font-display uppercase text-base tracking-wider whitespace-nowrap cursor-pointer rounded border-2 px-[18px] py-1.5 transition-colors hover:rotate-0 ${conditionalClasses} ${classes ?? ''}`}
 		>
 			{label}
 		</Link>

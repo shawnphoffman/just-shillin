@@ -3,31 +3,20 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { Analytics } from '@vercel/analytics/react'
 import { GeistSans } from 'geist/font/sans'
+import { Anton, Space_Mono } from 'next/font/google'
 import { draftMode } from 'next/headers'
 import Image from 'next/image'
 import { VisualEditing } from 'next-sanity/visual-editing'
 
+import logoShillin from '@/app/logo-shillin.webp'
 import { siteDescription, siteTitle, siteUrl } from '@/app/meta'
-import headerImageDefault from '@/app/title-og.png'
-import headerImageCmyk from '@/app/js-cmyk.png'
-import headerImageHalftone1 from '@/app/js-halftone_1.png'
-import headerImageHalftone2 from '@/app/js-halftone_2.png'
-import headerImageHalftone3 from '@/app/js-halftone_3.png'
-import headerImageHalftone4 from '@/app/js-halftone_4.png'
-
-const headerImages = [
-	headerImageDefault,
-	headerImageCmyk,
-	headerImageHalftone1,
-	headerImageHalftone2,
-	headerImageHalftone3,
-	headerImageHalftone4,
-]
 // import AndyModal from '@/components/AndyModal/AndyModal'
 // import ChrisRunModal from '@/components/ChrisRunModal/ChrisRunModal'
 import ActiveLink from '@/components/core/ActiveLink'
 import SiteBanner from '@/components/core/SiteBanner'
-import StarBackground from '@/components/core/StarBackground'
+
+const display = Anton({ weight: '400', subsets: ['latin'], variable: '--font-display' })
+const mono = Space_Mono({ weight: ['400', '700'], subsets: ['latin'], variable: '--font-mono' })
 
 export const metadata = {
 	title: {
@@ -55,28 +44,33 @@ type LayoutProps = {
 
 export default async function RootLayout({ children }: LayoutProps) {
 	const { isEnabled: isDraftMode } = await draftMode()
-	const headerImage = headerImages[Math.floor(Math.random() * headerImages.length)]
 	return (
-		<html lang="en" className={`${GeistSans.className} bg-black h-full p-0 m-0 overflow-x-hidden w-dvw`}>
+		<html
+			lang="en"
+			className={`${GeistSans.className} ${display.variable} ${mono.variable} bg-shill-bg h-full p-0 m-0 overflow-x-hidden w-dvw`}
+		>
 			<head>
 				<meta name="apple-itunes-app" content="app-id=1726695035" />
 			</head>
 			<body className="p-0 mx-auto my-0 text-white min-h-dvh w-dvw">
-				<StarBackground />
 				<SiteBanner />
 				<div className="flex flex-col items-center w-full max-w-screen-xl px-2 mx-auto">
 					<div className="flex flex-col w-full max-w-4xl">
-						{/* <div className="flex flex-col items-center m-4 mt-12 text-center"> */}
-						<div className="flex flex-col items-center m-4 text-center">
+						<div className="flex flex-col items-center gap-6 m-4 text-center">
 							<h1 className="sr-only">{siteTitle}</h1>
-							{/* IMAGE */}
-							<Image className="w-72 lg:w-96" alt="" src={headerImage} width={288} height={177} priority />
+							{/* LOGO */}
+							<Image
+								className="w-72 lg:w-[26rem] h-auto drop-shadow-[0_10px_22px_rgba(0,0,0,0.55)]"
+								alt={siteTitle}
+								src={logoShillin}
+								priority
+							/>
 							{/* NAV */}
-							<nav className="flex flex-row flex-wrap justify-center gap-4">
-								<ActiveLink href="/" label="Links" />
+							<nav className="flex flex-row flex-wrap justify-center gap-3.5">
+								<ActiveLink href="/" label="Links" classes="-rotate-2" />
 								{/* <ActiveLink href="https://www.online-tribute.com/AndyBell" label="Andy" target="_blank" classes="text-purple-500" /> */}
-								<ActiveLink href="/updates" label="Updates" fuzzy />
-								<ActiveLink href="/episodes" label="Episodes" />
+								<ActiveLink href="/updates" label="Updates" fuzzy classes="rotate-1" />
+								<ActiveLink href="/episodes" label="Episodes" classes="-rotate-1" />
 								{/* <ActiveLink href="/updates/trivia" label="Trivia" /> */}
 								{/* <ActiveLink href="/listen-now" label="Listen Now" /> */}
 							</nav>
