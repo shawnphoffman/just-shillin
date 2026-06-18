@@ -18,12 +18,7 @@ export default function AndyModal() {
 				<Image src={andyImage} alt="Andy" width={200} className=" rounded-xl" />
 				<p className="text-xl text-center text-zinc-300">
 					Please consider visiting the{' '}
-					<Link
-						href="https://www.online-tribute.com/AndyBell"
-						target="_blank"
-						rel="noreferrer noopener"
-						className="text-brand-blue hover:bg-squiggle"
-					>
+					<Link href="https://www.online-tribute.com/AndyBell" target="_blank" rel="noreferrer noopener" className="text-brand-blue">
 						online tribute to Andy
 					</Link>{' '}
 					and making a donation to Sue Ryder and Kidney Cancer UK.

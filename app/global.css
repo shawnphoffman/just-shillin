@@ -38,13 +38,6 @@ body::after {
 	overflow: hidden;
 }
 
-/* rainbow halftone accent (section divider bars, flourishes) */
-.rainbow-halftone {
-	background:
-		radial-gradient(circle at center, #0000 0 24%, #0b0a0e 26%) 0 0 / 9px 9px,
-		linear-gradient(112deg, #ff3b3b, #ff8a00 18%, #ffd400 34%, #37cf57 54%, #23a7ff 74%, #b14bff 94%);
-}
-
 /* CMYK-twist halftone divider: overlapping cyan / red-magenta / yellow process
    dots that dissolve at both ends. Used as a section break in long-form content. */
 .halftone-divider {

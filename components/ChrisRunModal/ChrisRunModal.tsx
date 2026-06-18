@@ -18,12 +18,7 @@ export default function ChrisRunModal() {
 				<Image src={andyImage} alt="Andy" width={200} className=" rounded-xl" />
 				<p className="text-xl text-center text-zinc-300">
 					Our buddy Chris is running the Race for Life on Sunday June 29th in honor of Andy. Please consider visiting his{' '}
-					<Link
-						href="https://www.online-tribute.com/AndyBell"
-						target="_blank"
-						rel="noreferrer noopener"
-						className="text-brand-blue hover:bg-squiggle"
-					>
+					<Link href="https://www.online-tribute.com/AndyBell" target="_blank" rel="noreferrer noopener" className="text-brand-blue">
 						online donation page
 					</Link>
 					.
