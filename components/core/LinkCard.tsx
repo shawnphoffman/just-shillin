@@ -13,7 +13,7 @@ type Props = {
 export default function LinkCard({ link, title, icon, accent, subtitle }: Props) {
 	return (
 		<a
-			className="link-card flex items-center gap-4 rounded-2xl border-[3px] border-cream bg-shill-ink p-4 shadow-[0_9px_18px_rgba(0,0,0,0.5)]"
+			className="link-card flex items-center gap-4 rounded-2xl border-[3px] border-cream bg-shill-bg p-4 shadow-[0_9px_18px_rgba(0,0,0,0.5)]"
 			style={{ '--pc': accent } as CSSProperties}
 			href={link}
 			target="_blank"
