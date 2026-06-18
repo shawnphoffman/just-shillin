@@ -45,7 +45,7 @@ export default async function PostPage(props: PageProps) {
 
 			<TableOfContents content={body} />
 
-			<article className="w-full pb-4 text-left rounded-lg bg-zinc-950/75">
+			<article className="w-full p-4 text-left border-2 rounded-2xl sm:p-6 border-cream-edge/25 bg-zinc-950/75">
 				<PostBody content={body} predictions={predictions} />
 			</article>
 

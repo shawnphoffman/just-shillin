@@ -5,26 +5,16 @@ import { PortableText, type PortableTextReactComponents, PortableTextTypeCompone
 import { SanityImageCrop, SanityImageSource } from '@sanity/image-url/lib/types/types'
 import slugify from 'slugify'
 
-import { PredictionGrid, type Prediction, type PredictionsTheme } from '@shawnphoffman/pod-sites-shared/components'
+import type { Prediction } from '@shawnphoffman/pod-sites-shared/components'
 
-import { urlForSanityImage } from '@/sanity/sanity.image'
+import HalftoneMarker from '@/components/updates/HalftoneMarker'
 import PostImage from '@/components/updates/portableText/PostImage'
+import PredictionsBlock from '@/components/updates/PredictionsBlock'
 import UrlEmbed from '@/components/updates/portableText/UrlEmbed'
 import YoutubeEmbed from '@/components/updates/portableText/YoutubeEmbed'
 import { SanityImageHotspot } from '@/sanity/sanity.types'
 
 import styles from './PostBody.module.css'
-
-// Just Shillin' brand: yellow primary, blue secondary.
-const justShillinPredictionsTheme: PredictionsTheme = {
-	accentBar: 'bg-brand-yellow',
-	cardTitle: 'text-brand-yellow',
-	summaryTitle: 'text-brand-yellow',
-	winnerRing: 'ring-brand-yellow/60',
-	winnerBg: 'bg-brand-yellow/10',
-	winnerText: 'text-brand-yellow',
-	winnerIcon: 'text-brand-yellow',
-}
 
 type ImageAsset = {
 	asset: SanityImageSource
@@ -37,111 +27,113 @@ type ImageAsset = {
 
 function buildComponents(predictions?: Prediction[] | null): Partial<PortableTextReactComponents> {
 	return {
-	block: {
-		h2: props => {
-			const slug = slugify(toPlainText(props.value))
-			return (
-				<div className="relative group">
-					<h2 id={slug}>{props.children}</h2>
-					<a
-						href={`#${slug}`}
-						aria-label={props.children as string}
-						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-2 -left-6 group-hover:!bg-none !text-brand-red"
-					>
-						<FontAwesomeIcon icon={faLink} />
-					</a>
-				</div>
-			)
+		block: {
+			h2: props => {
+				const slug = slugify(toPlainText(props.value))
+				return (
+					<div className="relative group">
+						<HalftoneMarker className="mt-10 mb-2" />
+						<h2 id={slug} className="!mt-0">
+							{props.children}
+						</h2>
+						<a
+							href={`#${slug}`}
+							aria-label={props.children as string}
+							className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-2 -left-6 group-hover:!bg-none !text-brand-red"
+						>
+							<FontAwesomeIcon icon={faLink} />
+						</a>
+					</div>
+				)
+			},
+			h3: props => {
+				const slug = slugify(toPlainText(props.value))
+				return (
+					<div className="relative group">
+						<h3 id={slug}>{props.children}</h3>
+						<a
+							href={`#${slug}`}
+							aria-label={props.children as string}
+							className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-1 -left-6 group-hover:!bg-none !text-brand-yellow"
+						>
+							<FontAwesomeIcon icon={faLink} />
+						</a>
+					</div>
+				)
+			},
+			h4: props => {
+				const slug = slugify(toPlainText(props.value))
+				return (
+					<div className="relative group">
+						<h4 id={slug}>{props.children}</h4>
+						<a
+							href={`#${slug}`}
+							aria-label={props.children as string}
+							className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-0.5 -left-6 group-hover:!bg-none !text-brand-blue"
+						>
+							<FontAwesomeIcon icon={faLink} size="sm" />
+						</a>
+					</div>
+				)
+			},
+			h5: props => {
+				return <h5 id={slugify(toPlainText(props.value))}>{props.children}</h5>
+			},
+			h6: props => {
+				return <h6 id={slugify(toPlainText(props.value))}>{props.children}</h6>
+			},
 		},
-		h3: props => {
-			const slug = slugify(toPlainText(props.value))
-			return (
-				<div className="relative group">
-					<h3 id={slug}>{props.children}</h3>
-					<a
-						href={`#${slug}`}
-						aria-label={props.children as string}
-						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-1 -left-6 group-hover:!bg-none !text-brand-yellow"
-					>
-						<FontAwesomeIcon icon={faLink} />
-					</a>
-				</div>
-			)
+		marks: {
+			textRed: ({ children }) => {
+				return <span className="text-red-500">{children}</span>
+			},
+			textBlue: ({ children }) => {
+				return <span className="text-brand-blue">{children}</span>
+			},
+			textGreen: ({ children }) => {
+				return <span className="text-green-500">{children}</span>
+			},
+			underline: ({ children }) => {
+				return <span className="underline underline-offset-2 decoration-brand-red">{children}</span>
+			},
+			'strike-through': ({ children }) => {
+				return <span className="line-through decoration-brand-blue decoration-2">{children}</span>
+			},
 		},
-		h4: props => {
-			const slug = slugify(toPlainText(props.value))
-			return (
-				<div className="relative group">
-					<h4 id={slug}>{props.children}</h4>
-					<a
-						href={`#${slug}`}
-						aria-label={props.children as string}
-						className="absolute opacity-0 group-hover:opacity-100 h-full cursor-pointer top-0.5 -left-6 group-hover:!bg-none !text-brand-blue"
-					>
-						<FontAwesomeIcon icon={faLink} size="sm" />
-					</a>
-				</div>
-			)
-			// return <h4 id={slugify(toPlainText(props.value))}>{props.children}</h4>
+		types: {
+			image: ({ value }: PortableTextTypeComponentProps<ImageAsset>) => {
+				return <PostImage {...value} />
+			},
+			embed: ({ value }) => {
+				return <UrlEmbed {...value} />
+			},
+			youtube: ({ value }) => {
+				const { url } = value
+				const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|.+?&v=))([^?&]+)/)
+				const videoId = match ? match[1] : null
+				return <YoutubeEmbed videoId={videoId} />
+			},
+			gallery: ({ value }) => {
+				return (
+					<div className="grid items-center justify-center grid-cols-2 gap-4 md:grid-cols-3">
+						{value.images.map(i => (
+							<Suspense key={i._key}>
+								<PostImage className="h-auto max-w-full rounded-lg" {...i} />
+							</Suspense>
+						))}
+					</div>
+				)
+			},
+			predictionsMarker: () => {
+				if (!predictions?.length) return null
+				return (
+					<div className="my-6 not-prose">
+						<PredictionsBlock predictions={predictions} />
+					</div>
+				)
+			},
 		},
-		h5: props => {
-			return <h5 id={slugify(toPlainText(props.value))}>{props.children}</h5>
-		},
-		h6: props => {
-			return <h6 id={slugify(toPlainText(props.value))}>{props.children}</h6>
-		},
-	},
-	marks: {
-		textRed: ({ children }) => {
-			return <span className="text-red-500">{children}</span>
-		},
-		textBlue: ({ children }) => {
-			return <span className="text-brand-blue">{children}</span>
-		},
-		textGreen: ({ children }) => {
-			return <span className="text-green-500">{children}</span>
-		},
-		underline: ({ children }) => {
-			return <span className="underline underline-offset-2 decoration-brand-red">{children}</span>
-		},
-		'strike-through': ({ children }) => {
-			return <span className="line-through decoration-brand-blue decoration-2">{children}</span>
-		},
-	},
-	types: {
-		image: ({ value }: PortableTextTypeComponentProps<ImageAsset>) => {
-			return <PostImage {...value} />
-		},
-		embed: ({ value }) => {
-			return <UrlEmbed {...value} />
-		},
-		youtube: ({ value }) => {
-			const { url } = value
-			const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|.+?&v=))([^?&]+)/)
-			const videoId = match ? match[1] : null
-			return <YoutubeEmbed videoId={videoId} />
-		},
-		gallery: ({ value }) => {
-			return (
-				<div className="grid items-center justify-center grid-cols-2 gap-4 md:grid-cols-3">
-					{value.images.map(i => (
-						<Suspense key={i._key}>
-							<PostImage className="h-auto max-w-full rounded-lg" {...i} />
-						</Suspense>
-					))}
-				</div>
-			)
-		},
-		predictionsMarker: () => {
-			if (!predictions?.length) return null
-			return (
-				<div className="my-6 not-prose">
-					<PredictionGrid predictions={predictions} theme={justShillinPredictionsTheme} urlForImage={urlForSanityImage} />
-				</div>
-			)
-		},
-	},
-}
+	}
 }
 
 function hasMarker(content: any[] | undefined | null): boolean {
@@ -161,7 +153,7 @@ export default function PostBody({ content, predictions }: PostBodyProps) {
 			<PortableText value={content} components={components} />
 			{showAppendedGrid ? (
 				<div className="mt-6 not-prose">
-					<PredictionGrid predictions={predictions!} theme={justShillinPredictionsTheme} urlForImage={urlForSanityImage} />
+					<PredictionsBlock predictions={predictions!} />
 				</div>
 			) : null}
 		</div>

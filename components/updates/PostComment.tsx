@@ -26,7 +26,7 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 		// console.log({ segment })
 		if (segment.isLink() && segment.link) {
 			richText.push(
-				<Link key={counter} href={segment.link.uri} target="_blank" rel="noreferrer noopener" className="text-brand-blue hover:bg-squiggle">
+				<Link key={counter} href={segment.link.uri} target="_blank" rel="noreferrer noopener" className="text-brand-blue hover:underline">
 					{segment.text}
 				</Link>
 			)
@@ -37,7 +37,7 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 					href={`https://bsky.app/profile/${segment.mention.did}`}
 					target="_blank"
 					rel="noreferrer noopener"
-					className="text-brand-blue hover:bg-squiggle"
+					className="text-brand-blue hover:underline"
 				>
 					{segment.text}
 				</Link>
@@ -67,7 +67,7 @@ export const Comment = ({ comment }: { comment: AppBskyFeedDefs.ThreadViewPost }
 					) : (
 						<div className={avatarClassName} />
 					)}
-					<p className="line-clamp-1 group-hover:bg-squiggle">
+					<p className="line-clamp-1 group-hover:text-brand-blue">
 						{author.displayName ?? author.handle} <span className="text-gray-500">@{author.handle}</span>
 					</p>
 				</Link>
